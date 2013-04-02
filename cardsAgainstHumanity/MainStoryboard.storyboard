@@ -336,7 +336,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="COb-aJ-C5l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="495" y="-705"/>
+            <point key="canvasLocation" x="449" y="-678"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="zbh-aa-Cjw">
@@ -424,6 +424,8 @@
         <class className="LaunchScreenViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LaunchScreenViewController.h"/>
             <relationships>
+                <relationship kind="action" name="joinPressed:"/>
+                <relationship kind="action" name="startPressed:"/>
                 <relationship kind="outlet" name="joinButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
             </relationships>
