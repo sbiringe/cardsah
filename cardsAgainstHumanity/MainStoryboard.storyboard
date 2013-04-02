@@ -312,9 +312,10 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Click to see Leaderboard" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eia-oZ-n2a">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0Wo-uk-Eki">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="96" id="P12-1a-4lR"/>
+                                    <constraint firstAttribute="height" constant="454" id="B5P-oV-ije"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -359,7 +360,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ZCH-qE-pbp">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="ehv-Gc-t6A">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="plL-Qw-tVt">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -370,20 +371,26 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Leaderboard" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vy0-Ud-qHA">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ZCH-qE-pbp" firstAttribute="leading" secondItem="FUp-uc-zE5" secondAttribute="leading" type="default" id="0ei-Yr-s3X"/>
-                            <constraint firstItem="ZCH-qE-pbp" firstAttribute="trailing" secondItem="FUp-uc-zE5" secondAttribute="trailing" type="default" id="3OR-cP-rwN"/>
-                            <constraint firstItem="ZCH-qE-pbp" firstAttribute="top" secondItem="FUp-uc-zE5" secondAttribute="top" type="default" id="4no-aV-fOW"/>
-                            <constraint firstItem="ZCH-qE-pbp" firstAttribute="bottom" secondItem="FUp-uc-zE5" secondAttribute="bottom" type="default" id="ng7-0C-b6U"/>
+                            <constraint firstItem="vy0-Ud-qHA" firstAttribute="centerX" secondItem="0Wo-uk-Eki" secondAttribute="centerX" type="default" id="9Fq-B9-qaq"/>
+                            <constraint firstItem="vy0-Ud-qHA" firstAttribute="top" secondItem="OTR-Mz-qm7" secondAttribute="top" constant="8" id="BeG-LA-F9u"/>
+                            <constraint firstItem="0Wo-uk-Eki" firstAttribute="leading" secondItem="OTR-Mz-qm7" secondAttribute="leading" type="default" id="O1R-6d-3CK"/>
+                            <constraint firstItem="0Wo-uk-Eki" firstAttribute="bottom" secondItem="OTR-Mz-qm7" secondAttribute="bottom" type="default" id="hvX-rk-Atc"/>
+                            <constraint firstItem="0Wo-uk-Eki" firstAttribute="trailing" secondItem="OTR-Mz-qm7" secondAttribute="trailing" type="default" id="s8M-dh-WRi"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="TDO-Pe-OIM"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="TO4-II-WGK"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EqO-ZO-HJI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QaD-YV-kom" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1106" y="708"/>
+            <point key="canvasLocation" x="556" y="764"/>
         </scene>
         <!--View Controller - Item 2-->
         <scene sceneID="kE9-fz-ccA">
