@@ -1,0 +1,512 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F839A8D61708FA9C00E42B6E /* LaunchScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F839A8D51708FA9C00E42B6E /* LaunchScreenViewController.m */; };
+		F839A8D91708FB2500E42B6E /* JoinScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F839A8D81708FB2500E42B6E /* JoinScreenViewController.m */; };
+		F839A8DC170903D400E42B6E /* WelcomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F839A8DB170903D400E42B6E /* WelcomeScreenViewController.m */; };
+		F839A8DF1709064200E42B6E /* SettingsScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F839A8DE1709064200E42B6E /* SettingsScreenViewController.m */; };
+		F8C272521704F1C900FC5D09 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C272511704F1C900FC5D09 /* UIKit.framework */; };
+		F8C272541704F1C900FC5D09 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C272531704F1C900FC5D09 /* Foundation.framework */; };
+		F8C272561704F1C900FC5D09 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C272551704F1C900FC5D09 /* CoreGraphics.framework */; };
+		F8C2725C1704F1C900FC5D09 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F8C2725A1704F1C900FC5D09 /* InfoPlist.strings */; };
+		F8C2725E1704F1C900FC5D09 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C2725D1704F1C900FC5D09 /* main.m */; };
+		F8C272621704F1C900FC5D09 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C272611704F1C900FC5D09 /* AppDelegate.m */; };
+		F8C272641704F1C900FC5D09 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F8C272631704F1C900FC5D09 /* Default.png */; };
+		F8C272661704F1C900FC5D09 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8C272651704F1C900FC5D09 /* Default@2x.png */; };
+		F8C272681704F1C900FC5D09 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8C272671704F1C900FC5D09 /* Default-568h@2x.png */; };
+		F8C2726B1704F1C900FC5D09 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C2726A1704F1C900FC5D09 /* RootViewController.m */; };
+		F8C2726E1704F1CA00FC5D09 /* DataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C2726D1704F1CA00FC5D09 /* DataViewController.m */; };
+		F8C272711704F1CA00FC5D09 /* ModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C272701704F1CA00FC5D09 /* ModelController.m */; };
+		F8C272771704F1CA00FC5D09 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8C272751704F1CA00FC5D09 /* MainStoryboard_iPad.storyboard */; };
+		F8C2727F1704F1CA00FC5D09 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C2727E1704F1CA00FC5D09 /* SenTestingKit.framework */; };
+		F8C272801704F1CA00FC5D09 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C272511704F1C900FC5D09 /* UIKit.framework */; };
+		F8C272811704F1CA00FC5D09 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C272531704F1C900FC5D09 /* Foundation.framework */; };
+		F8C272891704F1CB00FC5D09 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F8C272871704F1CB00FC5D09 /* InfoPlist.strings */; };
+		F8C2728C1704F1CB00FC5D09 /* cardsAgainstHumanityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C2728B1704F1CB00FC5D09 /* cardsAgainstHumanityTests.m */; };
+		F8CF95E7170A70BC00009D1D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8CF95E6170A70BC00009D1D /* MainStoryboard.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F8C272821704F1CA00FC5D09 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8C272461704F1C900FC5D09 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F8C2724D1704F1C900FC5D09;
+			remoteInfo = cardsAgainstHumanity;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F839A8D41708FA9C00E42B6E /* LaunchScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchScreenViewController.h; sourceTree = "<group>"; };
+		F839A8D51708FA9C00E42B6E /* LaunchScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchScreenViewController.m; sourceTree = "<group>"; };
+		F839A8D71708FB2500E42B6E /* JoinScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinScreenViewController.h; sourceTree = "<group>"; };
+		F839A8D81708FB2500E42B6E /* JoinScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinScreenViewController.m; sourceTree = "<group>"; };
+		F839A8DA170903D400E42B6E /* WelcomeScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeScreenViewController.h; sourceTree = "<group>"; };
+		F839A8DB170903D400E42B6E /* WelcomeScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeScreenViewController.m; sourceTree = "<group>"; };
+		F839A8DD1709064200E42B6E /* SettingsScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsScreenViewController.h; sourceTree = "<group>"; };
+		F839A8DE1709064200E42B6E /* SettingsScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsScreenViewController.m; sourceTree = "<group>"; };
+		F8C2724E1704F1C900FC5D09 /* cardsAgainstHumanity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cardsAgainstHumanity.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8C272511704F1C900FC5D09 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F8C272531704F1C900FC5D09 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F8C272551704F1C900FC5D09 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F8C272591704F1C900FC5D09 /* cardsAgainstHumanity-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "cardsAgainstHumanity-Info.plist"; sourceTree = "<group>"; };
+		F8C2725B1704F1C900FC5D09 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F8C2725D1704F1C900FC5D09 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F8C2725F1704F1C900FC5D09 /* cardsAgainstHumanity-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "cardsAgainstHumanity-Prefix.pch"; sourceTree = "<group>"; };
+		F8C272601704F1C900FC5D09 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F8C272611704F1C900FC5D09 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F8C272631704F1C900FC5D09 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		F8C272651704F1C900FC5D09 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		F8C272671704F1C900FC5D09 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F8C272691704F1C900FC5D09 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		F8C2726A1704F1C900FC5D09 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		F8C2726C1704F1C900FC5D09 /* DataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataViewController.h; sourceTree = "<group>"; };
+		F8C2726D1704F1CA00FC5D09 /* DataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataViewController.m; sourceTree = "<group>"; };
+		F8C2726F1704F1CA00FC5D09 /* ModelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelController.h; sourceTree = "<group>"; };
+		F8C272701704F1CA00FC5D09 /* ModelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelController.m; sourceTree = "<group>"; };
+		F8C272761704F1CA00FC5D09 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		F8C2727D1704F1CA00FC5D09 /* cardsAgainstHumanityTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cardsAgainstHumanityTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8C2727E1704F1CA00FC5D09 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		F8C272861704F1CB00FC5D09 /* cardsAgainstHumanityTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "cardsAgainstHumanityTests-Info.plist"; sourceTree = "<group>"; };
+		F8C272881704F1CB00FC5D09 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F8C2728A1704F1CB00FC5D09 /* cardsAgainstHumanityTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cardsAgainstHumanityTests.h; sourceTree = "<group>"; };
+		F8C2728B1704F1CB00FC5D09 /* cardsAgainstHumanityTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cardsAgainstHumanityTests.m; sourceTree = "<group>"; };
+		F8CF95E6170A70BC00009D1D /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F8C2724B1704F1C900FC5D09 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8C272521704F1C900FC5D09 /* UIKit.framework in Frameworks */,
+				F8C272541704F1C900FC5D09 /* Foundation.framework in Frameworks */,
+				F8C272561704F1C900FC5D09 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8C272791704F1CA00FC5D09 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8C2727F1704F1CA00FC5D09 /* SenTestingKit.framework in Frameworks */,
+				F8C272801704F1CA00FC5D09 /* UIKit.framework in Frameworks */,
+				F8C272811704F1CA00FC5D09 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F8C272451704F1C900FC5D09 = {
+			isa = PBXGroup;
+			children = (
+				F8C272571704F1C900FC5D09 /* cardsAgainstHumanity */,
+				F8C272841704F1CA00FC5D09 /* cardsAgainstHumanityTests */,
+				F8C272501704F1C900FC5D09 /* Frameworks */,
+				F8C2724F1704F1C900FC5D09 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F8C2724F1704F1C900FC5D09 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F8C2724E1704F1C900FC5D09 /* cardsAgainstHumanity.app */,
+				F8C2727D1704F1CA00FC5D09 /* cardsAgainstHumanityTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F8C272501704F1C900FC5D09 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F8C272511704F1C900FC5D09 /* UIKit.framework */,
+				F8C272531704F1C900FC5D09 /* Foundation.framework */,
+				F8C272551704F1C900FC5D09 /* CoreGraphics.framework */,
+				F8C2727E1704F1CA00FC5D09 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F8C272571704F1C900FC5D09 /* cardsAgainstHumanity */ = {
+			isa = PBXGroup;
+			children = (
+				F8CF95E6170A70BC00009D1D /* MainStoryboard.storyboard */,
+				F839A8DD1709064200E42B6E /* SettingsScreenViewController.h */,
+				F839A8DE1709064200E42B6E /* SettingsScreenViewController.m */,
+				F839A8DA170903D400E42B6E /* WelcomeScreenViewController.h */,
+				F839A8DB170903D400E42B6E /* WelcomeScreenViewController.m */,
+				F839A8D71708FB2500E42B6E /* JoinScreenViewController.h */,
+				F839A8D81708FB2500E42B6E /* JoinScreenViewController.m */,
+				F839A8D41708FA9C00E42B6E /* LaunchScreenViewController.h */,
+				F839A8D51708FA9C00E42B6E /* LaunchScreenViewController.m */,
+				F8C272601704F1C900FC5D09 /* AppDelegate.h */,
+				F8C272611704F1C900FC5D09 /* AppDelegate.m */,
+				F8C272691704F1C900FC5D09 /* RootViewController.h */,
+				F8C2726A1704F1C900FC5D09 /* RootViewController.m */,
+				F8C2726C1704F1C900FC5D09 /* DataViewController.h */,
+				F8C2726D1704F1CA00FC5D09 /* DataViewController.m */,
+				F8C2726F1704F1CA00FC5D09 /* ModelController.h */,
+				F8C272701704F1CA00FC5D09 /* ModelController.m */,
+				F8C272751704F1CA00FC5D09 /* MainStoryboard_iPad.storyboard */,
+				F8C272581704F1C900FC5D09 /* Supporting Files */,
+			);
+			path = cardsAgainstHumanity;
+			sourceTree = "<group>";
+		};
+		F8C272581704F1C900FC5D09 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F8C272591704F1C900FC5D09 /* cardsAgainstHumanity-Info.plist */,
+				F8C2725A1704F1C900FC5D09 /* InfoPlist.strings */,
+				F8C2725D1704F1C900FC5D09 /* main.m */,
+				F8C2725F1704F1C900FC5D09 /* cardsAgainstHumanity-Prefix.pch */,
+				F8C272631704F1C900FC5D09 /* Default.png */,
+				F8C272651704F1C900FC5D09 /* Default@2x.png */,
+				F8C272671704F1C900FC5D09 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F8C272841704F1CA00FC5D09 /* cardsAgainstHumanityTests */ = {
+			isa = PBXGroup;
+			children = (
+				F8C2728A1704F1CB00FC5D09 /* cardsAgainstHumanityTests.h */,
+				F8C2728B1704F1CB00FC5D09 /* cardsAgainstHumanityTests.m */,
+				F8C272851704F1CB00FC5D09 /* Supporting Files */,
+			);
+			path = cardsAgainstHumanityTests;
+			sourceTree = "<group>";
+		};
+		F8C272851704F1CB00FC5D09 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F8C272861704F1CB00FC5D09 /* cardsAgainstHumanityTests-Info.plist */,
+				F8C272871704F1CB00FC5D09 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F8C2724D1704F1C900FC5D09 /* cardsAgainstHumanity */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8C2728F1704F1CB00FC5D09 /* Build configuration list for PBXNativeTarget "cardsAgainstHumanity" */;
+			buildPhases = (
+				F8C2724A1704F1C900FC5D09 /* Sources */,
+				F8C2724B1704F1C900FC5D09 /* Frameworks */,
+				F8C2724C1704F1C900FC5D09 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = cardsAgainstHumanity;
+			productName = cardsAgainstHumanity;
+			productReference = F8C2724E1704F1C900FC5D09 /* cardsAgainstHumanity.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F8C2727C1704F1CA00FC5D09 /* cardsAgainstHumanityTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8C272921704F1CB00FC5D09 /* Build configuration list for PBXNativeTarget "cardsAgainstHumanityTests" */;
+			buildPhases = (
+				F8C272781704F1CA00FC5D09 /* Sources */,
+				F8C272791704F1CA00FC5D09 /* Frameworks */,
+				F8C2727A1704F1CA00FC5D09 /* Resources */,
+				F8C2727B1704F1CA00FC5D09 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F8C272831704F1CA00FC5D09 /* PBXTargetDependency */,
+			);
+			name = cardsAgainstHumanityTests;
+			productName = cardsAgainstHumanityTests;
+			productReference = F8C2727D1704F1CA00FC5D09 /* cardsAgainstHumanityTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F8C272461704F1C900FC5D09 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Scott Biringer";
+			};
+			buildConfigurationList = F8C272491704F1C900FC5D09 /* Build configuration list for PBXProject "cardsAgainstHumanity" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F8C272451704F1C900FC5D09;
+			productRefGroup = F8C2724F1704F1C900FC5D09 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F8C2724D1704F1C900FC5D09 /* cardsAgainstHumanity */,
+				F8C2727C1704F1CA00FC5D09 /* cardsAgainstHumanityTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F8C2724C1704F1C900FC5D09 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8C2725C1704F1C900FC5D09 /* InfoPlist.strings in Resources */,
+				F8C272641704F1C900FC5D09 /* Default.png in Resources */,
+				F8C272661704F1C900FC5D09 /* Default@2x.png in Resources */,
+				F8C272681704F1C900FC5D09 /* Default-568h@2x.png in Resources */,
+				F8C272771704F1CA00FC5D09 /* MainStoryboard_iPad.storyboard in Resources */,
+				F8CF95E7170A70BC00009D1D /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8C2727A1704F1CA00FC5D09 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8C272891704F1CB00FC5D09 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F8C2727B1704F1CA00FC5D09 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F8C2724A1704F1C900FC5D09 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8C2725E1704F1C900FC5D09 /* main.m in Sources */,
+				F8C272621704F1C900FC5D09 /* AppDelegate.m in Sources */,
+				F8C2726B1704F1C900FC5D09 /* RootViewController.m in Sources */,
+				F8C2726E1704F1CA00FC5D09 /* DataViewController.m in Sources */,
+				F8C272711704F1CA00FC5D09 /* ModelController.m in Sources */,
+				F839A8D61708FA9C00E42B6E /* LaunchScreenViewController.m in Sources */,
+				F839A8D91708FB2500E42B6E /* JoinScreenViewController.m in Sources */,
+				F839A8DC170903D400E42B6E /* WelcomeScreenViewController.m in Sources */,
+				F839A8DF1709064200E42B6E /* SettingsScreenViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8C272781704F1CA00FC5D09 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8C2728C1704F1CB00FC5D09 /* cardsAgainstHumanityTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F8C272831704F1CA00FC5D09 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F8C2724D1704F1C900FC5D09 /* cardsAgainstHumanity */;
+			targetProxy = F8C272821704F1CA00FC5D09 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F8C2725A1704F1C900FC5D09 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8C2725B1704F1C900FC5D09 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F8C272751704F1CA00FC5D09 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8C272761704F1CA00FC5D09 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		F8C272871704F1CB00FC5D09 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8C272881704F1CB00FC5D09 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F8C2728D1704F1CB00FC5D09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F8C2728E1704F1CB00FC5D09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F8C272901704F1CB00FC5D09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "cardsAgainstHumanity/cardsAgainstHumanity-Prefix.pch";
+				INFOPLIST_FILE = "cardsAgainstHumanity/cardsAgainstHumanity-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F8C272911704F1CB00FC5D09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "cardsAgainstHumanity/cardsAgainstHumanity-Prefix.pch";
+				INFOPLIST_FILE = "cardsAgainstHumanity/cardsAgainstHumanity-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		F8C272931704F1CB00FC5D09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/cardsAgainstHumanity.app/cardsAgainstHumanity";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "cardsAgainstHumanity/cardsAgainstHumanity-Prefix.pch";
+				INFOPLIST_FILE = "cardsAgainstHumanityTests/cardsAgainstHumanityTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		F8C272941704F1CB00FC5D09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/cardsAgainstHumanity.app/cardsAgainstHumanity";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "cardsAgainstHumanity/cardsAgainstHumanity-Prefix.pch";
+				INFOPLIST_FILE = "cardsAgainstHumanityTests/cardsAgainstHumanityTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F8C272491704F1C900FC5D09 /* Build configuration list for PBXProject "cardsAgainstHumanity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8C2728D1704F1CB00FC5D09 /* Debug */,
+				F8C2728E1704F1CB00FC5D09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8C2728F1704F1CB00FC5D09 /* Build configuration list for PBXNativeTarget "cardsAgainstHumanity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8C272901704F1CB00FC5D09 /* Debug */,
+				F8C272911704F1CB00FC5D09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8C272921704F1CB00FC5D09 /* Build configuration list for PBXNativeTarget "cardsAgainstHumanityTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8C272931704F1CB00FC5D09 /* Debug */,
+				F8C272941704F1CB00FC5D09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F8C272461704F1C900FC5D09 /* Project object */;
+}
