@@ -329,6 +329,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="qgg-5V-znr" kind="push" id="pld-Bl-Z49"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -350,14 +353,11 @@
             <objects>
                 <viewController id="qgg-5V-znr" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FUp-uc-zE5">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ZCH-qE-pbp">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="459" id="fqt-T7-kIE"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="ehv-Gc-t6A">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -370,26 +370,16 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tr5-CI-oRf">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Go Back">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ZCH-qE-pbp" firstAttribute="leading" secondItem="FUp-uc-zE5" secondAttribute="leading" type="default" id="0ei-Yr-s3X"/>
                             <constraint firstItem="ZCH-qE-pbp" firstAttribute="trailing" secondItem="FUp-uc-zE5" secondAttribute="trailing" type="default" id="3OR-cP-rwN"/>
                             <constraint firstItem="ZCH-qE-pbp" firstAttribute="top" secondItem="FUp-uc-zE5" secondAttribute="top" type="default" id="4no-aV-fOW"/>
-                            <constraint firstItem="Tr5-CI-oRf" firstAttribute="leading" secondItem="FUp-uc-zE5" secondAttribute="leading" constant="112" id="KB0-d3-RXe"/>
-                            <constraint firstAttribute="bottom" secondItem="Tr5-CI-oRf" secondAttribute="bottom" constant="26" id="zaW-02-oCW"/>
+                            <constraint firstItem="ZCH-qE-pbp" firstAttribute="bottom" secondItem="FUp-uc-zE5" secondAttribute="bottom" type="default" id="ng7-0C-b6U"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="TDO-Pe-OIM"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EqO-ZO-HJI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
