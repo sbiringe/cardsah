@@ -8,6 +8,9 @@
 
 #import "SettingsScreenViewController.h"
 
+int winScore;
+int cPH;
+NSString *endGameCond;
 @interface SettingsScreenViewController ()
 
 @end
@@ -82,6 +85,10 @@
     cardsPerHandPickerView.hidden = YES;
     cardsPerHandPickerView.dataSource = self;
     [self.view addSubview:cardsPerHandPickerView];
+    
+    winScore = winningScore;
+    cPH = cardsPerHand;
+    endGameCond = terminateCondition;
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -93,6 +100,8 @@
         vc.cardPerHand = (int)cardsPerHandTextField.text;
         vc.scoreToWin = (int)winningScoreTextField.text;
         vc.terminateCondition = terminateCondition;
+        
+        
     }
 }
 
@@ -134,6 +143,7 @@
         terminateCondition = @"Play Forever!";
         winningScoreTextField.hidden = YES;
     }
+    endGameCond = terminateCondition;
 }
 
 -(void) textFieldDidBeginEditing:(UITextField *)textField
@@ -217,13 +227,15 @@
 {
     if(winningScorePickerView.hidden == NO)
     {
-        winningScore = curWinScore;
+        winningScore = [[wsOptions objectAtIndex:[winningScorePickerView selectedRowInComponent:0]] intValue];
+        winScore = winningScore;
         winningScoreTextField.text = [[wsOptions objectAtIndex:[winningScorePickerView selectedRowInComponent:0]] stringValue];
         wsRow = [winningScorePickerView selectedRowInComponent:0];
     }
     else
     {
-        cardsPerHand = curCardsPerHand;
+        cardsPerHand = [[cphOptions objectAtIndex:[cardsPerHandPickerView selectedRowInComponent:0]] intValue];
+        cPH = cardsPerHand;
         cardsPerHandTextField.text = [[cphOptions objectAtIndex:[cardsPerHandPickerView selectedRowInComponent:0]] stringValue];
         cphRow = [cardsPerHandPickerView selectedRowInComponent:0];
     }

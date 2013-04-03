@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "JoinScreenViewController.h"
+#import "RulesScreenViewController.h"
+
+
+extern int winScore;//winning score if available
+extern int cPH;//initial cards per hand
+extern NSString *endGameCond;//Condition for when game is over
 
 @interface SettingsScreenViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 {
@@ -33,6 +39,7 @@
 @property (retain, nonatomic) UIPickerView *winningScorePickerView;
 @property (nonatomic, retain) UIToolbar *pickerToolbar;
 @property (nonatomic, retain) UIActionSheet *actionSheet;
+
 
 -(void)createActionSheetWithToolbarTitle:(NSString *)toolbarTitle picker:(UIPickerView *)pickerView;
 
