@@ -43,7 +43,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="qa6-51-Fwd" kind="modal" identifier="launchSegue" id="Q6v-PV-YtV"/>
+                                    <action selector="goButtonPressed:" destination="qyr-Eh-9tV" eventType="touchUpInside" id="iNg-YN-H0h"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -62,11 +62,13 @@
                     </view>
                     <connections>
                         <outlet property="usernameTextField" destination="CM8-QO-SyA" id="gpY-VA-6W9"/>
+                        <segue destination="V4D-NV-cSg" kind="modal" identifier="joinSegue" id="Yy6-OK-kSF"/>
+                        <segue destination="4VZ-So-AIg" kind="modal" identifier="startSegue" id="S1n-xX-dfD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oex-5x-ob6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1709" y="-113"/>
+            <point key="canvasLocation" x="-1293" y="-113"/>
         </scene>
         <!--Launch Screen View Controller-->
         <scene sceneID="gh4-W1-9NA">
@@ -133,13 +135,11 @@
                     <connections>
                         <outlet property="joinButton" destination="IE1-bK-FHo" id="fqo-NH-UcG"/>
                         <outlet property="startButton" destination="ong-u0-hpq" id="iaV-Xz-l4R"/>
-                        <segue destination="V4D-NV-cSg" kind="modal" identifier="joinSegue" id="45e-7l-Tp3"/>
-                        <segue destination="4VZ-So-AIg" kind="modal" identifier="startSegue" id="S4V-L9-jaG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2TG-ky-qfL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1148" y="-113"/>
+            <point key="canvasLocation" x="-1282" y="-1097"/>
         </scene>
         <!--Settings Screen View Controller-->
         <scene sceneID="zoy-Z4-D0b">
@@ -185,7 +185,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="V4D-NV-cSg" kind="modal" id="0Va-bv-XhH"/>
+                                    <segue destination="V4D-NV-cSg" kind="modal" identifier="joinSegue" id="0Va-bv-XhH"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hgu-fD-RxU">
@@ -486,12 +486,54 @@
             <point key="canvasLocation" x="949" y="-453"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="JoinScreenViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/JoinScreenViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="playersTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="LaunchScreenViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LaunchScreenViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="joinPressed:"/>
+                <relationship kind="action" name="startPressed:"/>
+                <relationship kind="outlet" name="joinButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="RulesScreenViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RulesScreenViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="RulesTView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="SettingsScreenViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsScreenViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="cardsPerHandTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="rulesTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="winningScoreTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="WelcomeScreenViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WelcomeScreenViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="goButtonPressed:"/>
+                <relationship kind="outlet" name="usernameTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="45e-7l-Tp3"/>
+        <segue reference="0Va-bv-XhH"/>
     </inferredMetricsTieBreakers>
 </document>

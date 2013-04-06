@@ -8,13 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import <netinet/in.h>
-#import "LaunchScreenViewController.h"
+#import "JoinScreenViewController.h"
+#import "SettingsScreenViewController.h"
 
 
 @interface WelcomeScreenViewController : UIViewController <UITextFieldDelegate, NSStreamDelegate>
 {
+    NSMutableArray *userList;
     NSInputStream *inputStream;
     NSOutputStream *outputStream;
+    
+    bool intReceived;
+    int numToReceive;
+    int numReceived;
 }
 
 @property (weak, nonatomic) NSString *username;

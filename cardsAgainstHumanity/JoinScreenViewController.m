@@ -14,6 +14,8 @@
 
 @implementation JoinScreenViewController
 
+@synthesize playersTableView, userList;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,12 +28,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    intReceived = false;
+    numReceived = 0;
+    numToReceive = 0;
 
-	userList = [[NSMutableArray alloc] init];
+    [self initNetworkCommunication];
+
+    playersTableView.dataSource = self;
+    playersTableView.delegate = self;
+    
+    [playersTableView reloadData];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     static NSString *CellIdentifier = @"joinList";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -45,6 +57,82 @@
     
     return cell;
 }
+
+
+- (void)initNetworkCommunication
+{
+    CFReadStreamRef readStream;
+    CFWriteStreamRef writeStream;
+    CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"67.194.195.60", 1024, &readStream, &writeStream);
+    inputStream = (__bridge NSInputStream *)readStream;
+    outputStream = (__bridge NSOutputStream *)writeStream;
+    
+    [inputStream setDelegate:self];
+    [outputStream setDelegate:self];
+    
+    [inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    [outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    
+    [inputStream open];
+    [outputStream open];
+}
+
+- (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode
+{
+    switch(eventCode) {
+            
+        case NSStreamEventHasBytesAvailable:
+        {
+            NSMutableData *data = [[NSMutableData alloc] init];
+            uint8_t buf[1024];
+            
+            unsigned int len = 0;
+            
+            len = [(NSInputStream *)stream read:buf maxLength:1024];
+            
+            [data appendBytes:(const void *)buf length:len];
+
+            if(!intReceived)
+            {
+                if(len)
+                {
+                    intReceived = true;
+                    numReceived = 0;
+                    
+                    [userList removeAllObjects];
+                    
+                    int i;
+                    [data getBytes: &i length: sizeof(i)];
+                                    
+                    numToReceive = ntohl(i);
+                    NSLog(@"%i", ntohl(i));
+                }
+                else
+                {
+                    NSLog(@"no buffer!");
+                }
+            }
+            else
+            {
+                numReceived++;
+                
+                NSString *user = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+                [userList addObject:user];
+                
+                if(numReceived == numToReceive)
+                {
+                    intReceived = false;
+                    [playersTableView reloadData];
+                }
+
+            }
+            
+            break;
+            
+        }
+    }
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

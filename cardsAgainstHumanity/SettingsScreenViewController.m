@@ -17,7 +17,7 @@ NSString *endGameCond;
 
 @implementation SettingsScreenViewController
 @synthesize cardsPerHandTextField, winningScoreTextField, rulesTableView, winningScorePickerView;
-@synthesize cardsPerHandPickerView, pickerToolbar, actionSheet;
+@synthesize cardsPerHandPickerView, pickerToolbar, actionSheet, userList;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -93,15 +93,14 @@ NSString *endGameCond;
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([[segue identifier] isEqualToString:@"launchSegue"])
+    if([[segue identifier] isEqualToString:@"joinSegue"])
     {
         JoinScreenViewController *vc = [segue destinationViewController];
         
         vc.cardPerHand = (int)cardsPerHandTextField.text;
         vc.scoreToWin = (int)winningScoreTextField.text;
         vc.terminateCondition = terminateCondition;
-        
-        
+        vc.userList = userList;
     }
 }
 

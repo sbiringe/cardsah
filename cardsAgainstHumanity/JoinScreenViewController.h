@@ -7,12 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WelcomeScreenViewController.h"
 
-@interface JoinScreenViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface JoinScreenViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSStreamDelegate>
 {
-    NSMutableArray *userList;
+    NSInputStream *inputStream;
+    NSOutputStream *outputStream;
+    
+    bool intReceived;
+    int numToReceive;
+    int numReceived;
 }
 
+@property (weak, nonatomic) NSMutableArray *userList;
 @property (weak, nonatomic) IBOutlet UITableView *playersTableView;
 @property (nonatomic) int cardPerHand;
 @property (nonatomic) int scoreToWin;

@@ -32,6 +32,7 @@ extern NSString *endGameCond;//Condition for when game is over
     int cphRow;
 }
 
+@property (weak, nonatomic) NSMutableArray *userList;
 @property (weak, nonatomic) IBOutlet UITextField *cardsPerHandTextField;
 @property (weak, nonatomic) IBOutlet UITextField *winningScoreTextField;
 @property (weak, nonatomic) IBOutlet UITableView *rulesTableView;
