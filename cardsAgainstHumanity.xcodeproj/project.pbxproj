@@ -12,6 +12,7 @@
 		F839A8D91708FB2500E42B6E /* JoinScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F839A8D81708FB2500E42B6E /* JoinScreenViewController.m */; };
 		F839A8DC170903D400E42B6E /* WelcomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F839A8DB170903D400E42B6E /* WelcomeScreenViewController.m */; };
 		F839A8DF1709064200E42B6E /* SettingsScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F839A8DE1709064200E42B6E /* SettingsScreenViewController.m */; };
+		F893B34E171219480061835A /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F893B34D171219480061835A /* PlayerViewController.m */; };
 		F8C272521704F1C900FC5D09 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C272511704F1C900FC5D09 /* UIKit.framework */; };
 		F8C272541704F1C900FC5D09 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C272531704F1C900FC5D09 /* Foundation.framework */; };
 		F8C272561704F1C900FC5D09 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C272551704F1C900FC5D09 /* CoreGraphics.framework */; };
@@ -54,6 +55,8 @@
 		F839A8DB170903D400E42B6E /* WelcomeScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeScreenViewController.m; sourceTree = "<group>"; };
 		F839A8DD1709064200E42B6E /* SettingsScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsScreenViewController.h; sourceTree = "<group>"; };
 		F839A8DE1709064200E42B6E /* SettingsScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsScreenViewController.m; sourceTree = "<group>"; };
+		F893B34C171219480061835A /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		F893B34D171219480061835A /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		F8C2724E1704F1C900FC5D09 /* cardsAgainstHumanity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cardsAgainstHumanity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C272511704F1C900FC5D09 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F8C272531704F1C900FC5D09 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -140,6 +143,8 @@
 		F8C272571704F1C900FC5D09 /* cardsAgainstHumanity */ = {
 			isa = PBXGroup;
 			children = (
+				F893B34C171219480061835A /* PlayerViewController.h */,
+				F893B34D171219480061835A /* PlayerViewController.m */,
 				F8CF95E6170A70BC00009D1D /* MainStoryboard.storyboard */,
 				AD9312DF170B851900CAD3CC /* RulesScreenViewController.h */,
 				AD9312E0170B851900CAD3CC /* RulesScreenViewController.m */,
@@ -319,6 +324,7 @@
 				F839A8DC170903D400E42B6E /* WelcomeScreenViewController.m in Sources */,
 				F839A8DF1709064200E42B6E /* SettingsScreenViewController.m in Sources */,
 				AD9312E1170B851900CAD3CC /* RulesScreenViewController.m in Sources */,
+				F893B34E171219480061835A /* PlayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
