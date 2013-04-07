@@ -49,8 +49,9 @@
     mainScrollView.pagingEnabled = YES;
     
     CGFloat cx = 0;
-    for (int i = 0;i<5;i++) {
-        NSString *imageName = [NSString stringWithFormat:@"image1.jpg"];
+    for (int i = 0;i<5;i++)
+    {
+        NSString *imageName = [NSString stringWithFormat:@"Tiger.jpg"];
         UIImage *image = [UIImage imageNamed:imageName];
         
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
@@ -66,6 +67,9 @@
         [mainScrollView addSubview:imageView];
         
         cx += imageView.frame.size.width+10;
+        
+        //imageName = [NSString stringWithFormat:@"Tiger.jpg"];
+        //image = [UIImage imageNamed:imageName];
     }
     
     //self.pageControl.numberOfPages = nimages;
