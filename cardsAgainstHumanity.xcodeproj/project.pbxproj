@@ -150,7 +150,9 @@
 		F8C272571704F1C900FC5D09 /* cardsAgainstHumanity */ = {
 			isa = PBXGroup;
 			children = (
-				C2D7F50E17121E34001986EC /* Tiger.jpg */,
+				F893B353171224250061835A /* LeaderboardViewController.h */,
+				F893B354171224250061835A /* LeaderboardViewController.m */,
+				F893B35117121E430061835A /* image1.jpg */,
 				F893B34C171219480061835A /* PlayerViewController.h */,
 				F893B34D171219480061835A /* PlayerViewController.m */,
 				F8CF95E6170A70BC00009D1D /* MainStoryboard.storyboard */,
@@ -288,7 +290,7 @@
 				F8C272681704F1C900FC5D09 /* Default-568h@2x.png in Resources */,
 				F8C272771704F1CA00FC5D09 /* MainStoryboard_iPad.storyboard in Resources */,
 				F8CF95E7170A70BC00009D1D /* MainStoryboard.storyboard in Resources */,
-				C2D7F50F17121E34001986EC /* Tiger.jpg in Resources */,
+				F893B35217121E430061835A /* image1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
