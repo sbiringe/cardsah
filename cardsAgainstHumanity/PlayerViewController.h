@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+extern UIView *prevTouched;
 @interface PlayerViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;

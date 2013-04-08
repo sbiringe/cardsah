@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AD9312E1170B851900CAD3CC /* RulesScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9312E0170B851900CAD3CC /* RulesScreenViewController.m */; };
-		C2D7F50F17121E34001986EC /* Tiger.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2D7F50E17121E34001986EC /* Tiger.jpg */; };
 		F839A8D61708FA9C00E42B6E /* LaunchScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F839A8D51708FA9C00E42B6E /* LaunchScreenViewController.m */; };
 		F839A8D91708FB2500E42B6E /* JoinScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F839A8D81708FB2500E42B6E /* JoinScreenViewController.m */; };
 		F839A8DC170903D400E42B6E /* WelcomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F839A8DB170903D400E42B6E /* WelcomeScreenViewController.m */; };
@@ -50,7 +49,6 @@
 /* Begin PBXFileReference section */
 		AD9312DF170B851900CAD3CC /* RulesScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RulesScreenViewController.h; sourceTree = "<group>"; };
 		AD9312E0170B851900CAD3CC /* RulesScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RulesScreenViewController.m; sourceTree = "<group>"; };
-		C2D7F50E17121E34001986EC /* Tiger.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Tiger.jpg; sourceTree = "<group>"; };
 		F839A8D41708FA9C00E42B6E /* LaunchScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchScreenViewController.h; sourceTree = "<group>"; };
 		F839A8D51708FA9C00E42B6E /* LaunchScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchScreenViewController.m; sourceTree = "<group>"; };
 		F839A8D71708FB2500E42B6E /* JoinScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinScreenViewController.h; sourceTree = "<group>"; };
@@ -450,7 +448,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "cardsAgainstHumanity/cardsAgainstHumanity-Prefix.pch";
 				INFOPLIST_FILE = "cardsAgainstHumanity/cardsAgainstHumanity-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -461,7 +461,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "cardsAgainstHumanity/cardsAgainstHumanity-Prefix.pch";
 				INFOPLIST_FILE = "cardsAgainstHumanity/cardsAgainstHumanity-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
