@@ -8,6 +8,7 @@
 
 #import "PlayerViewController.h"
 
+UIView *prevTouched;
 @interface PlayerViewController ()
 
 @end
@@ -51,10 +52,18 @@
     CGFloat cx = 0;
     for (int i = 0;i<5;i++)
     {
-        NSString *imageName = [NSString stringWithFormat:@"Tiger.jpg"];
+        NSString *imageName = [NSString stringWithFormat:@"image1.jpg"];
         UIImage *image = [UIImage imageNamed:imageName];
-        
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+        
+        imageView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTapped:)];
+        tap.cancelsTouchesInView = YES;
+        [imageView addGestureRecognizer:tap];
+        
+        UISwipeGestureRecognizer *upSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleUpSwipe:)];
+        upSwipe.direction = UISwipeGestureRecognizerDirectionUp;
+        [imageView addGestureRecognizer:upSwipe];
         
         CGRect rect = imageView.frame;
         rect.size.height = width;
@@ -68,12 +77,23 @@
         
         cx += imageView.frame.size.width+10;
         
-        //imageName = [NSString stringWithFormat:@"Tiger.jpg"];
-        //image = [UIImage imageNamed:imageName];
     }
     
-    //self.pageControl.numberOfPages = nimages;
     [mainScrollView setContentSize:CGSizeMake(cx, [mainScrollView bounds].size.height)];
+}
+
+- (void)imageTapped:(UITapGestureRecognizer *)sender
+{
+    //We could implement deselect? That would require attaching another selector to it to deselect
+    prevTouched.alpha = 1;
+    prevTouched = sender.view;
+    sender.view.alpha = 0.5;
+    
+}
+
+- (void)handleUpSwipe:(UISwipeGestureRecognizer *)sender
+{
+    NSLog(@"%s", "Swipe");
 }
 
 - (void)didReceiveMemoryWarning
