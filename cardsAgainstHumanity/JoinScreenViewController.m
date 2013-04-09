@@ -8,6 +8,8 @@
 
 #import "JoinScreenViewController.h"
 
+NSMutableDictionary *playerScores;
+
 @interface JoinScreenViewController ()
 
 @end
@@ -29,12 +31,13 @@
 {
     [super viewDidLoad];
     
-    
     intReceived = false;
     numReceived = 0;
     numToReceive = 0;
 
     [self initNetworkCommunication];
+    
+    playerScores = [[NSMutableDictionary alloc] init];
 
     playersTableView.dataSource = self;
     playersTableView.delegate = self;
@@ -118,13 +121,13 @@
                 
                 NSString *user = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
                 [userList addObject:user];
+                [playerScores setObject:[NSNumber numberWithInt:0] forKey:user];
                 
                 if(numReceived == numToReceive)
                 {
                     intReceived = false;
                     [playersTableView reloadData];
                 }
-
             }
             
             break;

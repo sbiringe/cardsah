@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JoinScreenViewController.h"
+#import "WelcomeScreenViewController.h"
 
-@interface LeaderboardViewController : UIViewController
+@interface LeaderboardViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+{
+    NSInputStream *inputStream;
+    NSOutputStream *outputStream;
+    
+    bool scoreUpdated;
+}
+
+@property (weak, nonatomic) IBOutlet UITableView *playerScoresTableView;
 
 @end

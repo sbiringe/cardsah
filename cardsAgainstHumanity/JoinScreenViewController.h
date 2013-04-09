@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "WelcomeScreenViewController.h"
 
+extern NSMutableDictionary *playerScores;
+
 @interface JoinScreenViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSStreamDelegate>
 {
     NSInputStream *inputStream;

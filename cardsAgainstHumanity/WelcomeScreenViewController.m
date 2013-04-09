@@ -8,6 +8,8 @@
 
 #import "WelcomeScreenViewController.h"
 
+NSString *username;
+
 @interface WelcomeScreenViewController ()
 
 @end
@@ -132,6 +134,7 @@
                 
                 NSLog(@"%@", temp);
                 [userList addObject:temp];
+                username = temp;
                 numReceived++;
             }
             

@@ -11,6 +11,7 @@
 #import "JoinScreenViewController.h"
 #import "SettingsScreenViewController.h"
 
+extern NSString *username;
 
 @interface WelcomeScreenViewController : UIViewController <UITextFieldDelegate, NSStreamDelegate>
 {
