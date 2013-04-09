@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JoinScreenViewController.h"
 
 extern UIView *prevTouched;
-@interface PlayerViewController : UIViewController
+
+@interface PlayerViewController : UIViewController <NSStreamDelegate>
+{
+    NSInputStream *inputStream;
+    NSOutputStream *outputStream;
+    
+    bool scoreUpdated;
+}
 
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
 

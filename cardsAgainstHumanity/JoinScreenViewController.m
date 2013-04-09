@@ -9,6 +9,7 @@
 #import "JoinScreenViewController.h"
 
 NSMutableDictionary *playerScores;
+NSString *dealer;
 
 @interface JoinScreenViewController ()
 

@@ -10,7 +10,7 @@
 #import "JoinScreenViewController.h"
 #import "WelcomeScreenViewController.h"
 
-@interface LeaderboardViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface LeaderboardViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NSStreamDelegate>
 {
     NSInputStream *inputStream;
     NSOutputStream *outputStream;

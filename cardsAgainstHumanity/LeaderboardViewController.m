@@ -29,6 +29,8 @@
 {
     [super viewDidLoad];
     
+    [self initNetworkCommunication];
+    
     playerScoresTableView.delegate = self;
     playerScoresTableView.dataSource = self;
     
@@ -104,6 +106,8 @@
             else
             {
                 scoreUpdated = false;
+                
+                dealer = user;
                 // Go to view results screen
                 //[self performSegueWithIdentifier:@"" sender:nil]
             }

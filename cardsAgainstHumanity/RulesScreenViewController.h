@@ -7,8 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JoinScreenViewController.h"
 
-@interface RulesScreenViewController : UIViewController
+@interface RulesScreenViewController : UIViewController<NSStreamDelegate>
+{
+    NSInputStream *inputStream;
+    NSOutputStream *outputStream;
+    
+    bool scoreUpdated;
+}
 
 
 @property (weak, nonatomic) IBOutlet UITextView *RulesTView;
