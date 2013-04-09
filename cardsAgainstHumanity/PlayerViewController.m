@@ -15,7 +15,7 @@ UIView *prevTouched;
 
 @implementation PlayerViewController
 
-@synthesize mainScrollView;
+@synthesize mainScrollView, swipeUpLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -121,9 +121,13 @@ UIView *prevTouched;
         tap.cancelsTouchesInView = YES;
         [imageView addGestureRecognizer:tap];
         
-        UISwipeGestureRecognizer *upSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleUpSwipe:)];
-        upSwipe.direction = UISwipeGestureRecognizerDirectionUp;
-        [imageView addGestureRecognizer:upSwipe];
+        if (![dealer isEqualToString:username])
+        {
+            swipeUpLabel.hidden = TRUE;
+            UISwipeGestureRecognizer *upSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleUpSwipe:)];
+            upSwipe.direction = UISwipeGestureRecognizerDirectionUp;
+            [imageView addGestureRecognizer:upSwipe];
+        }
         
         CGRect rect = imageView.frame;
         rect.size.height = width;

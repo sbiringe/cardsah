@@ -430,13 +430,20 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AAn-8m-ly7">
                                 <gestureRecognizers/>
                             </scrollView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Swipe Up to Submit Card" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OtD-O7-gEr">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="OtD-O7-gEr" firstAttribute="leading" secondItem="0fn-3b-wTr" secondAttribute="leading" constant="78" id="6cS-Kr-46p"/>
                             <constraint firstItem="AAn-8m-ly7" firstAttribute="top" secondItem="0fn-3b-wTr" secondAttribute="top" constant="152" id="8pD-RY-1br"/>
-                            <constraint firstItem="cm3-tn-fcS" firstAttribute="top" secondItem="0fn-3b-wTr" secondAttribute="top" constant="104" id="DMa-IC-Myo"/>
                             <constraint firstItem="AAn-8m-ly7" firstAttribute="trailing" secondItem="0fn-3b-wTr" secondAttribute="trailing" type="default" id="FeM-cO-ddw"/>
-                            <constraint firstItem="cm3-tn-fcS" firstAttribute="leading" secondItem="0fn-3b-wTr" secondAttribute="leading" constant="121" id="GiB-LT-qus"/>
+                            <constraint firstItem="OtD-O7-gEr" firstAttribute="top" secondItem="0fn-3b-wTr" secondAttribute="top" constant="128" id="Rce-E4-VUw"/>
+                            <constraint firstItem="cm3-tn-fcS" firstAttribute="top" secondItem="0fn-3b-wTr" secondAttribute="top" constant="38" id="ScD-4N-VDc"/>
+                            <constraint firstItem="cm3-tn-fcS" firstAttribute="centerX" secondItem="AAn-8m-ly7" secondAttribute="centerX" type="default" id="qhI-L6-9h3"/>
                             <constraint firstItem="AAn-8m-ly7" firstAttribute="leading" secondItem="0fn-3b-wTr" secondAttribute="leading" type="default" id="tBB-4B-p5g"/>
                             <constraint firstItem="AAn-8m-ly7" firstAttribute="bottom" secondItem="0fn-3b-wTr" secondAttribute="bottom" type="default" id="tpk-nq-AAu"/>
                         </constraints>
@@ -445,6 +452,7 @@
                     <navigationItem key="navigationItem" title="Title" id="E9M-RY-enR"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="SwipeUpLabel" destination="OtD-O7-gEr" id="77x-yl-r84"/>
                         <outlet property="mainScrollView" destination="AAn-8m-ly7" id="oFc-6d-wMB"/>
                     </connections>
                 </viewController>
@@ -453,57 +461,6 @@
             <point key="canvasLocation" x="949" y="-453"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="JoinScreenViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/JoinScreenViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="playersTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="LaunchScreenViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LaunchScreenViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="joinButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="LeaderboardViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LeaderboardViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="playerScoresTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="PlayerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="mainScrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="RulesScreenViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RulesScreenViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="RulesTView" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="SettingsScreenViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsScreenViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="cardsPerHandTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="rulesTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="winningScoreTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="WelcomeScreenViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WelcomeScreenViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="usernameTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

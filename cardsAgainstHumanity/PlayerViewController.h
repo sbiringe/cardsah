@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "JoinScreenViewController.h"
+#import "WelcomeScreenViewController.h"
 
 extern UIView *prevTouched;
 
@@ -18,7 +19,7 @@ extern UIView *prevTouched;
     
     bool scoreUpdated;
 }
-
+@property (weak, nonatomic) IBOutlet UILabel *swipeUpLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
 
 
