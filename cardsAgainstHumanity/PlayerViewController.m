@@ -15,7 +15,7 @@ UIView *prevTouched;
 
 @implementation PlayerViewController
 
-@synthesize mainScrollView, swipeUpLabel;
+@synthesize mainScrollView, swipeUpLabel, actionSheet, playedCardToolbar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,7 +31,18 @@ UIView *prevTouched;
     [super viewDidLoad];
     
     scoreUpdated = false;
+    horizontalScroll = false;
+    verticalScroll = false;
     
+    // Creates Action Sheet
+    actionSheet = [[UIActionSheet alloc] initWithTitle:@"Action Sheet"
+                                              delegate:nil
+                                     cancelButtonTitle:nil
+                                destructiveButtonTitle:nil
+                                     otherButtonTitles:nil];
+    
+    cardImages = [[NSMutableArray alloc] init];
+
     [self initNetworkCommunication];
 
     [self setupHorizontalScrollView];
@@ -99,6 +110,8 @@ UIView *prevTouched;
 {
     mainScrollView.delegate = self;
     
+    [mainScrollView setShowsVerticalScrollIndicator:NO];
+    
     [self.mainScrollView setBackgroundColor:[UIColor blackColor]];
     [mainScrollView setCanCancelContentTouches:NO];
     CGFloat width = 249;
@@ -109,13 +122,21 @@ UIView *prevTouched;
     mainScrollView.scrollEnabled = YES;
     mainScrollView.pagingEnabled = YES;
     
-    CGFloat cx = 0;
-    for (int i = 0;i<5;i++)
+    for(int i = 0; i < 5; i++)
     {
         NSString *imageName = [NSString stringWithFormat:@"image1.jpg"];
         UIImage *image = [UIImage imageNamed:imageName];
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-        
+
+        [cardImages addObject:imageView];
+    }
+    
+    
+    CGFloat cx = 0;
+    for (int i = 0;i<5;i++)
+    {
+        UIImageView *imageView = [cardImages objectAtIndex:i];
+        /*
         imageView.userInteractionEnabled = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTapped:)];
         tap.cancelsTouchesInView = YES;
@@ -128,6 +149,7 @@ UIView *prevTouched;
             upSwipe.direction = UISwipeGestureRecognizerDirectionUp;
             [imageView addGestureRecognizer:upSwipe];
         }
+        */
         
         CGRect rect = imageView.frame;
         rect.size.height = width;
@@ -142,9 +164,79 @@ UIView *prevTouched;
         cx += imageView.frame.size.width+10;
         
     }
-    
-    [mainScrollView setContentSize:CGSizeMake(cx, [mainScrollView bounds].size.height)];
+    [mainScrollView setContentSize:CGSizeMake(cx, height * 2)];
 }
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if(!horizontalScroll && !verticalScroll)
+    {
+        if (scrollView.contentOffset.y > 0  ||  scrollView.contentOffset.y < 0 )
+        {
+            verticalScroll = true;
+            curXOffset = scrollView.contentOffset.x;
+        }
+        else
+            horizontalScroll = true;
+    }
+
+    if(horizontalScroll)
+        scrollView.contentOffset = CGPointMake(scrollView.contentOffset.x, 0);
+    else
+        scrollView.contentOffset = CGPointMake(curXOffset, scrollView.contentOffset.y);
+         
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    // Card has been played
+    if(scrollView.bounds.origin.y > 0)
+    {
+        CGFloat pageWidth = scrollView.frame.size.width;
+        int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+        
+        [self createActionSheetWithImageView:[cardImages objectAtIndex:page]];
+        
+        CGRect frame = scrollView.frame;
+        frame.origin.x = 0;
+        frame.origin.y = 0;
+        [scrollView scrollRectToVisible:frame animated:NO];
+    }
+    
+    horizontalScroll = false;
+    verticalScroll = false;
+}
+
+-(void)createActionSheetWithImageView:(UIImageView *)imageView
+{
+    // Makes toolbar for pickerView
+    playedCardToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 70)];
+    [playedCardToolbar sizeToFit];
+    
+    // Adds objects to barItems
+    NSMutableArray *barItems = [[NSMutableArray alloc] init];
+    
+    NSString *toolbarTitle = @"Waiting...";
+    
+    // Creates label to be used as custom view for UIBarButtonItem 
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0 , 11.0f, [toolbarTitle sizeWithFont:[UIFont fontWithName:@"Helvetica-Bold" size:18]].width, 21.0f)];
+    [titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:18]];
+    [titleLabel setBackgroundColor:[UIColor clearColor]];
+    [titleLabel setTextColor:[UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0]];
+    [titleLabel setText:toolbarTitle];
+    
+    // Adds title in middle
+    UIBarButtonItem *title = [[UIBarButtonItem alloc] initWithCustomView:titleLabel];
+    [barItems addObject:title];
+    
+    // Sets barItems array to the toolbar
+    [playedCardToolbar setItems:barItems animated:YES];
+    
+    [actionSheet addSubview:imageView];
+    [actionSheet showInView:self.view];
+    [actionSheet setBounds:CGRectMake(0,0,320, 470)];
+}
+
 
 - (void)imageTapped:(UITapGestureRecognizer *)sender
 {
