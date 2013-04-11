@@ -11,6 +11,7 @@
 #import "JoinScreenViewController.h"
 #import "SettingsScreenViewController.h"
 
+extern NSString *dealer;
 extern NSString *username;
 extern NSInputStream *inputStream;
 extern NSOutputStream *outputStream;

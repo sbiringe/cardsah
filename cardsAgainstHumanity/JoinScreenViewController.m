@@ -9,7 +9,6 @@
 #import "JoinScreenViewController.h"
 
 NSMutableDictionary *playerScores;
-NSString *dealer;
 
 @interface JoinScreenViewController ()
 
@@ -62,19 +61,21 @@ NSString *dealer;
 
 - (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode
 {
-    switch(eventCode) {
-            
+    switch(eventCode)
+    {
         case NSStreamEventHasBytesAvailable:
         {
             NSMutableData *data = [[NSMutableData alloc] init];
             uint8_t buf[1024];
             
-            unsigned int len = 0;
+            int len = 0;
             
             len = [(NSInputStream *)stream read:buf maxLength:1024];
             
             [data appendBytes:(const void *)buf length:len];
-
+            
+            NSRange range;
+            
             if(!intReceived)
             {
                 if(len)
@@ -86,9 +87,13 @@ NSString *dealer;
                     
                     int i;
                     [data getBytes: &i length: sizeof(i)];
-                                    
+                    
                     numToReceive = ntohl(i);
-                    NSLog(@"%i", ntohl(i));
+                    NSLog(@"%i", numToReceive);
+                    
+                    len -= 4;
+                    
+                    range = NSMakeRange(4, len);
                 }
                 else
                 {
@@ -97,22 +102,52 @@ NSString *dealer;
             }
             else
             {
-                numReceived++;
+                range = NSMakeRange(0, len);
+            }
+            
+            NSMutableString *temp = [[NSMutableString alloc] init];
+            //len = [(NSInputStream *)stream read:buf maxLength:1024];
+            
+            NSMutableData *data1 = [[NSMutableData alloc] initWithCapacity:20];
+            
+            uint8_t buf1[1024];
+            
+            [data getBytes:buf1 range:range];
+            
+            [data1 appendBytes:(const void *)buf1 length:len];
+            
+            NSString *user = [[NSString alloc] initWithData:data1 encoding:NSASCIIStringEncoding];
+            
+            int index = 0;
+            
+            while(len > 0)
+            {
+                NSMutableString *temp = [[NSMutableString alloc] init];
                 
-                NSString *user = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-                [userList addObject:user];
-                [playerScores setObject:[NSNumber numberWithInt:0] forKey:user];
-                
-                if(numReceived == numToReceive)
+                while([user characterAtIndex:index])
                 {
-                    intReceived = false;
-                    dealer = user;
-                    [playersTableView reloadData];
+                    NSLog(@"%C", [user characterAtIndex:index]);
+                    [temp appendString:[NSString stringWithFormat: @"%C",[user characterAtIndex:index]]];
+                    index++;
                 }
+                
+                index++;
+                len -= index;
+                
+                NSLog(@"%@", temp);
+                [userList addObject:temp];
+                [playerScores setObject:[NSNumber numberWithInt:0] forKey:temp];
+                numReceived++;
+            }
+            
+            
+            if(numReceived == numToReceive)
+            {
+                intReceived = false;
+                [playersTableView reloadData];
             }
             
             break;
-            
         }
     }
 }

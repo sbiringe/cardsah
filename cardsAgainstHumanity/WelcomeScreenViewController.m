@@ -8,6 +8,7 @@
 
 #import "WelcomeScreenViewController.h"
 
+NSString *dealer;
 NSString *username;
 NSInputStream *inputStream;
 NSOutputStream *outputStream;
@@ -138,7 +139,6 @@ NSOutputStream *outputStream;
                 
                 NSLog(@"%@", temp);
                 [userList addObject:temp];
-                username = temp;
                 numReceived++;
             }
             
@@ -188,7 +188,7 @@ NSOutputStream *outputStream;
         [self initNetworkCommunication];
         NSString *msg = [NSString stringWithFormat:@"%@", usernameTextField.text];
         NSData *data = [self convertToJavaUTF8:msg];
-    
+        username = usernameTextField.text;
         [outputStream write:(const uint8_t *)[data bytes] maxLength:[data length]];
     }
 }
