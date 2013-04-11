@@ -10,7 +10,11 @@
 
 @implementation DealerScreenViewController
 
-@synthesize imageView;
+@synthesize mainCard;
+@synthesize cardOne;
+@synthesize cardTwo;
+@synthesize cardThree;
+@synthesize cardFour;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,25 +35,65 @@
 
 - (IBAction)pageInfo
 {
-    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Are you sure?"
                                                     message:@"Do you want to declare this card as the winner of this round?"
                                                    delegate:self
                                           cancelButtonTitle:@"Yes"
-                                          otherButtonTitles:nil];
+                                          otherButtonTitles:@"No", nil];
     
     [alert show];
     
 }
 
+/*
+- (void)selectWinner:(UIAlertView *)sender 
+{
+    sender.view.alpha = 0.5;
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    //u need to change 0 to other value(,1,2,3) if u have more buttons.then u can check which button was pressed.
+    
+    if (buttonIndex == 0)
+    {
+        [self selectWinner];
+    }
+}
+*/
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+
+    // Big Card
+    NSString *imageName = [NSString stringWithFormat:@"image1.jpg"];
     
-    UIImage *plate1 = [UIImage imageNamed:@"King.jpg"];
-    [imageView setImage:plate1];
+    UIImage *image = [UIImage imageNamed:imageName];
+    mainCard.image = image;
+    
+    // Card 1
+    imageName = [NSString stringWithFormat:@"image1.jpg"];
+    image = [UIImage imageNamed:imageName];
+    cardOne.image = image;
+    
+    // Card 2
+    imageName = [NSString stringWithFormat:@"image1.jpg"];
+    image = [UIImage imageNamed:imageName];
+    cardTwo.image = image;
+    
+    // Card 3
+    imageName = [NSString stringWithFormat:@"image1.jpg"];
+    image = [UIImage imageNamed:imageName];
+    cardThree.image = image;
+    
+    // Card 4
+    imageName = [NSString stringWithFormat:@"image1.jpg"];
+    image = [UIImage imageNamed:imageName];
+    cardFour.image = image;
 }
+
 
 - (void)setupHorizontalScrollView
 {
