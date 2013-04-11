@@ -38,8 +38,6 @@ NSOutputStream *outputStream;
     
     userList = [[NSMutableArray alloc] init];
 
-    [self initNetworkCommunication];
-
     usernameTextField.delegate = self;
 }
 
@@ -121,8 +119,6 @@ NSOutputStream *outputStream;
             
             while(len > 0)
             {
-               
-                
                 NSMutableString *temp = [[NSMutableString alloc] init];
                 while([user characterAtIndex:index])
                 {
@@ -182,6 +178,7 @@ NSOutputStream *outputStream;
     }
     else
     {
+        [self initNetworkCommunication];
         NSString *msg = [NSString stringWithFormat:@"%@", usernameTextField.text];
         NSData *data = [self convertToJavaUTF8:msg];
     
