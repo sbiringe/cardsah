@@ -120,6 +120,7 @@ NSOutputStream *outputStream;
             while(len > 0)
             {
                 NSMutableString *temp = [[NSMutableString alloc] init];
+                
                 while([user characterAtIndex:index])
                 {
                      NSLog(@"%C", [user characterAtIndex:index]);
@@ -136,16 +137,17 @@ NSOutputStream *outputStream;
                 numReceived++;
             }
             
-            if([userList count] > 1)
+            if(numToReceive == numReceived)
             {
-                [self performSegueWithIdentifier:@"joinSegue" sender:NULL];
+                if([userList count] > 1)
+                {
+                    [self performSegueWithIdentifier:@"joinSegue" sender:NULL];
+                }
+                else
+                {
+                    [self performSegueWithIdentifier:@"startSegue" sender:NULL];
+                }
             }
-            else
-            {
-                [self performSegueWithIdentifier:@"startSegue" sender:NULL];
-            }
-            
-            intReceived = false;
 
             break;
         
