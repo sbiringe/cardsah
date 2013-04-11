@@ -76,6 +76,8 @@ NSOutputStream *outputStream;
         
             [data appendBytes:(const void *)buf length:len];
             
+            NSRange range;
+            
             if(!intReceived)
             {
                 if(len)
@@ -90,22 +92,25 @@ NSOutputStream *outputStream;
                 
                     numToReceive = ntohl(i);
                     NSLog(@"%i", numToReceive);
+                    
+                    len -= 4;
+                    
+                    range = NSMakeRange(4, len);
                 }
                 else
                 {
                     NSLog(@"no buffer!");
                 }
             }
-            
-            
-            len -= 4;
+            else
+            {
+                range = NSMakeRange(0, len);
+            }
             
             NSMutableString *temp = [[NSMutableString alloc] init];
             //len = [(NSInputStream *)stream read:buf maxLength:1024];
             
             NSMutableData *data1 = [[NSMutableData alloc] initWithCapacity:20];
-            //len -= 4;
-            NSRange range = NSMakeRange(4,  len);
         
             uint8_t buf1[1024];
             
