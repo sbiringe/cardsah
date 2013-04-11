@@ -14,8 +14,6 @@ extern UIView *prevTouched;
 
 @interface PlayerViewController : UIViewController <NSStreamDelegate, UIScrollViewAccessibilityDelegate, UIScrollViewDelegate>
 {
-    NSInputStream *inputStream;
-    NSOutputStream *outputStream;
     NSMutableArray *cardImages;
     
     int curXOffset;
@@ -29,6 +27,7 @@ extern UIView *prevTouched;
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
 @property (nonatomic, retain) UIActionSheet *actionSheet;
 @property (nonatomic, retain) UIToolbar *playedCardToolbar;
+@property (weak, nonatomic) IBOutlet UIImageView *dealerCardImageView;
 
 
 @end

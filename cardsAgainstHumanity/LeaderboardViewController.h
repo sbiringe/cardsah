@@ -9,11 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "JoinScreenViewController.h"
 #import "WelcomeScreenViewController.h"
+#import "WelcomeScreenViewController.h"
 
 @interface LeaderboardViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NSStreamDelegate>
-{
-    NSInputStream *inputStream;
-    NSOutputStream *outputStream;
+{;
     
     bool scoreUpdated;
 }

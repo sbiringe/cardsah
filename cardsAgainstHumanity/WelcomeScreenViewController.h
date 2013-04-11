@@ -11,13 +11,14 @@
 #import "JoinScreenViewController.h"
 #import "SettingsScreenViewController.h"
 
+extern NSString *dealer;
 extern NSString *username;
+extern NSInputStream *inputStream;
+extern NSOutputStream *outputStream;
 
 @interface WelcomeScreenViewController : UIViewController <UITextFieldDelegate, NSStreamDelegate>
 {
     NSMutableArray *userList;
-    NSInputStream *inputStream;
-    NSOutputStream *outputStream;
     
     bool intReceived;
     int numToReceive;

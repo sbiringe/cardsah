@@ -14,8 +14,6 @@ extern NSString *dealer;
 
 @interface JoinScreenViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSStreamDelegate>
 {
-    NSInputStream *inputStream;
-    NSOutputStream *outputStream;
     
     bool intReceived;
     int numToReceive;
