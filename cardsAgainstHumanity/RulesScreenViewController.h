@@ -8,11 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "JoinScreenViewController.h"
+#import "WelcomeScreenViewController.h"
 
 @interface RulesScreenViewController : UIViewController<NSStreamDelegate>
 {
-    NSInputStream *inputStream;
-    NSOutputStream *outputStream;
     
     bool scoreUpdated;
 }

@@ -9,6 +9,8 @@
 #import "WelcomeScreenViewController.h"
 
 NSString *username;
+NSInputStream *inputStream;
+NSOutputStream *outputStream;
 
 @interface WelcomeScreenViewController ()
 
@@ -44,7 +46,7 @@ NSString *username;
 - (void)initNetworkCommunication {
     CFReadStreamRef readStream;
     CFWriteStreamRef writeStream;
-    CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"67.194.197.175", 1024, &readStream, &writeStream);
+    CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"67.194.199.135", 1024, &readStream, &writeStream);
     inputStream = (__bridge NSInputStream *)readStream;
     outputStream = (__bridge NSOutputStream *)writeStream;
     

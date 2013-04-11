@@ -15,7 +15,7 @@ UIView *prevTouched;
 
 @implementation PlayerViewController
 
-@synthesize mainScrollView, swipeUpLabel, actionSheet, playedCardToolbar;
+@synthesize mainScrollView, swipeUpLabel, actionSheet, playedCardToolbar, dealerCardImageView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,9 +30,19 @@ UIView *prevTouched;
 {
     [super viewDidLoad];
     
+    
+    NSString *dealerImageName = [NSString stringWithFormat:@"image1.jpg"];
+    UIImage *dealerImage = [UIImage imageNamed:dealerImageName];
+    dealerCardImageView.image = dealerImage;
+    
     scoreUpdated = false;
     horizontalScroll = false;
     verticalScroll = false;
+    
+    if (![dealer isEqualToString:username])
+    {
+        horizontalScroll = true;
+    }
     
     // Creates Action Sheet
     actionSheet = [[UIActionSheet alloc] initWithTitle:@"Action Sheet"
@@ -43,28 +53,8 @@ UIView *prevTouched;
     
     cardImages = [[NSMutableArray alloc] init];
 
-    [self initNetworkCommunication];
-
     [self setupHorizontalScrollView];
     
-}
-
-- (void)initNetworkCommunication
-{
-    CFReadStreamRef readStream;
-    CFWriteStreamRef writeStream;
-    CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"67.194.195.60", 1024, &readStream, &writeStream);
-    inputStream = (__bridge NSInputStream *)readStream;
-    outputStream = (__bridge NSOutputStream *)writeStream;
-    
-    [inputStream setDelegate:self];
-    [outputStream setDelegate:self];
-    
-    [inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    
-    [inputStream open];
-    [outputStream open];
 }
 
 - (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode
@@ -114,7 +104,7 @@ UIView *prevTouched;
     
     [self.mainScrollView setBackgroundColor:[UIColor blackColor]];
     [mainScrollView setCanCancelContentTouches:NO];
-    CGFloat width = 249;
+    CGFloat width = 200;
     CGFloat height = 310;
     
     mainScrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
@@ -173,8 +163,10 @@ UIView *prevTouched;
     {
         if (scrollView.contentOffset.y > 0  ||  scrollView.contentOffset.y < 0 )
         {
+            CGFloat pageWidth = scrollView.frame.size.width;
+            int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
             verticalScroll = true;
-            curXOffset = scrollView.contentOffset.x;
+            curXOffset = pageWidth * page;
         }
         else
             horizontalScroll = true;
@@ -195,7 +187,9 @@ UIView *prevTouched;
         CGFloat pageWidth = scrollView.frame.size.width;
         int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
         
-        [self createActionSheetWithImageView:[cardImages objectAtIndex:page]];
+        //[self createActionSheetWithImageView:[cardImages objectAtIndex:page]];
+        mainScrollView.scrollEnabled = FALSE;
+        swipeUpLabel.text = @"Waiting for other members' selection";
         
         CGRect frame = scrollView.frame;
         frame.origin.x = 0;

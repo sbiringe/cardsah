@@ -29,8 +29,6 @@
 {
     [super viewDidLoad];
     
-    [self initNetworkCommunication];
-    
     playerScoresTableView.delegate = self;
     playerScoresTableView.dataSource = self;
     
@@ -58,24 +56,6 @@
     cell.detailTextLabel.text = [playerScores objectForKey:cellValue];
     
     return cell;
-}
-
-- (void)initNetworkCommunication
-{
-    CFReadStreamRef readStream;
-    CFWriteStreamRef writeStream;
-    CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"67.194.195.60", 1024, &readStream, &writeStream);
-    inputStream = (__bridge NSInputStream *)readStream;
-    outputStream = (__bridge NSOutputStream *)writeStream;
-    
-    [inputStream setDelegate:self];
-    [outputStream setDelegate:self];
-    
-    [inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    
-    [inputStream open];
-    [outputStream open];
 }
 
 - (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode
