@@ -1,23 +1,20 @@
 //
-//  JoinScreenViewController.m
+//  LeaderboardViewController.m
 //  cardsAgainstHumanity
 //
-//  Created by Scott Biringer on 3/31/13.
+//  Created by Scott Biringer on 4/7/13.
 //  Copyright (c) 2013 Scott Biringer. All rights reserved.
 //
 
-#import "JoinScreenViewController.h"
+#import "LeaderboardViewController.h"
 
-NSMutableDictionary *playerScores;
-NSString *dealer;
-
-@interface JoinScreenViewController ()
+@interface LeaderboardViewController ()
 
 @end
 
-@implementation JoinScreenViewController
+@implementation LeaderboardViewController
 
-@synthesize playersTableView, userList;
+@synthesize playerScoresTableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,18 +29,14 @@ NSString *dealer;
 {
     [super viewDidLoad];
     
-    intReceived = false;
-    numReceived = 0;
-    numToReceive = 0;
-
     [self initNetworkCommunication];
     
-    playerScores = [[NSMutableDictionary alloc] init];
-
-    playersTableView.dataSource = self;
-    playersTableView.delegate = self;
+    playerScoresTableView.delegate = self;
+    playerScoresTableView.dataSource = self;
     
-    [playersTableView reloadData];
+    scoreUpdated = false;
+    
+    [playerScoresTableView reloadData];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -52,16 +45,20 @@ NSString *dealer;
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
     
     // Set up the cell...
-    NSString *cellValue = [userList objectAtIndex:indexPath.row];
+    NSArray *sorted = [[playerScores allKeys] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        return [[playerScores objectForKey:obj2] compare:[playerScores objectForKey:obj1]];
+    }];
+    
+    NSString *cellValue = [sorted objectAtIndex:indexPath.row];
     cell.textLabel.text = cellValue;
+    cell.detailTextLabel.text = [playerScores objectForKey:cellValue];
     
     return cell;
 }
-
 
 - (void)initNetworkCommunication
 {
@@ -95,41 +92,26 @@ NSString *dealer;
             len = [(NSInputStream *)stream read:buf maxLength:1024];
             
             [data appendBytes:(const void *)buf length:len];
-
-            if(!intReceived)
+            
+            NSString *user = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+            
+            if(!scoreUpdated)
             {
-                if(len)
-                {
-                    intReceived = true;
-                    numReceived = 0;
-                    
-                    [userList removeAllObjects];
-                    
-                    int i;
-                    [data getBytes: &i length: sizeof(i)];
-                                    
-                    numToReceive = ntohl(i);
-                    NSLog(@"%i", ntohl(i));
-                }
-                else
-                {
-                    NSLog(@"no buffer!");
-                }
+                scoreUpdated = true;
+                int newScore = [[playerScores objectForKey:user] intValue] + 1;
+                [playerScores setObject:[NSNumber numberWithInt:newScore] forKey:user];
+        
+                [playerScoresTableView reloadData];
             }
             else
             {
-                numReceived++;
+                scoreUpdated = false;
                 
-                NSString *user = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-                [userList addObject:user];
-                [playerScores setObject:[NSNumber numberWithInt:0] forKey:user];
-                
-                if(numReceived == numToReceive)
-                {
-                    intReceived = false;
-                    [playersTableView reloadData];
-                }
+                dealer = user;
+                // Go to view results screen
+                //[self performSegueWithIdentifier:@"" sender:nil]
             }
+            
             
             break;
             
@@ -140,7 +122,7 @@ NSString *dealer;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [userList count];
+    return [playerScores count];
 }
 
 - (void)didReceiveMemoryWarning
