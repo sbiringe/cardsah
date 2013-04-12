@@ -30,6 +30,8 @@ UIView *prevTouched;
 {
     [super viewDidLoad];
     
+    [inputStream setDelegate:self];
+    [outputStream setDelegate:self];
     
     NSString *dealerImageName = [NSString stringWithFormat:@"image1.jpg"];
     UIImage *dealerImage = [UIImage imageNamed:dealerImageName];

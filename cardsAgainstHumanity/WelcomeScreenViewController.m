@@ -45,7 +45,7 @@ NSOutputStream *outputStream;
 - (void)initNetworkCommunication {
     CFReadStreamRef readStream;
     CFWriteStreamRef writeStream;
-    CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"67.194.199.135", 1024, &readStream, &writeStream);
+    CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"68.42.215.178", 1024, &readStream, &writeStream);
     inputStream = (__bridge NSInputStream *)readStream;
     outputStream = (__bridge NSOutputStream *)writeStream;
     
@@ -108,6 +108,9 @@ NSOutputStream *outputStream;
                 range = NSMakeRange(0, len);
             }
             
+            if(len <= 0)
+                return;
+
             NSMutableString *temp = [[NSMutableString alloc] init];
             //len = [(NSInputStream *)stream read:buf maxLength:1024];
             

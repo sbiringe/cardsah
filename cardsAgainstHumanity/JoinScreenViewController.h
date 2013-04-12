@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "WelcomeScreenViewController.h"
+#import "PlayerViewController.h"
 
 extern NSMutableDictionary *playerScores;
 extern NSString *dealer;
+extern bool yourTurn;
 
 @interface JoinScreenViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSStreamDelegate>
 {
-    
+    bool getTurnBool;
     bool intReceived;
     int numToReceive;
     int numReceived;

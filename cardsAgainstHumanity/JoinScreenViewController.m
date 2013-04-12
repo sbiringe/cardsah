@@ -9,6 +9,7 @@
 #import "JoinScreenViewController.h"
 
 NSMutableDictionary *playerScores;
+bool yourTurn;
 
 @interface JoinScreenViewController ()
 
@@ -32,10 +33,14 @@ NSMutableDictionary *playerScores;
     [super viewDidLoad];
     
     intReceived = false;
+    getTurnBool = false;
     numReceived = 0;
     numToReceive = 0;
     
     playerScores = [[NSMutableDictionary alloc] init];
+    
+    [inputStream setDelegate:self];
+    [outputStream setDelegate:self];
 
     playersTableView.dataSource = self;
     playersTableView.delegate = self;
@@ -59,6 +64,26 @@ NSMutableDictionary *playerScores;
     return cell;
 }
 
+- (IBAction)startGameClicked:(id)sender
+{
+    CFReadStreamRef readStream;
+    CFWriteStreamRef writeStream;
+    CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"68.42.215.178", 4041, &readStream, &writeStream);
+    
+    inputStream = (__bridge NSInputStream *)readStream;
+    outputStream = (__bridge NSOutputStream *)writeStream;
+    
+    [inputStream setDelegate:self];
+    [outputStream setDelegate:self];
+    
+    [inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    [outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    
+    [inputStream open];
+    [outputStream open];
+
+}
+
 - (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode
 {
     switch(eventCode)
@@ -75,6 +100,14 @@ NSMutableDictionary *playerScores;
             [data appendBytes:(const void *)buf length:len];
             
             NSRange range;
+            
+            if(getTurnBool)
+            {
+                [data getBytes: &yourTurn length: sizeof(yourTurn)];
+
+                [self performSegueWithIdentifier:@"beginGame" sender:nil];
+                return;
+            }
             
             if(!intReceived)
             {
@@ -93,6 +126,12 @@ NSMutableDictionary *playerScores;
                     
                     len -= 4;
                     
+                    if(numToReceive == -1)
+                    {
+                        getTurnBool = true;
+                        return;
+                    }
+                    
                     range = NSMakeRange(4, len);
                 }
                 else
@@ -104,6 +143,9 @@ NSMutableDictionary *playerScores;
             {
                 range = NSMakeRange(0, len);
             }
+            
+            if(len <= 0)
+                return;
             
             NSMutableString *temp = [[NSMutableString alloc] init];
             //len = [(NSInputStream *)stream read:buf maxLength:1024];
