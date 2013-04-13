@@ -43,7 +43,9 @@ NSMutableArray *userCards;
     numToReceive = 0;
     
     userList = [[NSMutableArray alloc] init];
-
+    usernames = [[NSMutableArray alloc] init];
+    userCards = [[NSMutableArray alloc] init];
+    
     usernameTextField.delegate = self;
 }
 

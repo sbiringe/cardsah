@@ -64,6 +64,7 @@
         NSString *msg = [NSString stringWithFormat:@"%@", @"imageFileName"];
         NSData *data = [self convertToJavaUTF8:msg];
         [outputStream write:(const uint8_t *)[data bytes] maxLength:[data length]];
+        [self performSegueWithIdentifier:@"goToPlayerScreen" sender:nil];
     }
 }
 

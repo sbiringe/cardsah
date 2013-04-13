@@ -61,9 +61,6 @@ UIView *prevTouched;
                                      otherButtonTitles:nil];
     
     cardImages = [[NSMutableArray alloc] init];
-    usernames = [[NSMutableArray alloc] init];
-    userCards = [[NSMutableArray alloc] init];
-
     
     [self setupHorizontalScrollView];
     
@@ -105,6 +102,7 @@ UIView *prevTouched;
                     if(numToReceive == 50)
                     {
                         [self performSegueWithIdentifier:@"submittedCards" sender:nil];
+                        intReceived = false;
                         return;
                     }
                     else if(numToReceive == 51)
@@ -125,7 +123,10 @@ UIView *prevTouched;
             }
             
             if(len <= 0)
+            {
+                intReceived = false;
                 return;
+            }
             
             NSMutableString *temp = [[NSMutableString alloc] init];
             //len = [(NSInputStream *)stream read:buf maxLength:1024];
@@ -174,8 +175,13 @@ UIView *prevTouched;
             {
                 winnerSelected = false;
                 winningCard = submittedUser;
+               
                 [self performSegueWithIdentifier:@"winningScreen" sender:nil];
+                
+                intReceived = false;
+                return;
             }
+            
             if(numReceived == numToReceive)
             {
                 intReceived = false;
