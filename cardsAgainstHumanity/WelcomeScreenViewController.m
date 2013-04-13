@@ -13,6 +13,10 @@ NSString *username;
 NSInputStream *inputStream;
 NSOutputStream *outputStream;
 NSString *ipAddress;
+NSString *winningCard;
+NSMutableArray *usernames;
+NSMutableArray *userCards;
+
 
 @interface WelcomeScreenViewController ()
 

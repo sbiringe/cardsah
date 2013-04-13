@@ -32,6 +32,7 @@ UIView *prevTouched;
     
     intReceived = false;
     usernameReceived = false;
+    winnerSelected = false;
     numReceived = 0;
     numToReceive = 0;
     
@@ -106,6 +107,10 @@ UIView *prevTouched;
                         [self performSegueWithIdentifier:@"submittedCards" sender:nil];
                         return;
                     }
+                    else if(numToReceive == 51)
+                    {
+                        winnerSelected = true;
+                    }
                     
                     range = NSMakeRange(4, len);
                 }
@@ -165,7 +170,12 @@ UIView *prevTouched;
                 numReceived++;
             }
             
-            
+            if(winnerSelected)
+            {
+                winnerSelected = false;
+                winningCard = submittedUser;
+                [self performSegueWithIdentifier:@"winningScreen" sender:nil];
+            }
             if(numReceived == numToReceive)
             {
                 intReceived = false;
