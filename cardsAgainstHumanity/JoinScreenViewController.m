@@ -9,7 +9,7 @@
 #import "JoinScreenViewController.h"
 
 NSMutableDictionary *playerScores;
-bool yourTurn;
+bool youAreDealer;
 
 @interface JoinScreenViewController ()
 
@@ -103,7 +103,7 @@ bool yourTurn;
             
             if(getTurnBool)
             {
-                [data getBytes: &yourTurn length: sizeof(yourTurn)];
+                [data getBytes: &youAreDealer length: sizeof(youAreDealer)];
 
                 [self performSegueWithIdentifier:@"beginGame" sender:nil];
                 return;
