@@ -44,6 +44,7 @@ UIView *prevTouched;
     if (youAreDealer)
     {
         horizontalScroll = true;
+        swipeUpLabel.text = @"Waiting for other members' selection";
     }
     
     // Creates Action Sheet
@@ -107,7 +108,7 @@ UIView *prevTouched;
     [self.mainScrollView setBackgroundColor:[UIColor blackColor]];
     [mainScrollView setCanCancelContentTouches:NO];
     CGFloat width = 200;
-    CGFloat height = 310;
+    CGFloat height = 250;
     
     mainScrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
     mainScrollView.clipsToBounds = NO;
@@ -116,7 +117,7 @@ UIView *prevTouched;
     
     for(int i = 0; i < 5; i++)
     {
-        NSString *imageName = [NSString stringWithFormat:@"PCard%i.png",i];
+        NSString *imageName = [NSString stringWithFormat:@"PCard%i.png",i+1];
         UIImage *image = [UIImage imageNamed:imageName];
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
 
@@ -146,15 +147,14 @@ UIView *prevTouched;
         CGRect rect = imageView.frame;
         rect.size.height = width;
         rect.size.width = height;
-        rect.origin.x = cx+5;
+        rect.origin.x = cx+35;
         rect.origin.y = 0;
         
         imageView.frame = rect;
         
         [mainScrollView addSubview:imageView];
         
-        cx += imageView.frame.size.width+10;
-        
+        cx += imageView.frame.size.width+70;
     }
     [mainScrollView setContentSize:CGSizeMake(cx, height * 2)];
 }
