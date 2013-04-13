@@ -33,7 +33,7 @@ UIView *prevTouched;
     [inputStream setDelegate:self];
     [outputStream setDelegate:self];
     
-    NSString *dealerImageName = [NSString stringWithFormat:@"image1.jpg"];
+    NSString *dealerImageName = [NSString stringWithFormat:@"DCard1.jpg"];
     UIImage *dealerImage = [UIImage imageNamed:dealerImageName];
     dealerCardImageView.image = dealerImage;
     
@@ -116,7 +116,7 @@ UIView *prevTouched;
     
     for(int i = 0; i < 5; i++)
     {
-        NSString *imageName = [NSString stringWithFormat:@"image1.jpg"];
+        NSString *imageName = [NSString stringWithFormat:@"PCard%i.jpg",i];
         UIImage *image = [UIImage imageNamed:imageName];
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
 
