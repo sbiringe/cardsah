@@ -12,7 +12,7 @@
 
 extern NSMutableDictionary *playerScores;
 extern NSString *dealer;
-extern bool yourTurn;
+extern bool youAreDealer;
 
 @interface JoinScreenViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSStreamDelegate>
 {

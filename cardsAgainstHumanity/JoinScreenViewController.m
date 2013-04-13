@@ -9,7 +9,7 @@
 #import "JoinScreenViewController.h"
 
 NSMutableDictionary *playerScores;
-bool yourTurn;
+bool youAreDealer;
 
 @interface JoinScreenViewController ()
 
@@ -68,7 +68,7 @@ bool yourTurn;
 {
     CFReadStreamRef readStream;
     CFWriteStreamRef writeStream;
-    CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"68.42.215.178", 4041, &readStream, &writeStream);
+    CFStreamCreatePairWithSocketToHost(NULL, (__bridge CFStringRef)ipAddress, 4041, &readStream, &writeStream);
     
     inputStream = (__bridge NSInputStream *)readStream;
     outputStream = (__bridge NSOutputStream *)writeStream;
@@ -103,7 +103,7 @@ bool yourTurn;
             
             if(getTurnBool)
             {
-                [data getBytes: &yourTurn length: sizeof(yourTurn)];
+                [data getBytes: &youAreDealer length: sizeof(youAreDealer)];
 
                 [self performSegueWithIdentifier:@"beginGame" sender:nil];
                 return;

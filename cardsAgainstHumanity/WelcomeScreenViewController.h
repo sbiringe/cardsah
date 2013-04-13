@@ -15,6 +15,7 @@ extern NSString *dealer;
 extern NSString *username;
 extern NSInputStream *inputStream;
 extern NSOutputStream *outputStream;
+extern NSString *ipAddress;
 
 @interface WelcomeScreenViewController : UIViewController <UITextFieldDelegate, NSStreamDelegate>
 {

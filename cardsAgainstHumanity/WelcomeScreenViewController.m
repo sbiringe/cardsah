@@ -12,6 +12,7 @@ NSString *dealer;
 NSString *username;
 NSInputStream *inputStream;
 NSOutputStream *outputStream;
+NSString *ipAddress;
 
 @interface WelcomeScreenViewController ()
 
@@ -45,7 +46,8 @@ NSOutputStream *outputStream;
 - (void)initNetworkCommunication {
     CFReadStreamRef readStream;
     CFWriteStreamRef writeStream;
-    CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"68.42.215.178", 1024, &readStream, &writeStream);
+    ipAddress = @"67.194.101.42";
+    CFStreamCreatePairWithSocketToHost(NULL, (__bridge CFStringRef)ipAddress, 1024, &readStream, &writeStream);
     inputStream = (__bridge NSInputStream *)readStream;
     outputStream = (__bridge NSOutputStream *)writeStream;
     

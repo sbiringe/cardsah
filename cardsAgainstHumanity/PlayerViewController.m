@@ -41,7 +41,7 @@ UIView *prevTouched;
     horizontalScroll = false;
     verticalScroll = false;
     
-    if (![dealer isEqualToString:username])
+    if (youAreDealer)
     {
         horizontalScroll = true;
     }
@@ -189,9 +189,12 @@ UIView *prevTouched;
         CGFloat pageWidth = scrollView.frame.size.width;
         int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
         
-        //[self createActionSheetWithImageView:[cardImages objectAtIndex:page]];
         mainScrollView.scrollEnabled = FALSE;
         swipeUpLabel.text = @"Waiting for other members' selection";
+        
+        NSString *msg = [NSString stringWithFormat:@"%@", @"ImageName"];
+        NSData *data = [self convertToJavaUTF8:msg];
+        [outputStream write:(const uint8_t *)[data bytes] maxLength:[data length]];
         
         CGRect frame = scrollView.frame;
         frame.origin.x = 0;
@@ -201,6 +204,21 @@ UIView *prevTouched;
     
     horizontalScroll = false;
     verticalScroll = false;
+    
+    if(youAreDealer)
+        horizontalScroll = true;
+}
+
+- (NSData*) convertToJavaUTF8 : (NSString*) str
+{
+    NSUInteger len = [str lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
+    Byte buffer[2];
+    buffer[0] = (0xff & (len >> 8));
+    buffer[1] = (0xff & len);
+    NSMutableData *outData = [NSMutableData dataWithCapacity:2];
+    [outData appendBytes:buffer length:2];
+    [outData appendData:[str dataUsingEncoding:NSUTF8StringEncoding]];
+    return outData;
 }
 
 -(void)createActionSheetWithImageView:(UIImageView *)imageView
