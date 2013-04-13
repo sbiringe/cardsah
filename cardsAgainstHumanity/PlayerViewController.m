@@ -204,6 +204,9 @@ UIView *prevTouched;
     
     horizontalScroll = false;
     verticalScroll = false;
+    
+    if(youAreDealer)
+        horizontalScroll = true;
 }
 
 - (NSData*) convertToJavaUTF8 : (NSString*) str
