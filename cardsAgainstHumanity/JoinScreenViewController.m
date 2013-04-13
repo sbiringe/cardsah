@@ -70,17 +70,17 @@ bool youAreDealer;
     CFWriteStreamRef writeStream;
     CFStreamCreatePairWithSocketToHost(NULL, (__bridge CFStringRef)ipAddress, 4041, &readStream, &writeStream);
     
-    inputStream = (__bridge NSInputStream *)readStream;
-    outputStream = (__bridge NSOutputStream *)writeStream;
+    NSInputStream *inputStream1 = (__bridge NSInputStream *)readStream;
+    NSInputStream *outputStream1 = (__bridge NSOutputStream *)writeStream;
     
-    [inputStream setDelegate:self];
-    [outputStream setDelegate:self];
+    [inputStream1 setDelegate:self];
+    [outputStream1 setDelegate:self];
     
-    [inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    [inputStream1 scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    [outputStream1 scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     
-    [inputStream open];
-    [outputStream open];
+    [inputStream1 open];
+    [outputStream1 open];
 
 }
 
