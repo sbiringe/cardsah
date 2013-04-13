@@ -30,6 +30,11 @@ UIView *prevTouched;
 {
     [super viewDidLoad];
     
+    intReceived = false;
+    usernameReceived = false;
+    numReceived = 0;
+    numToReceive = 0;
+    
     [inputStream setDelegate:self];
     [outputStream setDelegate:self];
     
@@ -55,7 +60,10 @@ UIView *prevTouched;
                                      otherButtonTitles:nil];
     
     cardImages = [[NSMutableArray alloc] init];
+    usernames = [[NSMutableArray alloc] init];
+    userCards = [[NSMutableArray alloc] init];
 
+    
     [self setupHorizontalScrollView];
     
 }
@@ -66,6 +74,109 @@ UIView *prevTouched;
             
         case NSStreamEventHasBytesAvailable:
         {
+            NSMutableData *data = [[NSMutableData alloc] init];
+            uint8_t buf[1024];
+            
+            int len = 0;
+            
+            len = [(NSInputStream *)stream read:buf maxLength:1024];
+            
+            [data appendBytes:(const void *)buf length:len];
+            
+            NSRange range;
+            
+            if(!intReceived)
+            {
+                if(len)
+                {
+                    intReceived = true;
+                    numReceived = 0;
+                    
+                    int i;
+                    [data getBytes: &i length: sizeof(i)];
+                    
+                    numToReceive = ntohl(i);
+                    NSLog(@"%i", numToReceive);
+                    
+                    len -= 4;
+                    
+                    // You are the dealer
+                    if(numToReceive == 50)
+                    {
+                        [self performSegueWithIdentifier:@"submittedCards" sender:nil];
+                        return;
+                    }
+                    
+                    range = NSMakeRange(4, len);
+                }
+                else
+                {
+                    NSLog(@"no buffer!");
+                }
+            }
+            else
+            {
+                range = NSMakeRange(0, len);
+            }
+            
+            if(len <= 0)
+                return;
+            
+            NSMutableString *temp = [[NSMutableString alloc] init];
+            //len = [(NSInputStream *)stream read:buf maxLength:1024];
+            
+            NSMutableData *data1 = [[NSMutableData alloc] initWithCapacity:20];
+            
+            uint8_t buf1[1024];
+            
+            [data getBytes:buf1 range:range];
+            
+            [data1 appendBytes:(const void *)buf1 length:len];
+            
+            NSString *user = [[NSString alloc] initWithData:data1 encoding:NSASCIIStringEncoding];
+            
+            int index = 0;
+            
+            while(len > 0)
+            {
+                NSMutableString *temp = [[NSMutableString alloc] init];
+                
+                while([user characterAtIndex:index])
+                {
+                    [temp appendString:[NSString stringWithFormat: @"%C",[user characterAtIndex:index]]];
+                    index++;
+                }
+                
+                index++;
+                len -= index;
+                
+                if(!usernameReceived)
+                {
+                    usernameReceived = true;
+                    submittedUser = temp;
+                }
+                else
+                {
+                    usernameReceived = false;
+                    submittedCard = temp;
+                }
+                
+                NSLog(@"%@", temp);
+                numReceived++;
+            }
+            
+            
+            if(numReceived == numToReceive)
+            {
+                intReceived = false;
+                [usernames addObject:submittedUser];
+                [userCards addObject:submittedCard];
+            }
+            
+            break;
+
+            
+            /*
             NSMutableData *data = [[NSMutableData alloc] init];
             uint8_t buf[1024];
             
@@ -94,7 +205,7 @@ UIView *prevTouched;
             
             
             break;
-            
+            */
         }
     }
 }
@@ -188,6 +299,10 @@ UIView *prevTouched;
     {
         CGFloat pageWidth = scrollView.frame.size.width;
         int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+        
+        
+        [usernames addObject:username];
+        [userCards addObject:@"ImageName"];
         
         mainScrollView.scrollEnabled = FALSE;
         swipeUpLabel.text = @"Waiting for other members' selection";

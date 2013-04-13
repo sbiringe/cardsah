@@ -15,8 +15,21 @@ extern UIView *prevTouched;
 @interface PlayerViewController : UIViewController <NSStreamDelegate, UIScrollViewAccessibilityDelegate, UIScrollViewDelegate>
 {
     NSMutableArray *cardImages;
+    NSMutableArray *usernames;
+    NSMutableArray *userCards;
+    
     
     int curXOffset;
+    
+    bool intReceived;
+    bool usernameReceived;
+    
+    int numReceived;
+    int numToReceive;
+    
+    
+    NSString *submittedUser;
+    NSString *submittedCard;
     
     bool horizontalScroll;
     bool verticalScroll;

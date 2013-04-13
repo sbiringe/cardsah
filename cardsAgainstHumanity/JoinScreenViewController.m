@@ -168,7 +168,6 @@ bool youAreDealer;
                 
                 while([user characterAtIndex:index])
                 {
-                    NSLog(@"%C", [user characterAtIndex:index]);
                     [temp appendString:[NSString stringWithFormat: @"%C",[user characterAtIndex:index]]];
                     index++;
                 }
