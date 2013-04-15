@@ -75,3 +75,23 @@ Java Model Exception: Java Model Status [C:\Program Files\Java\jre7\lib\rt.jar i
 	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:166)
 !SUBENTRY 1 org.eclipse.jdt.core 4 1006 2013-04-11 17:07:36.921
 !MESSAGE C:\Program Files\Java\jre7\lib\rt.jar is not on its project's build path
+!SESSION 2013-04-11 17:23:35.536 -----------------------------------------------
+eclipse.buildId=M20130204-1200
+java.version=1.7.0_17
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.mobile.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.mobile.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2013-04-11 17:23:40.433
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+!SESSION 2013-04-13 13:01:56.416 -----------------------------------------------
+eclipse.buildId=M20130204-1200
+java.version=1.7.0_17
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.mobile.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.mobile.product
+
+!ENTRY org.eclipse.ui 4 4 2013-04-13 13:34:06.844
+!MESSAGE Referenced part does not exist yet: org.eclipse.ui.views.ProblemView.
