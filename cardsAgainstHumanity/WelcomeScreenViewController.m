@@ -8,7 +8,15 @@
 
 #import "WelcomeScreenViewController.h"
 
+NSString *dealer;
 NSString *username;
+NSInputStream *inputStream;
+NSOutputStream *outputStream;
+NSString *ipAddress;
+NSString *winningCard;
+NSMutableArray *usernames;
+NSMutableArray *userCards;
+
 
 @interface WelcomeScreenViewController ()
 
@@ -35,16 +43,17 @@ NSString *username;
     numToReceive = 0;
     
     userList = [[NSMutableArray alloc] init];
-
-    [self initNetworkCommunication];
-
+    usernames = [[NSMutableArray alloc] init];
+    userCards = [[NSMutableArray alloc] init];
+    
     usernameTextField.delegate = self;
 }
 
 - (void)initNetworkCommunication {
     CFReadStreamRef readStream;
     CFWriteStreamRef writeStream;
-    CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"67.194.197.175", 1024, &readStream, &writeStream);
+    ipAddress = @"67.194.101.42";
+    CFStreamCreatePairWithSocketToHost(NULL, (__bridge CFStringRef)ipAddress, 1024, &readStream, &writeStream);
     inputStream = (__bridge NSInputStream *)readStream;
     outputStream = (__bridge NSOutputStream *)writeStream;
     
@@ -76,6 +85,8 @@ NSString *username;
         
             [data appendBytes:(const void *)buf length:len];
             
+            NSRange range;
+            
             if(!intReceived)
             {
                 if(len)
@@ -90,22 +101,28 @@ NSString *username;
                 
                     numToReceive = ntohl(i);
                     NSLog(@"%i", numToReceive);
+                    
+                    len -= 4;
+                    
+                    range = NSMakeRange(4, len);
                 }
                 else
                 {
                     NSLog(@"no buffer!");
                 }
             }
+            else
+            {
+                range = NSMakeRange(0, len);
+            }
             
-            
-            len -= 4;
-            
+            if(len <= 0)
+                return;
+
             NSMutableString *temp = [[NSMutableString alloc] init];
             //len = [(NSInputStream *)stream read:buf maxLength:1024];
             
             NSMutableData *data1 = [[NSMutableData alloc] initWithCapacity:20];
-            //len -= 4;
-            NSRange range = NSMakeRange(4,  len);
         
             uint8_t buf1[1024];
             
@@ -119,9 +136,8 @@ NSString *username;
             
             while(len > 0)
             {
-               
-                
                 NSMutableString *temp = [[NSMutableString alloc] init];
+                
                 while([user characterAtIndex:index])
                 {
                      NSLog(@"%C", [user characterAtIndex:index]);
@@ -134,20 +150,20 @@ NSString *username;
                 
                 NSLog(@"%@", temp);
                 [userList addObject:temp];
-                username = temp;
                 numReceived++;
             }
             
-            if([userList count] > 1)
+            if(numToReceive == numReceived)
             {
-                [self performSegueWithIdentifier:@"joinSegue" sender:NULL];
+                if([userList count] > 1)
+                {
+                    [self performSegueWithIdentifier:@"joinSegue" sender:NULL];
+                }
+                else
+                {
+                    [self performSegueWithIdentifier:@"startSegue" sender:NULL];
+                }
             }
-            else
-            {
-                [self performSegueWithIdentifier:@"startSegue" sender:NULL];
-            }
-            
-            intReceived = false;
 
             break;
         
@@ -180,9 +196,10 @@ NSString *username;
     }
     else
     {
+        [self initNetworkCommunication];
         NSString *msg = [NSString stringWithFormat:@"%@", usernameTextField.text];
         NSData *data = [self convertToJavaUTF8:msg];
-    
+        username = usernameTextField.text;
         [outputStream write:(const uint8_t *)[data bytes] maxLength:[data length]];
     }
 }

@@ -15,7 +15,7 @@ UIView *prevTouched;
 
 @implementation PlayerViewController
 
-@synthesize mainScrollView, swipeUpLabel, actionSheet, playedCardToolbar;
+@synthesize mainScrollView, swipeUpLabel, actionSheet, playedCardToolbar, dealerCardImageView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,9 +30,28 @@ UIView *prevTouched;
 {
     [super viewDidLoad];
     
+    intReceived = false;
+    usernameReceived = false;
+    winnerSelected = false;
+    numReceived = 0;
+    numToReceive = 0;
+    
+    [inputStream setDelegate:self];
+    [outputStream setDelegate:self];
+    
+    NSString *dealerImageName = [NSString stringWithFormat:@"DCard1.png"];
+    UIImage *dealerImage = [UIImage imageNamed:dealerImageName];
+    dealerCardImageView.image = dealerImage;
+    
     scoreUpdated = false;
     horizontalScroll = false;
     verticalScroll = false;
+    
+    if (youAreDealer)
+    {
+        horizontalScroll = true;
+        swipeUpLabel.text = @"Waiting for other members' selection";
+    }
     
     // Creates Action Sheet
     actionSheet = [[UIActionSheet alloc] initWithTitle:@"Action Sheet"
@@ -42,29 +61,9 @@ UIView *prevTouched;
                                      otherButtonTitles:nil];
     
     cardImages = [[NSMutableArray alloc] init];
-
-    [self initNetworkCommunication];
-
+    
     [self setupHorizontalScrollView];
     
-}
-
-- (void)initNetworkCommunication
-{
-    CFReadStreamRef readStream;
-    CFWriteStreamRef writeStream;
-    CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"67.194.195.60", 1024, &readStream, &writeStream);
-    inputStream = (__bridge NSInputStream *)readStream;
-    outputStream = (__bridge NSOutputStream *)writeStream;
-    
-    [inputStream setDelegate:self];
-    [outputStream setDelegate:self];
-    
-    [inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    
-    [inputStream open];
-    [outputStream open];
 }
 
 - (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode
@@ -73,6 +72,127 @@ UIView *prevTouched;
             
         case NSStreamEventHasBytesAvailable:
         {
+            NSMutableData *data = [[NSMutableData alloc] init];
+            uint8_t buf[1024];
+            
+            int len = 0;
+            
+            len = [(NSInputStream *)stream read:buf maxLength:1024];
+            
+            [data appendBytes:(const void *)buf length:len];
+            
+            NSRange range;
+            
+            if(!intReceived)
+            {
+                if(len)
+                {
+                    intReceived = true;
+                    numReceived = 0;
+                    
+                    int i;
+                    [data getBytes: &i length: sizeof(i)];
+                    
+                    numToReceive = ntohl(i);
+                    NSLog(@"%i", numToReceive);
+                    
+                    len -= 4;
+                    
+                    // You are the dealer
+                    if(numToReceive == 50)
+                    {
+                        [self performSegueWithIdentifier:@"submittedCards" sender:nil];
+                        intReceived = false;
+                        return;
+                    }
+                    else if(numToReceive == 51)
+                    {
+                        winnerSelected = true;
+                    }
+                    
+                    range = NSMakeRange(4, len);
+                }
+                else
+                {
+                    NSLog(@"no buffer!");
+                }
+            }
+            else
+            {
+                range = NSMakeRange(0, len);
+            }
+            
+            if(len <= 0)
+            {
+                intReceived = false;
+                return;
+            }
+            
+            NSMutableString *temp = [[NSMutableString alloc] init];
+            //len = [(NSInputStream *)stream read:buf maxLength:1024];
+            
+            NSMutableData *data1 = [[NSMutableData alloc] initWithCapacity:20];
+            
+            uint8_t buf1[1024];
+            
+            [data getBytes:buf1 range:range];
+            
+            [data1 appendBytes:(const void *)buf1 length:len];
+            
+            NSString *user = [[NSString alloc] initWithData:data1 encoding:NSASCIIStringEncoding];
+            
+            int index = 0;
+            
+            while(len > 0)
+            {
+                NSMutableString *temp = [[NSMutableString alloc] init];
+                
+                while([user characterAtIndex:index])
+                {
+                    [temp appendString:[NSString stringWithFormat: @"%C",[user characterAtIndex:index]]];
+                    index++;
+                }
+                
+                index++;
+                len -= index;
+                
+                if(!usernameReceived)
+                {
+                    usernameReceived = true;
+                    submittedUser = temp;
+                }
+                else
+                {
+                    usernameReceived = false;
+                    submittedCard = temp;
+                }
+                
+                NSLog(@"%@", temp);
+                numReceived++;
+            }
+            
+            if(winnerSelected)
+            {
+                winnerSelected = false;
+                winningCard = submittedUser;
+               
+                [self performSegueWithIdentifier:@"winningScreen" sender:nil];
+                
+                intReceived = false;
+                return;
+            }
+            
+            if(numReceived == numToReceive)
+            {
+                intReceived = false;
+                [usernames addObject:submittedUser];
+                [userCards addObject:submittedCard];
+            }
+            
+            break;
+
+            
+            /*
             NSMutableData *data = [[NSMutableData alloc] init];
             uint8_t buf[1024];
             
@@ -101,7 +221,7 @@ UIView *prevTouched;
             
             
             break;
-            
+            */
         }
     }
 }
@@ -114,8 +234,8 @@ UIView *prevTouched;
     
     [self.mainScrollView setBackgroundColor:[UIColor blackColor]];
     [mainScrollView setCanCancelContentTouches:NO];
-    CGFloat width = 249;
-    CGFloat height = 310;
+    CGFloat width = 200;
+    CGFloat height = 250;
     
     mainScrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
     mainScrollView.clipsToBounds = NO;
@@ -124,7 +244,7 @@ UIView *prevTouched;
     
     for(int i = 0; i < 5; i++)
     {
-        NSString *imageName = [NSString stringWithFormat:@"image1.jpg"];
+        NSString *imageName = [NSString stringWithFormat:@"PCard%i.png",i+1];
         UIImage *image = [UIImage imageNamed:imageName];
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
 
@@ -154,15 +274,14 @@ UIView *prevTouched;
         CGRect rect = imageView.frame;
         rect.size.height = width;
         rect.size.width = height;
-        rect.origin.x = cx+5;
+        rect.origin.x = cx+35;
         rect.origin.y = 0;
         
         imageView.frame = rect;
         
         [mainScrollView addSubview:imageView];
         
-        cx += imageView.frame.size.width+10;
-        
+        cx += imageView.frame.size.width+70;
     }
     [mainScrollView setContentSize:CGSizeMake(cx, height * 2)];
 }
@@ -173,8 +292,10 @@ UIView *prevTouched;
     {
         if (scrollView.contentOffset.y > 0  ||  scrollView.contentOffset.y < 0 )
         {
+            CGFloat pageWidth = scrollView.frame.size.width;
+            int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
             verticalScroll = true;
-            curXOffset = scrollView.contentOffset.x;
+            curXOffset = pageWidth * page;
         }
         else
             horizontalScroll = true;
@@ -195,7 +316,16 @@ UIView *prevTouched;
         CGFloat pageWidth = scrollView.frame.size.width;
         int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
         
-        [self createActionSheetWithImageView:[cardImages objectAtIndex:page]];
+        
+        [usernames addObject:username];
+        [userCards addObject:@"ImageName"];
+        
+        mainScrollView.scrollEnabled = FALSE;
+        swipeUpLabel.text = @"Waiting for other members' selection";
+        
+        NSString *msg = [NSString stringWithFormat:@"%@", @"ImageName"];
+        NSData *data = [self convertToJavaUTF8:msg];
+        [outputStream write:(const uint8_t *)[data bytes] maxLength:[data length]];
         
         CGRect frame = scrollView.frame;
         frame.origin.x = 0;
@@ -205,6 +335,21 @@ UIView *prevTouched;
     
     horizontalScroll = false;
     verticalScroll = false;
+    
+    if(youAreDealer)
+        horizontalScroll = true;
+}
+
+- (NSData*) convertToJavaUTF8 : (NSString*) str
+{
+    NSUInteger len = [str lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
+    Byte buffer[2];
+    buffer[0] = (0xff & (len >> 8));
+    buffer[1] = (0xff & len);
+    NSMutableData *outData = [NSMutableData dataWithCapacity:2];
+    [outData appendBytes:buffer length:2];
+    [outData appendData:[str dataUsingEncoding:NSUTF8StringEncoding]];
+    return outData;
 }
 
 -(void)createActionSheetWithImageView:(UIImageView *)imageView

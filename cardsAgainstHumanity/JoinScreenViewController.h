@@ -8,15 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "WelcomeScreenViewController.h"
+#import "PlayerViewController.h"
 
 extern NSMutableDictionary *playerScores;
 extern NSString *dealer;
+extern bool youAreDealer;
 
 @interface JoinScreenViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSStreamDelegate>
 {
-    NSInputStream *inputStream;
-    NSOutputStream *outputStream;
-    
+    bool getTurnBool;
     bool intReceived;
     int numToReceive;
     int numReceived;
