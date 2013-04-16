@@ -124,10 +124,24 @@
     [playedCards removeAllObjects];
     [playedUsernames removeAllObjects];
     
+    currentRound++;
+    int nextDealerIndex = currentRound % [userList count];
+    
+    // CHECK IF CURDINDEX IS EQUAL TO GLOBAL MAX IF SO SET IT EQUAL TO ZERO
+    curDIndex++;
+    
     if(youAreDealer)
+    {
+        youAreDealer = false;
         [self dismissViewControllerAnimated:NO completion:^{}];
+    }
     else
-         [self dismissViewControllerAnimated:YES completion:^{}];
+    {
+        if([[userList objectAtIndex:nextDealerIndex] isEqualToString:username])
+            youAreDealer = true;
+        
+        [self dismissViewControllerAnimated:YES completion:^{}];  
+    }
 }
 
 - (void)didReceiveMemoryWarning

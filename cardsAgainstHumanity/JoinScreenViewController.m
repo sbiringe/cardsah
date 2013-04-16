@@ -17,6 +17,7 @@ unsigned int curDIndex;
 unsigned int curPIndex;
 NSMutableArray *playedCards;
 NSMutableArray *playedUsernames;
+int currentRound;
 
 @interface JoinScreenViewController ()
 
@@ -45,6 +46,7 @@ NSMutableArray *playedUsernames;
     numReceived = 0;
     randomSeed = 0;
     numToReceive = 0;
+    currentRound = 0;
     
     playerScores = [[NSMutableDictionary alloc] init];
     pCardImages = [[NSMutableArray alloc] init];
@@ -251,7 +253,7 @@ NSMutableArray *playedUsernames;
     
     srand(randomSeed);
     
-    for(int i = 0; i < 500; ++i)
+    for(int i = 0; i < 1500; ++i)
     {
         int rand1 = rand() % [pCardImages count];
         int rand2 = rand() % [pCardImages count];
@@ -268,7 +270,7 @@ NSMutableArray *playedUsernames;
         [pCardImages setObject:temp atIndexedSubscript:rand2];
     }
 
-    for(int i = 0; i < 500; ++i)
+    for(int i = 0; i < 1500; ++i)
     {
         int rand1 = rand() % [dCardImages count];
         int rand2 = rand() % [dCardImages count];
