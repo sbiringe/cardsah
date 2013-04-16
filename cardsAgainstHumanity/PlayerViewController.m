@@ -11,6 +11,10 @@
 UIView *prevTouched;
 unsigned int curDIndex;
 unsigned int curPIndex;
+NSMutableArray *playedCards;
+NSMutableArray *playedUsernames;
+NSMutableArray *userCards;
+
 @interface PlayerViewController ()
 
 @end
@@ -60,9 +64,10 @@ unsigned int curPIndex;
     
     pCardImages = [[NSMutableArray alloc] init];
     dCardImages = [[NSMutableArray alloc] init];
-    usernames = [[NSMutableArray alloc] init];
-    userCards = [[NSMutableArray alloc] init];
+    playedUsernames = [[NSMutableArray alloc] init];
+    playedCards = [[NSMutableArray alloc] init];
     curDIndex = 0;
+
     for (int i = 0; i < userList.count; i++)
     {
         if ([[userList objectAtIndex:i] isEqualToString:username])
@@ -84,11 +89,8 @@ unsigned int curPIndex;
         NSString *addDCard = [NSString stringWithFormat:@"DCard%i.png",j];
         [dCardImages addObject:addDCard];
     }
-    
-    //NSString *dealerImageName = [NSString stringWithFormat:[dCardImages objectAtIndex:curDIndex]];
-    //NSLog(@"Player Card Array length is: %i",pCardImages.count);
-    //NSLog(@"Dealer Card Array length is: %i",dCardImages.count);
-    //NSLog(@"Dealer Card is: %@",[dCardImages objectAtIndex:curDIndex]);
+
+    NSLog(@"CurPIndex is: %i", curPIndex);
     UIImage *dealerImage = [UIImage imageNamed:[dCardImages objectAtIndex:curDIndex]];
     dealerCardImageView.image = dealerImage;
     
@@ -214,8 +216,8 @@ unsigned int curPIndex;
             if(numReceived == numToReceive)
             {
                 intReceived = false;
-                [usernames addObject:submittedUser];
-                [userCards addObject:submittedCard];
+                [playedUsernames addObject:submittedUser];
+                [playedCards addObject:submittedCard];
             }
             
             break;
@@ -277,7 +279,8 @@ unsigned int curPIndex;
     {
         //NSString *imageName = [NSString stringWithFormat:@"PCard%i.png",i+1];
         
-        NSString *imageName = [pCardImages objectAtIndex:curPIndex];
+        NSString *imageName = [pCardImages objectAtIndex:i];
+        NSLog(@"Image added to hand is: %@", imageName);
         UIImage *image = [UIImage imageNamed:imageName];
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
         [userCards addObject:imageName];
@@ -310,7 +313,6 @@ unsigned int curPIndex;
         [mainScrollView addSubview:imageView];
         
         cx += imageView.frame.size.width+70;
-        //curPIndex++;
     }
     [mainScrollView setContentSize:CGSizeMake(cx, height * 2)];
 }
@@ -349,8 +351,8 @@ unsigned int curPIndex;
         [pCardImages removeObject:[userCards objectAtIndex:page]];
         [userCards removeObjectAtIndex:page];
         
-        [usernames addObject:username];
-        [userCards addObject:@"ImageName"];
+        [playedUsernames addObject:username];
+        [playedCards addObject:@"ImageName"];
         
         mainScrollView.scrollEnabled = FALSE;
         swipeUpLabel.text = @"Waiting for other members' selection";

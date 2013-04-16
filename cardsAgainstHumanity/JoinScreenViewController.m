@@ -10,7 +10,6 @@
 
 NSMutableDictionary *playerScores;
 bool youAreDealer;
-NSMutableArray *userList;
 
 @interface JoinScreenViewController ()
 
@@ -39,6 +38,7 @@ NSMutableArray *userList;
     numToReceive = 0;
     
     playerScores = [[NSMutableDictionary alloc] init];
+    userCards = [[NSMutableArray alloc] init];
     
     [inputStream setDelegate:self];
     [outputStream setDelegate:self];
@@ -117,8 +117,6 @@ NSMutableArray *userList;
                     intReceived = true;
                     numReceived = 0;
                     
-                    [userList removeAllObjects];
-                    
                     int i;
                     [data getBytes: &i length: sizeof(i)];
                     
@@ -132,6 +130,7 @@ NSMutableArray *userList;
                         getTurnBool = true;
                         return;
                     }
+                    [userList removeAllObjects];
                     
                     range = NSMakeRange(4, len);
                 }

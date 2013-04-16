@@ -13,7 +13,8 @@
 extern NSMutableDictionary *playerScores;
 extern NSString *dealer;
 extern bool youAreDealer;
-extern NSMutableArray *userList;
+extern NSMutableArray *userCards;
+
 
 @interface JoinScreenViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSStreamDelegate>
 {

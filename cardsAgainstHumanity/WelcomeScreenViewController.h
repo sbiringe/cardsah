@@ -17,16 +17,11 @@ extern NSInputStream *inputStream;
 extern NSOutputStream *outputStream;
 extern NSString *ipAddress;
 extern NSString *winningCard;
-extern NSMutableArray *usernames;
-extern NSMutableArray *userCards;
-
-
+extern NSMutableArray *userList;
 
 
 @interface WelcomeScreenViewController : UIViewController <UITextFieldDelegate, NSStreamDelegate>
-{
-    NSMutableArray *userList;
-    
+{    
     bool intReceived;
     int numToReceive;
     int numReceived;

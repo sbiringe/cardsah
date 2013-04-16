@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "WelcomeScreenViewController.h"
+#import "PlayerViewController.h"
 
 @interface WinningScreenViewController : UIViewController
 

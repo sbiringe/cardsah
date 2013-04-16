@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="qyr-Eh-9tV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="qyr-Eh-9tV">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -595,30 +595,23 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yNt-dX-1Ne">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="74" id="3WR-d3-UOt"/>
+                                    <constraint firstAttribute="height" constant="125" id="iUh-sv-usX"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UmR-J0-Dm1">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="108" id="2cT-tm-Sx8"/>
-                                    <constraint firstAttribute="height" constant="65" id="hPt-vd-LnQ"/>
-                                </constraints>
-                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UmR-J0-Dm1"/>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ePC-Rv-fko">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="99" id="6Pr-1C-RrS"/>
-                                    <constraint firstAttribute="height" constant="97" id="GdT-5J-d79"/>
+                                    <constraint firstAttribute="height" constant="125" id="rho-2O-E3v"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Az-Zx-JZj">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="ce6-0j-z25"/>
-                                    <constraint firstAttribute="width" constant="240" id="zQh-el-2g9"/>
+                                    <constraint firstAttribute="width" constant="130" id="rMT-KM-cOI"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMZ-P0-dYb">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="107" id="lkm-FN-DK0"/>
+                                    <constraint firstAttribute="width" constant="125" id="j6O-zQ-kdE"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="p1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anR-EQ-mg5">
@@ -633,7 +626,8 @@
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="p3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n12-EJ-0YI">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="18" id="5RV-nH-50I"/>
+                                    <constraint firstAttribute="width" constant="25" id="40O-Lz-EGN"/>
+                                    <constraint firstAttribute="height" constant="23" id="Sg5-Hl-dyY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -644,29 +638,40 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Dealer's Card" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4qa-Oh-dUj">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="TMZ-P0-dYb" secondAttribute="trailing" constant="47" id="4ni-tO-7hI"/>
-                            <constraint firstItem="n12-EJ-0YI" firstAttribute="centerX" secondItem="yNt-dX-1Ne" secondAttribute="centerX" type="default" id="84N-oT-WDt"/>
-                            <constraint firstItem="ePC-Rv-fko" firstAttribute="trailing" secondItem="yNt-dX-1Ne" secondAttribute="trailing" type="default" id="Bfd-0K-8LR"/>
-                            <constraint firstAttribute="bottom" secondItem="UmR-J0-Dm1" secondAttribute="bottom" constant="56" id="HeQ-8H-d4X"/>
-                            <constraint firstAttribute="bottom" secondItem="anR-EQ-mg5" secondAttribute="bottom" constant="142" id="ORy-Mm-oob"/>
-                            <constraint firstAttribute="bottom" secondItem="yNt-dX-1Ne" secondAttribute="bottom" constant="51" id="Qgj-Yx-DzX"/>
-                            <constraint firstItem="ePC-Rv-fko" firstAttribute="bottom" secondItem="TMZ-P0-dYb" secondAttribute="bottom" type="default" id="Ypz-vS-A8u"/>
-                            <constraint firstItem="TMZ-P0-dYb" firstAttribute="top" secondItem="ePC-Rv-fko" secondAttribute="top" type="default" id="ZW7-kf-gJe"/>
-                            <constraint firstAttribute="bottom" secondItem="24F-5i-gRx" secondAttribute="bottom" constant="154" id="aOB-W5-fox"/>
-                            <constraint firstAttribute="trailing" secondItem="24F-5i-gRx" secondAttribute="trailing" constant="86" id="bRR-X0-mpb"/>
-                            <constraint firstAttribute="trailing" secondItem="9eR-W8-BXV" secondAttribute="trailing" constant="83" id="bSp-AM-J77"/>
-                            <constraint firstItem="ePC-Rv-fko" firstAttribute="leading" secondItem="9Az-Zx-JZj" secondAttribute="leading" type="default" id="dfw-qS-k0f"/>
-                            <constraint firstItem="ePC-Rv-fko" firstAttribute="top" secondItem="aXy-YE-pCg" secondAttribute="top" constant="186" id="g2l-a3-XRb"/>
-                            <constraint firstAttribute="bottom" secondItem="9eR-W8-BXV" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="hKq-2L-76c"/>
-                            <constraint firstItem="ePC-Rv-fko" firstAttribute="leading" secondItem="yNt-dX-1Ne" secondAttribute="leading" type="default" id="jQv-BA-hDP"/>
-                            <constraint firstItem="9Az-Zx-JZj" firstAttribute="top" secondItem="aXy-YE-pCg" secondAttribute="top" constant="20" symbolic="YES" type="default" id="kE4-L1-bkD"/>
-                            <constraint firstItem="9Az-Zx-JZj" firstAttribute="centerX" secondItem="aXy-YE-pCg" secondAttribute="centerX" type="default" id="kmF-Qt-NWW"/>
-                            <constraint firstAttribute="trailing" secondItem="UmR-J0-Dm1" secondAttribute="trailing" constant="29" id="stT-sT-7tb"/>
-                            <constraint firstItem="anR-EQ-mg5" firstAttribute="leading" secondItem="aXy-YE-pCg" secondAttribute="leading" constant="61" id="tGy-lg-9c0"/>
-                            <constraint firstAttribute="bottom" secondItem="n12-EJ-0YI" secondAttribute="bottom" constant="13" id="uPC-ZV-cIa"/>
+                            <constraint firstItem="yNt-dX-1Ne" firstAttribute="top" secondItem="anR-EQ-mg5" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="2Am-iR-F6A"/>
+                            <constraint firstItem="9Az-Zx-JZj" firstAttribute="centerX" secondItem="4qa-Oh-dUj" secondAttribute="centerX" type="default" id="2Dk-gq-7bc"/>
+                            <constraint firstItem="UmR-J0-Dm1" firstAttribute="trailing" secondItem="TMZ-P0-dYb" secondAttribute="trailing" type="default" id="30o-ao-U9S"/>
+                            <constraint firstAttribute="trailing" secondItem="TMZ-P0-dYb" secondAttribute="trailing" constant="28" id="64q-cj-4d1"/>
+                            <constraint firstItem="UmR-J0-Dm1" firstAttribute="leading" secondItem="TMZ-P0-dYb" secondAttribute="leading" type="default" id="81G-Lq-rTs"/>
+                            <constraint firstItem="9Az-Zx-JZj" firstAttribute="leading" secondItem="aXy-YE-pCg" secondAttribute="leading" constant="91" id="8fO-wa-Yil"/>
+                            <constraint firstItem="24F-5i-gRx" firstAttribute="centerX" secondItem="TMZ-P0-dYb" secondAttribute="centerX" type="default" id="CPw-Wp-qmK"/>
+                            <constraint firstItem="anR-EQ-mg5" firstAttribute="leading" secondItem="aXy-YE-pCg" secondAttribute="leading" constant="70" id="F7q-3i-XY9"/>
+                            <constraint firstItem="UmR-J0-Dm1" firstAttribute="bottom" secondItem="yNt-dX-1Ne" secondAttribute="bottom" type="default" id="HIW-5j-5Ho"/>
+                            <constraint firstAttribute="bottom" secondItem="UmR-J0-Dm1" secondAttribute="bottom" constant="25" id="HJE-qe-R0Q"/>
+                            <constraint firstItem="TMZ-P0-dYb" firstAttribute="bottom" secondItem="ePC-Rv-fko" secondAttribute="bottom" type="default" id="HUC-qB-PQf"/>
+                            <constraint firstItem="n12-EJ-0YI" firstAttribute="centerX" secondItem="yNt-dX-1Ne" secondAttribute="centerX" type="default" id="MiJ-bW-geW"/>
+                            <constraint firstItem="yNt-dX-1Ne" firstAttribute="leading" secondItem="aXy-YE-pCg" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="NNg-T9-W9A"/>
+                            <constraint firstItem="TMZ-P0-dYb" firstAttribute="top" secondItem="aXy-YE-pCg" secondAttribute="top" constant="158" id="TwY-Ed-80j"/>
+                            <constraint firstItem="TMZ-P0-dYb" firstAttribute="top" secondItem="9Az-Zx-JZj" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Ukg-iE-sj8"/>
+                            <constraint firstItem="9Az-Zx-JZj" firstAttribute="top" secondItem="aXy-YE-pCg" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Vme-mb-Cg0"/>
+                            <constraint firstAttribute="trailing" secondItem="9eR-W8-BXV" secondAttribute="trailing" constant="75" id="YNU-1j-fph"/>
+                            <constraint firstAttribute="bottom" secondItem="n12-EJ-0YI" secondAttribute="bottom" constant="2" id="d46-M0-d3d"/>
+                            <constraint firstItem="4qa-Oh-dUj" firstAttribute="top" secondItem="aXy-YE-pCg" secondAttribute="top" type="default" id="g1E-iI-R5P"/>
+                            <constraint firstItem="24F-5i-gRx" firstAttribute="baseline" secondItem="anR-EQ-mg5" secondAttribute="baseline" type="default" id="ghj-EE-m8Q"/>
+                            <constraint firstItem="ePC-Rv-fko" firstAttribute="top" secondItem="9Az-Zx-JZj" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="maM-IW-TVz"/>
+                            <constraint firstItem="anR-EQ-mg5" firstAttribute="leading" secondItem="n12-EJ-0YI" secondAttribute="leading" type="default" id="mky-V1-fmn"/>
+                            <constraint firstItem="n12-EJ-0YI" firstAttribute="top" secondItem="9eR-W8-BXV" secondAttribute="top" type="default" id="ocl-EG-Hv8"/>
+                            <constraint firstItem="ePC-Rv-fko" firstAttribute="leading" secondItem="aXy-YE-pCg" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="pv8-c0-XA8"/>
+                            <constraint firstItem="yNt-dX-1Ne" firstAttribute="trailing" secondItem="ePC-Rv-fko" secondAttribute="trailing" type="default" id="sk9-I7-g3u"/>
+                            <constraint firstItem="UmR-J0-Dm1" firstAttribute="top" secondItem="24F-5i-gRx" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="zMH-bl-IUY"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
@@ -760,91 +765,13 @@
             </objects>
         </scene>
     </scenes>
-    <classes>
-        <class className="DealerScreenViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DealerScreenViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="pageInfo"/>
-                <relationship kind="outlet" name="cardFour" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="cardOne" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="cardThree" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="cardTwo" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="mainCard" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="JoinScreenViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/JoinScreenViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="playersTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="LaunchScreenViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LaunchScreenViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="joinButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="LeaderboardViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LeaderboardViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="playerScoresTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="PlayerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="dealerCardImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="mainScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="swipeUpLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="RulesScreenViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RulesScreenViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="RulesTView" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="SettingsScreenViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsScreenViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="cardsPerHandTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="rulesTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="winningScoreTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="WelcomeScreenViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WelcomeScreenViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="usernameTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="WinningScreenViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WinningScreenViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="cardFour" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="cardFourLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="cardOne" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="cardOneLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="cardThree" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="cardThreeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="cardTwo" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="cardTwoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mainCard" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="2YG-pp-8rL"/>
+        <segue reference="0Va-bv-XhH"/>
         <segue reference="qJv-qg-aeS"/>
         <segue reference="Wi4-mv-yp3"/>
     </inferredMetricsTieBreakers>
