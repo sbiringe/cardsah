@@ -44,7 +44,6 @@
     
     UIImage *image = [UIImage imageNamed:imageName];
     mainCard.image = image;
-    int j = 0;
     
     for (int i = 0; i < userList.count-1; i++)
     {

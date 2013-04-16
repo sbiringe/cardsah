@@ -91,32 +91,57 @@
 	// Do any additional setup after loading the view.
     
     [outputStream setDelegate:self];
+    
+    cardOne.hidden = YES;
+    cardTwo.hidden = YES;
+    cardThree.hidden = YES;
+    cardFour.hidden = YES;
 
     // Big Card
-    NSString *imageName = [NSString stringWithFormat:@"image1.jpg"];
-    
+    NSString *imageName = [dCardImages objectAtIndex:curDIndex];
     UIImage *image = [UIImage imageNamed:imageName];
     mainCard.image = image;
     
-    // Card 1
-    imageName = [NSString stringWithFormat:@"image1.jpg"];
-    image = [UIImage imageNamed:imageName];
-    cardOne.image = image;
-    
-    // Card 2
-    imageName = [NSString stringWithFormat:@"image1.jpg"];
-    image = [UIImage imageNamed:imageName];
-    cardTwo.image = image;
-    
-    // Card 3
-    imageName = [NSString stringWithFormat:@"image1.jpg"];
-    image = [UIImage imageNamed:imageName];
-    cardThree.image = image;
-    
-    // Card 4
-    imageName = [NSString stringWithFormat:@"image1.jpg"];
-    image = [UIImage imageNamed:imageName];
-    cardFour.image = image;
+    for (int i = 0; i < userList.count-1; i++)
+    {
+        NSString *curUsername = [playedUsernames objectAtIndex:i];
+        if (youAreDealer && [curUsername isEqualToString:username])
+        {
+            continue;
+        }
+        if (i==0)
+        {
+            // Card 1
+            cardOne.hidden = NO;
+            imageName = [playedCards objectAtIndex:i];
+            image = [UIImage imageNamed:imageName];
+            cardOne.image = image;
+        }
+        if (i==1)
+        {
+            // Card 2
+            cardTwo.hidden = NO;
+            imageName = [playedCards objectAtIndex:i];
+            image = [UIImage imageNamed:imageName];
+            cardTwo.image = image;
+        }
+        if (i==2)
+        {
+            // Card 3
+            cardThree.hidden = NO;
+            imageName = [playedCards objectAtIndex:i];
+            image = [UIImage imageNamed:imageName];
+            cardThree.image = image;
+        }
+        if (i==3)
+        {
+            // Card 4
+            cardFour.hidden = NO;
+            imageName = [playedCards objectAtIndex:i];
+            image = [UIImage imageNamed:imageName];
+            cardFour.image = image;
+        }
+    }
 }
 
 
