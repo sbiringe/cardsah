@@ -11,7 +11,6 @@
 UIView *prevTouched;
 NSMutableArray *playedCards;
 NSMutableArray *playedUsernames;
-NSMutableArray *userCards;
 
 @interface PlayerViewController ()
 
@@ -59,36 +58,15 @@ NSMutableArray *userCards;
                                      cancelButtonTitle:nil
                                 destructiveButtonTitle:nil
                                      otherButtonTitles:nil];
+   
+    //NSString *dealerImageName = [NSString stringWithFormat:[dCardImages objectAtIndex:curDIndex]];
+    //NSLog(@"Player Card Array length is: %i",pCardImages.count);
+    //NSLog(@"Dealer Card Array length is: %i",dCardImages.count);
+    //NSLog(@"Dealer Card is: %@",[dCardImages objectAtIndex:curDIndex]);
     
-    pCardImages = [[NSMutableArray alloc] init];
-    dCardImages = [[NSMutableArray alloc] init];
     playedUsernames = [[NSMutableArray alloc] init];
     playedCards = [[NSMutableArray alloc] init];
-    curDIndex = 0;
-
-    for (int i = 0; i < userList.count; i++)
-    {
-        if ([[userList objectAtIndex:i] isEqualToString:username])
-        {
-            curPIndex = i*5;
-            break;
-        }
-    }
-    //Initialize 'pCardImages' array
-    for (int i = curPIndex; i <= 152; i++)
-    {
-        NSString *addPCard = [NSString stringWithFormat:@"PCard%i.png",i];
-        [pCardImages addObject:addPCard];
-    }
     
-    //Initialize 'dCardImages' array
-    for (int j = 1; j <= 56; j++)
-    {
-        NSString *addDCard = [NSString stringWithFormat:@"DCard%i.png",j];
-        [dCardImages addObject:addDCard];
-    }
-
-    NSLog(@"CurPIndex is: %i", curPIndex);
     UIImage *dealerImage = [UIImage imageNamed:[dCardImages objectAtIndex:curDIndex]];
     dealerCardImageView.image = dealerImage;
     

@@ -18,6 +18,7 @@ extern NSOutputStream *outputStream;
 extern NSString *ipAddress;
 extern NSString *winningCard;
 extern NSMutableArray *userList;
+extern NSMutableArray *userCards;
 
 
 @interface WelcomeScreenViewController : UIViewController <UITextFieldDelegate, NSStreamDelegate>

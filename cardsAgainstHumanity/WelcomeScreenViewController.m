@@ -15,6 +15,7 @@ NSOutputStream *outputStream;
 NSString *ipAddress;
 NSString *winningCard;
 NSMutableArray *userList;
+NSMutableArray *userCards;
 
 
 @interface WelcomeScreenViewController ()
@@ -42,6 +43,7 @@ NSMutableArray *userList;
     numToReceive = 0;
     
     userList = [[NSMutableArray alloc] init];
+    userCards = [[NSMutableArray alloc] init];
     
     usernameTextField.delegate = self;
 }

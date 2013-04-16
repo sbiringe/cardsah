@@ -10,6 +10,11 @@
 
 NSMutableDictionary *playerScores;
 bool youAreDealer;
+NSMutableArray *userList;
+NSMutableArray *pCardImages;
+NSMutableArray *dCardImages;
+unsigned int curDIndex;
+unsigned int curPIndex;
 
 @interface JoinScreenViewController ()
 
@@ -40,7 +45,8 @@ bool youAreDealer;
     numToReceive = 0;
     
     playerScores = [[NSMutableDictionary alloc] init];
-    userCards = [[NSMutableArray alloc] init];
+    pCardImages = [[NSMutableArray alloc] init];
+    dCardImages = [[NSMutableArray alloc] init];
     
     [inputStream setDelegate:self];
     [outputStream setDelegate:self];

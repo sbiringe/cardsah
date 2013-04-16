@@ -12,7 +12,10 @@
 extern NSMutableDictionary *playerScores;
 extern NSString *dealer;
 extern bool youAreDealer;
-extern NSMutableArray *userCards;
+extern NSMutableArray *pCardImages;
+extern NSMutableArray *dCardImages;
+extern unsigned int curDIndex;
+extern unsigned int curPIndex;
 
 
 @interface JoinScreenViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSStreamDelegate>
