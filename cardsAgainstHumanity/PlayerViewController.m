@@ -9,6 +9,8 @@
 #import "PlayerViewController.h"
 
 UIView *prevTouched;
+unsigned int curDIndex;
+unsigned int curPIndex;
 @interface PlayerViewController ()
 
 @end
@@ -39,10 +41,6 @@ UIView *prevTouched;
     [inputStream setDelegate:self];
     [outputStream setDelegate:self];
     
-    NSString *dealerImageName = [NSString stringWithFormat:@"DCard1.png"];
-    UIImage *dealerImage = [UIImage imageNamed:dealerImageName];
-    dealerCardImageView.image = dealerImage;
-    
     scoreUpdated = false;
     horizontalScroll = false;
     verticalScroll = false;
@@ -60,7 +58,39 @@ UIView *prevTouched;
                                 destructiveButtonTitle:nil
                                      otherButtonTitles:nil];
     
-    cardImages = [[NSMutableArray alloc] init];
+    pCardImages = [[NSMutableArray alloc] init];
+    dCardImages = [[NSMutableArray alloc] init];
+    usernames = [[NSMutableArray alloc] init];
+    userCards = [[NSMutableArray alloc] init];
+    curDIndex = 0;
+    for (int i = 0; i < userList.count; i++)
+    {
+        if ([[userList objectAtIndex:i] isEqualToString:username])
+        {
+            curPIndex = i*5;
+            break;
+        }
+    }
+    //Initialize 'pCardImages' array
+    for (int i = curPIndex; i <= 152; i++)
+    {
+        NSString *addPCard = [NSString stringWithFormat:@"PCard%i.png",i];
+        [pCardImages addObject:addPCard];
+    }
+    
+    //Initialize 'dCardImages' array
+    for (int j = 1; j <= 56; j++)
+    {
+        NSString *addDCard = [NSString stringWithFormat:@"DCard%i.png",j];
+        [dCardImages addObject:addDCard];
+    }
+    
+    //NSString *dealerImageName = [NSString stringWithFormat:[dCardImages objectAtIndex:curDIndex]];
+    //NSLog(@"Player Card Array length is: %i",pCardImages.count);
+    //NSLog(@"Dealer Card Array length is: %i",dCardImages.count);
+    //NSLog(@"Dealer Card is: %@",[dCardImages objectAtIndex:curDIndex]);
+    UIImage *dealerImage = [UIImage imageNamed:[dCardImages objectAtIndex:curDIndex]];
+    dealerCardImageView.image = dealerImage;
     
     [self setupHorizontalScrollView];
     
@@ -241,20 +271,19 @@ UIView *prevTouched;
     mainScrollView.scrollEnabled = YES;
     mainScrollView.pagingEnabled = YES;
     
-    for(int i = 0; i < 5; i++)
+    CGFloat cx = 0;
+    
+    for(int i = curPIndex; i < (curPIndex+5); i++)
     {
-        NSString *imageName = [NSString stringWithFormat:@"PCard%i.png",i+1];
+        //NSString *imageName = [NSString stringWithFormat:@"PCard%i.png",i+1];
+        
+        NSString *imageName = [pCardImages objectAtIndex:curPIndex];
         UIImage *image = [UIImage imageNamed:imageName];
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-
-        [cardImages addObject:imageView];
-    }
-    
-    
-    CGFloat cx = 0;
-    for (int i = 0;i<5;i++)
-    {
-        UIImageView *imageView = [cardImages objectAtIndex:i];
+        [userCards addObject:imageName];
+        
+        //[pCardImages addObject:imageView];
+        //UIImageView *imageView = [pCardImages objectAtIndex:i];
         /*
         imageView.userInteractionEnabled = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTapped:)];
@@ -281,6 +310,7 @@ UIView *prevTouched;
         [mainScrollView addSubview:imageView];
         
         cx += imageView.frame.size.width+70;
+        //curPIndex++;
     }
     [mainScrollView setContentSize:CGSizeMake(cx, height * 2)];
 }
@@ -315,6 +345,9 @@ UIView *prevTouched;
         CGFloat pageWidth = scrollView.frame.size.width;
         int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
         
+        //Remove card from user's hand and deck
+        [pCardImages removeObject:[userCards objectAtIndex:page]];
+        [userCards removeObjectAtIndex:page];
         
         [usernames addObject:username];
         [userCards addObject:@"ImageName"];

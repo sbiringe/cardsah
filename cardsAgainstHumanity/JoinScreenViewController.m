@@ -10,6 +10,7 @@
 
 NSMutableDictionary *playerScores;
 bool youAreDealer;
+NSMutableArray *userList;
 
 @interface JoinScreenViewController ()
 
@@ -17,7 +18,7 @@ bool youAreDealer;
 
 @implementation JoinScreenViewController
 
-@synthesize playersTableView, userList;
+@synthesize playersTableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
