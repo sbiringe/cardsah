@@ -124,7 +124,15 @@ unsigned int curPIndex;
                 
                 NSLog(@"%i", randomSeed);
                 
-                [data getBytes: &youAreDealer length: sizeof(youAreDealer)];
+                NSMutableData *dataBool = [[NSMutableData alloc] initWithCapacity:20];
+                
+                uint8_t bufBool[1024];
+                range = NSMakeRange(4, len);
+                [data getBytes:bufBool range:range];
+                [dataBool appendBytes:(const void *)bufBool length:len];
+                
+                
+                [dataBool getBytes: &youAreDealer length: sizeof(youAreDealer)];
                 
                 [self initAndShuffleDecks];
                 
