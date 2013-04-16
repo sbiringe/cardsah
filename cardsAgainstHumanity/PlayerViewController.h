@@ -14,9 +14,6 @@ extern UIView *prevTouched;
 
 @interface PlayerViewController : UIViewController <NSStreamDelegate, UIScrollViewAccessibilityDelegate, UIScrollViewDelegate>
 {
-    NSMutableArray *usernames;
-    NSMutableArray *userCards;
-    
     int curXOffset;
     
     bool intReceived;

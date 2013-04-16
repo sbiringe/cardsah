@@ -55,10 +55,7 @@ UIView *prevTouched;
                                      cancelButtonTitle:nil
                                 destructiveButtonTitle:nil
                                      otherButtonTitles:nil];
-    
-    usernames = [[NSMutableArray alloc] init];
-    userCards = [[NSMutableArray alloc] init];
-           
+   
     //NSString *dealerImageName = [NSString stringWithFormat:[dCardImages objectAtIndex:curDIndex]];
     //NSLog(@"Player Card Array length is: %i",pCardImages.count);
     //NSLog(@"Dealer Card Array length is: %i",dCardImages.count);
