@@ -188,6 +188,22 @@ UIView *prevTouched;
                 winnerSelected = false;
                 [winningCard setString:submittedUser];
                 //winningCard = submittedUser;
+                
+                int winningIndex = 0;
+                
+                for(int i = 0; i < playedCards.count; i++)
+                {
+                    if([winningCard isEqualToString:[playedCards objectAtIndex:i]])
+                    {
+                        winningIndex = i;
+                        break;
+                    }
+                }
+                
+                NSString *winningUser = [playedUsernames objectAtIndex:winningIndex];
+                
+                int newScore = [[playerScores objectForKey:winningUser] intValue] + 1;
+                [playerScores setObject:[NSNumber numberWithInt:newScore] forKey:winningUser];
                
                 if(!youAreDealer)
                 {
