@@ -34,6 +34,7 @@ unsigned int curPIndex;
     
     intReceived = false;
     usernameReceived = false;
+    winnerSelected = false;
     numReceived = 0;
     numToReceive = 0;
     
@@ -131,7 +132,12 @@ unsigned int curPIndex;
                     if(numToReceive == 50)
                     {
                         [self performSegueWithIdentifier:@"submittedCards" sender:nil];
+                        intReceived = false;
                         return;
+                    }
+                    else if(numToReceive == 51)
+                    {
+                        winnerSelected = true;
                     }
                     
                     range = NSMakeRange(4, len);
@@ -147,7 +153,10 @@ unsigned int curPIndex;
             }
             
             if(len <= 0)
+            {
+                intReceived = false;
                 return;
+            }
             
             NSMutableString *temp = [[NSMutableString alloc] init];
             //len = [(NSInputStream *)stream read:buf maxLength:1024];
@@ -192,6 +201,16 @@ unsigned int curPIndex;
                 numReceived++;
             }
             
+            if(winnerSelected)
+            {
+                winnerSelected = false;
+                winningCard = submittedUser;
+               
+                [self performSegueWithIdentifier:@"winningScreen" sender:nil];
+                
+                intReceived = false;
+                return;
+            }
             
             if(numReceived == numToReceive)
             {

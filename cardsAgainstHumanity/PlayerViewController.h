@@ -26,6 +26,7 @@ extern unsigned int curPIndex;
     
     bool intReceived;
     bool usernameReceived;
+    bool winnerSelected;
     
     int numReceived;
     int numToReceive;

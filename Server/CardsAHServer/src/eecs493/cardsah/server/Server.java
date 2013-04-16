@@ -1,8 +1,13 @@
 package eecs493.cardsah.server;
-import java.io.*;
-import java.net.*;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.ArrayList;
-import java.util.Random;
 
 class Player {//extends Thread{
     public String name;
@@ -39,7 +44,7 @@ class admin implements Runnable{
             s=ss.accept();
             if(s!=null)
                 s.close();
-            System.out.println("admin");
+            System.out.println("Someone pressed start");
             Server srvr=new Server();
             srvr.setStart();
             s=new Socket(InetAddress.getLocalHost().getHostAddress(), 1024);
@@ -57,9 +62,12 @@ public class Server {
     static int curPlayer=0, score, row, col, lettersused;
     static boolean vertical;
     static String word;
+    static int numPlayersPlayed;
+    static boolean waitingForPlayers;
    
     static void getConnections(){
         start=false;
+        waitingForPlayers = false;
         admin a=new admin();
         Thread t=new Thread(a);
         t.start();
@@ -100,6 +108,11 @@ public class Server {
     void setStart(){
         start=true;
     }
+    
+    static void stopWaitingForPlayers()
+    {
+    	waitingForPlayers = false;
+    }
        
     static void sendStarting(){
         int i=0;
@@ -117,50 +130,97 @@ public class Server {
    
     static void gameplay(){
         try {
-            Random rand=new Random();
-            int seed=rand.nextInt();
-            for(int i=0; i<players.size(); i++){
-                players.get(i).out.writeInt(seed);
-                players.get(i).out.flush();
-            }
-            while(true){
-                for(int i=0; i<players.size(); i++){
-                    if(i==curPlayer)
-                        players.get(i).out.writeBoolean(true);
-                    else
-                        players.get(i).out.writeBoolean(false);
-                    players.get(i).out.flush();
-                }
-                if(getMove())
-                    sendMove();
-                else
-                    sendForfeit();
-                updateCurPlayer();
-            }
+        	while(true)
+        	{
+	        	numPlayersPlayed = 0;
+	            for(int i=0; i<players.size(); i++){
+	                if(i==curPlayer)
+	                    players.get(i).out.writeBoolean(true);
+	                	//Possibly write dealer's card here
+	                else
+	                    players.get(i).out.writeBoolean(false);
+	                players.get(i).out.flush();
+	            }
+	            //Create threads listening for each player's selection
+	            for(int i=0; i<players.size(); i++){
+	            	if(i != curPlayer)
+	            	{
+		            	PlayersTurn pt = new PlayersTurn(players.get(i).in, 
+		            										players.get(i).name);
+		            	Thread t = new Thread(pt);
+		            	t.start();
+	            	}
+	            }
+	            waitingForPlayers = true;
+        	
+	            while(waitingForPlayers){}
+        	}
         }catch(IOException e){}
     }
    
-    static boolean getMove() throws IOException{
-        DataInputStream in=players.get(curPlayer).in;
-        row=in.readInt();
-        System.out.println("\nr:"+row);
-        if(row==-1){
-            forfeit=curPlayer;
-            players.remove(curPlayer);
-            curPlayer--;
-            return false;
-        }
-        col=in.readInt();
-        System.out.println("c:"+col);
-        vertical=in.readBoolean();
-        System.out.println("v:"+vertical);
-        word=getString(in);
-        System.out.println("w:"+word);
-        score=in.readInt();
-        System.out.println("s:"+score);
-        lettersused=in.readInt();
-        System.out.println("l:"+lettersused);
-        return true;
+    static void writeWinner(String file)
+    {
+    	try{
+	    	for( int n = 0; n < players.size(); n++)
+	    	{
+	    		players.get(n).out.writeInt(51);
+	    		players.get(n).out.writeBytes(file + '\0');
+	    		players.get(n).out.flush();
+	    	}
+    	}
+    	catch(IOException e){}
+    }
+    
+    public static synchronized void choiceMade(String user, String file)
+    {
+    	int index = getUserIndex(user);
+    	
+    	if( index != -1)
+    	{
+    		System.out.println(user + " played " + file);
+    		numPlayersPlayed++;
+    		try
+    		{
+    			//Tell all other players what card was played
+	    		for(int n = 0; n < players.size(); n++)
+	    		{
+	    			if( index != n)
+	    			{
+	    				players.get(n).out.writeInt(2);
+	    				players.get(n).out.writeBytes(user + '\0' + file + '\0');
+	    				players.get(n).out.flush();
+	    			}
+	    		}
+	    		
+	    		if( numPlayersPlayed >= players.size() - 1)
+	        	{
+	        		System.out.println("All players played!");
+	        		//tell dealer it is his turn to select winner
+	        		players.get(curPlayer).out.writeInt(50);
+	        		players.get(curPlayer).out.flush();
+	        		String winnerFile = Server.getString(players.get(curPlayer).in);
+	        		writeWinner(winnerFile);
+	        		updateCurPlayer();
+	        		stopWaitingForPlayers();
+	        	}
+	    		
+    		}
+    		catch(IOException e){ System.out.println("choice made: " + e);}
+    	}
+    	else
+    	{
+    		System.out.println("Couldn't find user, card choice not accepted");
+    	}
+    }
+    
+    static int getUserIndex(String user)
+    {
+    	for( int n=0; n < players.size(); n++)
+    	{
+    		if( players.get(n).name.equals(user) )
+    			return n;
+    	}
+    	return -1; 
     }
    
     public static String getString(DataInputStream in){
@@ -175,20 +235,6 @@ public class Server {
             result = in.readUTF();
         }catch(Exception e){System.out.println("GetString "+e);}
         return result;
-    }
-   
-    static void sendMove() throws IOException{
-        DataOutputStream out;
-        for(int i=0; i<players.size(); i++){
-            out=players.get(i).out;
-            out.writeInt(row);
-            out.writeInt(col);
-            out.writeBoolean(vertical);
-            out.writeChars(word+'\0');
-            out.writeInt(score);
-            out.writeInt(lettersused);
-            out.flush();
-        }
     }
    
     static void sendForfeit() throws IOException{

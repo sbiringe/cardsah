@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WelcomeScreenViewController.h"
 
-@interface DealerScreenViewController : UIViewController <UIActionSheetDelegate, UIAlertViewDelegate>
+@interface DealerScreenViewController : UIViewController <UIActionSheetDelegate, UIAlertViewDelegate, NSStreamDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *mainCard;
 

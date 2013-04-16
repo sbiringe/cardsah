@@ -221,6 +221,7 @@
 		F839A8D91708FB2500E42B6E /* JoinScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F839A8D81708FB2500E42B6E /* JoinScreenViewController.m */; };
 		F839A8DC170903D400E42B6E /* WelcomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F839A8DB170903D400E42B6E /* WelcomeScreenViewController.m */; };
 		F839A8DF1709064200E42B6E /* SettingsScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F839A8DE1709064200E42B6E /* SettingsScreenViewController.m */; };
+		F86365E6171A0C99006CB0BE /* WinningScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F86365E5171A0C98006CB0BE /* WinningScreenViewController.m */; };
 		F893B34E171219480061835A /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F893B34D171219480061835A /* PlayerViewController.m */; };
 		F893B35217121E430061835A /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F893B35117121E430061835A /* image1.jpg */; };
 		F893B355171224250061835A /* LeaderboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F893B354171224250061835A /* LeaderboardViewController.m */; };
@@ -476,6 +477,8 @@
 		F839A8DB170903D400E42B6E /* WelcomeScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeScreenViewController.m; sourceTree = "<group>"; };
 		F839A8DD1709064200E42B6E /* SettingsScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsScreenViewController.h; sourceTree = "<group>"; };
 		F839A8DE1709064200E42B6E /* SettingsScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsScreenViewController.m; sourceTree = "<group>"; };
+		F86365E4171A0C98006CB0BE /* WinningScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinningScreenViewController.h; sourceTree = "<group>"; };
+		F86365E5171A0C98006CB0BE /* WinningScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinningScreenViewController.m; sourceTree = "<group>"; };
 		F893B34C171219480061835A /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
 		F893B34D171219480061835A /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		F893B35117121E430061835A /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpg; sourceTree = "<group>"; };
@@ -783,6 +786,8 @@
 		F8C272571704F1C900FC5D09 /* cardsAgainstHumanity */ = {
 			isa = PBXGroup;
 			children = (
+				F86365E4171A0C98006CB0BE /* WinningScreenViewController.h */,
+				F86365E5171A0C98006CB0BE /* WinningScreenViewController.m */,
 				F893B353171224250061835A /* LeaderboardViewController.h */,
 				F893B354171224250061835A /* LeaderboardViewController.m */,
 				F893B35117121E430061835A /* image1.jpg */,
@@ -1181,6 +1186,7 @@
 				F893B34E171219480061835A /* PlayerViewController.m in Sources */,
 				F893B355171224250061835A /* LeaderboardViewController.m in Sources */,
 				C29AE8101716968900ED40CC /* DealerScreenViewController.m in Sources */,
+				F86365E6171A0C99006CB0BE /* WinningScreenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

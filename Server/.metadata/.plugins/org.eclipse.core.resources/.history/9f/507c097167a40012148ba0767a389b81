@@ -1,0 +1,32 @@
+package eecs493.cardsah.server;
+
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.net.Socket;
+
+public class PlayersTurn implements Runnable
+{
+	DataInputStream in;
+	String user;
+	
+	PlayersTurn(Socket s, String user)
+	{
+		try{
+		in = new DataInputStream (new BufferedInputStream(s.getInputStream()));
+		this.user = user;
+		}
+		catch(IOException e){}
+	}
+	
+	@Override
+	public void run() {
+		String file = "";
+		try{
+            file = in.readUTF();
+        }catch(Exception e){System.out.println("PlayersTurn thread "+e);}
+		
+        Server.choiceMade(user, file);
+	}
+	
+}

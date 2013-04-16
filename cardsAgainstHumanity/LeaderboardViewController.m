@@ -53,7 +53,7 @@
     
     NSString *cellValue = [sorted objectAtIndex:indexPath.row];
     cell.textLabel.text = cellValue;
-    cell.detailTextLabel.text = [playerScores objectForKey:cellValue];
+    cell.detailTextLabel.text = [[playerScores objectForKey:cellValue] stringValue];
     
     return cell;
 }
