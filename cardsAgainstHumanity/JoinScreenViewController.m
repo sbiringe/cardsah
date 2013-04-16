@@ -34,7 +34,9 @@ bool youAreDealer;
     
     intReceived = false;
     getTurnBool = false;
+    randomSeedReceived = false;
     numReceived = 0;
+    randomSeed = 0;
     numToReceive = 0;
     
     playerScores = [[NSMutableDictionary alloc] init];
@@ -101,11 +103,25 @@ bool youAreDealer;
             [data appendBytes:(const void *)buf length:len];
             
             NSRange range;
+        
+            if(!randomSeedReceived)
+            {
+                randomSeedReceived = true;
+                int i;
+                
+                [data getBytes: &i length: sizeof(i)];
+                
+                randomSeed = ntohl(i);
+                NSLog(@"%i", randomSeed);
+                return;
+            }
             
             if(getTurnBool)
             {
                 [data getBytes: &youAreDealer length: sizeof(youAreDealer)];
-
+                
+                [self initAndShuffleDecks];
+                
                 [self performSegueWithIdentifier:@"beginGame" sender:nil];
                 return;
             }
@@ -189,6 +205,69 @@ bool youAreDealer;
             
             break;
         }
+    }
+}
+
+-(void)initAndShuffleDecks
+{
+    curDIndex = 0;
+    for (int i = 0; i < userList.count; i++)
+    {
+        if ([[userList objectAtIndex:i] isEqualToString:username])
+        {
+            curPIndex = i*5;
+            break;
+        }
+    }
+    
+    //Initialize 'pCardImages' array
+    for (int i = 1; i <= 152; i++)
+    {
+        NSString *addPCard = [NSString stringWithFormat:@"PCard%i.png",i];
+        [pCardImages addObject:addPCard];
+    }
+    
+    //Initialize 'dCardImages' array
+    for (int j = 1; j <= 56; j++)
+    {
+        NSString *addDCard = [NSString stringWithFormat:@"DCard%i.png",j];
+        [dCardImages addObject:addDCard];
+    }
+    
+    srand(randomSeed);
+    
+    for(int i = 0; i < 500; ++i)
+    {
+        int rand1 = rand() % [pCardImages count];
+        int rand2 = rand() % [pCardImages count];
+        
+        while(rand1 == rand2)
+        {
+            rand1 = rand() % [pCardImages count];
+            rand2 = rand() % [pCardImages count];
+        }
+        
+        NSString *temp = [pCardImages objectAtIndex:rand1];
+        
+        [pCardImages setObject:[pCardImages objectAtIndex:rand2] atIndexedSubscript:rand1];
+        [pCardImages setObject:temp atIndexedSubscript:rand2];
+    }
+
+    for(int i = 0; i < 500; ++i)
+    {
+        int rand1 = rand() % [dCardImages count];
+        int rand2 = rand() % [dCardImages count];
+        
+        while(rand1 == rand2)
+        {
+            rand1 = rand() % [dCardImages count];
+            rand2 = rand() % [dCardImages count];
+        }
+        
+        NSString *temp = [dCardImages objectAtIndex:rand1];
+        
+        [dCardImages setObject:[dCardImages objectAtIndex:rand2] atIndexedSubscript:rand1];
+        [dCardImages setObject:temp atIndexedSubscript:rand2];
     }
 }
 

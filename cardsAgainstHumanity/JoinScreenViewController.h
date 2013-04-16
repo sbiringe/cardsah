@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "WelcomeScreenViewController.h"
-#import "PlayerViewController.h"
 
 extern NSMutableDictionary *playerScores;
 extern NSString *dealer;
@@ -19,8 +18,10 @@ extern NSMutableArray *userCards;
 @interface JoinScreenViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSStreamDelegate>
 {
     bool getTurnBool;
+    bool randomSeedReceived;
     bool intReceived;
     int numToReceive;
+    int randomSeed;
     int numReceived;
 }
 

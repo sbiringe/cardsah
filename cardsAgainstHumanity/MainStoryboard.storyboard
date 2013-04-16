@@ -674,7 +674,7 @@
                             <constraint firstItem="UmR-J0-Dm1" firstAttribute="top" secondItem="24F-5i-gRx" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="zMH-bl-IUY"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="cardFour" destination="UmR-J0-Dm1" id="WwG-RL-zyQ"/>
                         <outlet property="cardOne" destination="ePC-Rv-fko" id="M1n-Oc-muc"/>
