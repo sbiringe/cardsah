@@ -9,8 +9,6 @@
 #import "PlayerViewController.h"
 
 UIView *prevTouched;
-unsigned int curDIndex;
-unsigned int curPIndex;
 @interface PlayerViewController ()
 
 @end
@@ -58,37 +56,14 @@ unsigned int curPIndex;
                                 destructiveButtonTitle:nil
                                      otherButtonTitles:nil];
     
-    pCardImages = [[NSMutableArray alloc] init];
-    dCardImages = [[NSMutableArray alloc] init];
     usernames = [[NSMutableArray alloc] init];
     userCards = [[NSMutableArray alloc] init];
-    curDIndex = 0;
-    for (int i = 0; i < userList.count; i++)
-    {
-        if ([[userList objectAtIndex:i] isEqualToString:username])
-        {
-            curPIndex = i*5;
-            break;
-        }
-    }
-    //Initialize 'pCardImages' array
-    for (int i = curPIndex; i <= 152; i++)
-    {
-        NSString *addPCard = [NSString stringWithFormat:@"PCard%i.png",i];
-        [pCardImages addObject:addPCard];
-    }
-    
-    //Initialize 'dCardImages' array
-    for (int j = 1; j <= 56; j++)
-    {
-        NSString *addDCard = [NSString stringWithFormat:@"DCard%i.png",j];
-        [dCardImages addObject:addDCard];
-    }
-    
+           
     //NSString *dealerImageName = [NSString stringWithFormat:[dCardImages objectAtIndex:curDIndex]];
     //NSLog(@"Player Card Array length is: %i",pCardImages.count);
     //NSLog(@"Dealer Card Array length is: %i",dCardImages.count);
     //NSLog(@"Dealer Card is: %@",[dCardImages objectAtIndex:curDIndex]);
+    
     UIImage *dealerImage = [UIImage imageNamed:[dCardImages objectAtIndex:curDIndex]];
     dealerCardImageView.image = dealerImage;
     

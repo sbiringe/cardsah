@@ -8,18 +8,23 @@
 
 #import <UIKit/UIKit.h>
 #import "WelcomeScreenViewController.h"
-#import "PlayerViewController.h"
 
 extern NSMutableDictionary *playerScores;
 extern NSString *dealer;
 extern bool youAreDealer;
 extern NSMutableArray *userList;
+extern NSMutableArray *pCardImages;
+extern NSMutableArray *dCardImages;
+extern unsigned int curDIndex;
+extern unsigned int curPIndex;
 
 @interface JoinScreenViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSStreamDelegate>
 {
     bool getTurnBool;
+    bool randomSeedReceived;
     bool intReceived;
     int numToReceive;
+    int randomSeed;
     int numReceived;
 }
 
