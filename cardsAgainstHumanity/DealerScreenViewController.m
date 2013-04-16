@@ -15,6 +15,7 @@
 @synthesize cardTwo;
 @synthesize cardThree;
 @synthesize cardFour;
+@synthesize Card1Button, Card2Button, Card3Button, Card4Button;
 @synthesize playerScreen;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -57,12 +58,28 @@
     [alert show];
     
 }
+- (IBAction)Button1Press:(id)sender {
+    [winningCard setString:[playedCards objectAtIndex:0]];
+}
+
+- (IBAction)Button2Press:(id)sender {
+    [winningCard setString:[playedCards objectAtIndex:1]];
+}
+
+- (IBAction)Button3Press:(id)sender {
+    [winningCard setString:[playedCards objectAtIndex:2]];
+}
+
+- (IBAction)Button4Press:(id)sender {
+    [winningCard setString:[playedCards objectAtIndex:3]];
+}
+
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex == 1)
     {
-        NSString *msg = [NSString stringWithFormat:@"%@", @"imageFileName"];
+        NSString *msg = [NSString stringWithFormat:@"%@", winningCard];
         NSData *data = [self convertToJavaUTF8:msg];
         [outputStream write:(const uint8_t *)[data bytes] maxLength:[data length]];
         goBackToPlayerView = true;
@@ -105,11 +122,15 @@
     goBackToPlayerView = false;
 
     [outputStream setDelegate:self];
-    
+
     cardOne.hidden = YES;
+    Card1Button.hidden = YES;
     cardTwo.hidden = YES;
+    Card2Button.hidden = YES;
     cardThree.hidden = YES;
+    Card3Button.hidden = YES;
     cardFour.hidden = YES;
+    Card4Button.hidden = YES;
 
     // Big Card
     NSString *imageName = [dCardImages objectAtIndex:curDIndex];
@@ -127,6 +148,7 @@
         {
             // Card 1
             cardOne.hidden = NO;
+            Card1Button.hidden = NO;
             imageName = [playedCards objectAtIndex:i];
             image = [UIImage imageNamed:imageName];
             cardOne.image = image;
@@ -135,6 +157,7 @@
         {
             // Card 2
             cardTwo.hidden = NO;
+            Card2Button.hidden = NO;
             imageName = [playedCards objectAtIndex:i];
             image = [UIImage imageNamed:imageName];
             cardTwo.image = image;
@@ -143,6 +166,7 @@
         {
             // Card 3
             cardThree.hidden = NO;
+            Card3Button.hidden = NO;
             imageName = [playedCards objectAtIndex:i];
             image = [UIImage imageNamed:imageName];
             cardThree.image = image;
@@ -151,6 +175,7 @@
         {
             // Card 4
             cardFour.hidden = NO;
+            Card4Button.hidden = NO;
             imageName = [playedCards objectAtIndex:i];
             image = [UIImage imageNamed:imageName];
             cardFour.image = image;

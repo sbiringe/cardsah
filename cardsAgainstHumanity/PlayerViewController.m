@@ -186,7 +186,8 @@ UIView *prevTouched;
             if(winnerSelected)
             {
                 winnerSelected = false;
-                winningCard = submittedUser;
+                [winningCard setString:submittedUser];
+                //winningCard = submittedUser;
                
                 if(!youAreDealer)
                 {

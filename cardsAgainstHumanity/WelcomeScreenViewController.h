@@ -16,7 +16,7 @@ extern NSString *username;
 extern NSInputStream *inputStream;
 extern NSOutputStream *outputStream;
 extern NSString *ipAddress;
-extern NSString *winningCard;
+extern NSMutableString *winningCard;
 extern NSMutableArray *userList;
 extern NSMutableArray *userCards;
 

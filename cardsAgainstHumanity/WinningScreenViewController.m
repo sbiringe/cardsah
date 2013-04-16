@@ -7,6 +7,7 @@
 //
 
 #import "WinningScreenViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface WinningScreenViewController ()
 
@@ -39,7 +40,7 @@
     cardFourLabel.hidden = YES;
     
     // Big Card
-    NSString *imageName = [NSString stringWithFormat:@"DCard1.jpg"];
+    NSString *imageName = [dCardImages objectAtIndex:curDIndex];
     
     UIImage *image = [UIImage imageNamed:imageName];
     mainCard.image = image;
@@ -60,6 +61,12 @@
             imageName = [playedCards objectAtIndex:i];
             image = [UIImage imageNamed:imageName];
             cardOne.image = image;
+            if ([imageName isEqualToString:winningCard])
+            {
+                [cardOne.layer setBorderColor: [[UIColor blueColor] CGColor]];
+                [cardOne.layer setBorderWidth: 5.0];
+                cardOneLabel.textColor = [UIColor blueColor];
+            }
         }
         if (i==1)
         {
@@ -70,6 +77,12 @@
             imageName = [playedCards objectAtIndex:i];
             image = [UIImage imageNamed:imageName];
             cardTwo.image = image;
+            if ([imageName isEqualToString:winningCard])
+            {
+                [cardTwo.layer setBorderColor: [[UIColor blueColor] CGColor]];
+                [cardTwo.layer setBorderWidth: 5.0];
+                cardTwoLabel.textColor = [UIColor blueColor];
+            }
         }
         if (i==2)
         {
@@ -80,6 +93,12 @@
             imageName = [playedCards objectAtIndex:i];
             image = [UIImage imageNamed:imageName];
             cardThree.image = image;
+            if ([imageName isEqualToString:winningCard])
+            {
+                [cardThree.layer setBorderColor: [[UIColor blueColor] CGColor]];
+                [cardThree.layer setBorderWidth: 5.0];
+                cardThreeLabel.textColor = [UIColor blueColor];
+            }
         }
         if (i==3)
         {
@@ -90,6 +109,12 @@
             imageName = [playedCards objectAtIndex:i];
             image = [UIImage imageNamed:imageName];
             cardFour.image = image;
+            if ([imageName isEqualToString:winningCard])
+            {
+                [cardFour.layer setBorderColor: [[UIColor blueColor] CGColor]];
+                [cardFour.layer setBorderWidth: 5.0];
+                cardFourLabel.textColor = [UIColor blueColor];
+            }
         }
     }
 }

@@ -13,7 +13,7 @@ NSString *username;
 NSInputStream *inputStream;
 NSOutputStream *outputStream;
 NSString *ipAddress;
-NSString *winningCard;
+NSMutableString *winningCard;
 NSMutableArray *userList;
 NSMutableArray *userCards;
 
@@ -44,6 +44,7 @@ NSMutableArray *userCards;
     
     userList = [[NSMutableArray alloc] init];
     userCards = [[NSMutableArray alloc] init];
+    winningCard = [[NSMutableString alloc] init];
     
     usernameTextField.delegate = self;
 }
