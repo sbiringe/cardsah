@@ -12,7 +12,6 @@
 extern NSMutableDictionary *playerScores;
 extern NSString *dealer;
 extern bool youAreDealer;
-extern NSMutableArray *userList;
 extern NSMutableArray *pCardImages;
 extern NSMutableArray *dCardImages;
 extern unsigned int curDIndex;
