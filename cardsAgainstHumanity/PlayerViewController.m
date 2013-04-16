@@ -37,9 +37,6 @@ UIView *prevTouched;
     numReceived = 0;
     numToReceive = 0;
     
-    [inputStream setDelegate:self];
-    [outputStream setDelegate:self];
-    
     scoreUpdated = false;
     horizontalScroll = false;
     verticalScroll = false;
@@ -72,6 +69,9 @@ UIView *prevTouched;
 - (void)viewDidAppear:(BOOL)animated
 {
     mainScrollView.scrollEnabled = TRUE;
+    
+    [inputStream setDelegate:self];
+    [outputStream setDelegate:self];
 
     if (youAreDealer)
     {
