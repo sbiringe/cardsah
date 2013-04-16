@@ -119,7 +119,6 @@ NSMutableArray *userCards;
             if(len <= 0)
                 return;
 
-            NSMutableString *temp = [[NSMutableString alloc] init];
             //len = [(NSInputStream *)stream read:buf maxLength:1024];
             
             NSMutableData *data1 = [[NSMutableData alloc] initWithCapacity:20];

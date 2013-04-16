@@ -28,7 +28,7 @@
 {
     [super viewDidLoad];
 	
-    [outputStream setDelegate:self];
+    //[outputStream setDelegate:self];
     
     // Big Card
     NSString *imageName = [NSString stringWithFormat:@"image1.jpg"];
