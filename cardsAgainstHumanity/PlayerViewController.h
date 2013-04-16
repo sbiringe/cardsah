@@ -21,7 +21,6 @@ extern unsigned int curPIndex;
     NSMutableArray *usernames;
     NSMutableArray *userCards;
     
-    
     int curXOffset;
     
     bool intReceived;
