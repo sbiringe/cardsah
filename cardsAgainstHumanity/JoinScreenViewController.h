@@ -26,6 +26,7 @@ extern unsigned int curPIndex;
     int numToReceive;
     int randomSeed;
     int numReceived;
+    NSMutableString *tempUser;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *playersTableView;

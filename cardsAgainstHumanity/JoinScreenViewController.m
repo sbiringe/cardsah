@@ -44,6 +44,8 @@ unsigned int curPIndex;
     randomSeed = 0;
     numToReceive = 0;
     
+    tempUser = [[NSMutableString alloc] init];
+    
     playerScores = [[NSMutableDictionary alloc] init];
     pCardImages = [[NSMutableArray alloc] init];
     dCardImages = [[NSMutableArray alloc] init];
@@ -109,21 +111,18 @@ unsigned int curPIndex;
             [data appendBytes:(const void *)buf length:len];
             
             NSRange range;
-        
-            if(!randomSeedReceived)
-            {
-                randomSeedReceived = true;
-                int i;
-                
-                [data getBytes: &i length: sizeof(i)];
-                
-                randomSeed = ntohl(i);
-                NSLog(@"%i", randomSeed);
-                return;
-            }
             
             if(getTurnBool)
             {
+                int i;
+                
+                len -= 4;
+                [data getBytes: &i length: sizeof(i)];
+                
+                randomSeed = ntohl(i);
+                
+                NSLog(@"%i", randomSeed);
+                
                 [data getBytes: &youAreDealer length: sizeof(youAreDealer)];
                 
                 [self initAndShuffleDecks];
@@ -185,20 +184,24 @@ unsigned int curPIndex;
             
             while(len > 0)
             {
-                NSMutableString *temp = [[NSMutableString alloc] init];
-                
                 while([user characterAtIndex:index])
                 {
-                    [temp appendString:[NSString stringWithFormat: @"%C",[user characterAtIndex:index]]];
+                    [tempUser appendString:[NSString stringWithFormat: @"%C",[user characterAtIndex:index]]];
                     index++;
+                    len--;
+                    if(len == 0)
+                        return;
                 }
                 
                 index++;
                 len -= index;
                 
-                NSLog(@"%@", temp);
-                [userList addObject:temp];
-                [playerScores setObject:[NSNumber numberWithInt:0] forKey:temp];
+                NSLog(@"%@", tempUser);
+                [userList addObject:tempUser];
+                
+                tempUser = [[NSMutableString alloc] init];
+                
+                [playerScores setObject:[NSNumber numberWithInt:0] forKey:tempUser];
                 numReceived++;
             }
             
