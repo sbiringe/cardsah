@@ -46,7 +46,7 @@
     mainCard.image = image;
     int j = 0;
     
-    for (int i = 0; i < userList.count; i++)
+    for (int i = 0; i < userList.count-1; i++)
     {
         NSString *curUsername = [playedUsernames objectAtIndex:i];
         if (youAreDealer && [curUsername isEqualToString:username])
