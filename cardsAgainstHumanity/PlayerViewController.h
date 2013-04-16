@@ -11,16 +11,12 @@
 #import "WelcomeScreenViewController.h"
 
 extern UIView *prevTouched;
-extern unsigned int curDIndex;
-extern unsigned int curPIndex;
 extern NSMutableArray *playedUsernames;
 extern NSMutableArray *playedCards;
 
 
 @interface PlayerViewController : UIViewController <NSStreamDelegate, UIScrollViewAccessibilityDelegate, UIScrollViewDelegate>
 {
-    NSMutableArray *pCardImages;
-    NSMutableArray *dCardImages;
     
     
     int curXOffset;

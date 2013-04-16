@@ -9,8 +9,6 @@
 #import "PlayerViewController.h"
 
 UIView *prevTouched;
-unsigned int curDIndex;
-unsigned int curPIndex;
 NSMutableArray *playedCards;
 NSMutableArray *playedUsernames;
 NSMutableArray *userCards;
