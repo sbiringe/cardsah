@@ -71,7 +71,8 @@ UIView *prevTouched;
 
 - (void)viewDidAppear:(BOOL)animated
 {
- 
+    mainScrollView.scrollEnabled = TRUE;
+
     if (youAreDealer)
     {
         horizontalScroll = true;

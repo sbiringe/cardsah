@@ -127,8 +127,10 @@
     currentRound++;
     int nextDealerIndex = currentRound % [userList count];
     
-    // CHECK IF CURDINDEX IS EQUAL TO GLOBAL MAX IF SO SET IT EQUAL TO ZERO
     curDIndex++;
+    
+    if(curDIndex >= totalDCards)
+        curDIndex = 0;
     
     if(youAreDealer)
     {

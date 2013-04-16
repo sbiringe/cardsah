@@ -19,6 +19,8 @@ extern unsigned int curPIndex;
 extern NSMutableArray *playedUsernames;
 extern NSMutableArray *playedCards;
 extern int currentRound;
+extern int totalPCards;
+extern int totalDCards;
 
 @interface JoinScreenViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSStreamDelegate>
 {
@@ -28,6 +30,7 @@ extern int currentRound;
     int numToReceive;
     int randomSeed;
     int numReceived;
+    int numShuffles;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *playersTableView;

@@ -189,9 +189,6 @@ NSMutableArray *userCards;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Username" message:@"Username must contain at least 3 characters."
                                 delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
-        
-        // SHOULD DELETE GOES AROUND SERVER FOR NOW FOR TESTING
-        [self performSegueWithIdentifier:@"joinSegue" sender:sender];
     }
     else
     {
