@@ -77,6 +77,12 @@ UIView *prevTouched;
         horizontalScroll = true;
         swipeUpLabel.text = @"Waiting for other members' selection";
     }
+    else
+    {
+        horizontalScroll = false;
+        verticalScroll =  false;
+        swipeUpLabel.text = @"Swipe Up to Submit Card";
+    }
     
     // Creates Action Sheet
     actionSheet = [[UIActionSheet alloc] initWithTitle:@"Action Sheet"
