@@ -13,6 +13,7 @@
 extern NSMutableDictionary *playerScores;
 extern NSString *dealer;
 extern bool youAreDealer;
+extern NSMutableArray *userList;
 
 @interface JoinScreenViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSStreamDelegate>
 {
@@ -22,7 +23,6 @@ extern bool youAreDealer;
     int numReceived;
 }
 
-@property (weak, nonatomic) NSMutableArray *userList;
 @property (weak, nonatomic) IBOutlet UITableView *playersTableView;
 @property (nonatomic) int cardPerHand;
 @property (nonatomic) int scoreToWin;

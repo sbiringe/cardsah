@@ -204,7 +204,6 @@ NSString *ipAddress;
     {
         JoinScreenViewController *vc = [segue destinationViewController];
         
-        vc.userList = userList;
     }
     else if([[segue identifier] isEqualToString:@"startSegue"])
     {

@@ -17,7 +17,7 @@ NSString *endGameCond;
 
 @implementation SettingsScreenViewController
 @synthesize cardsPerHandTextField, winningScoreTextField, rulesTableView, winningScorePickerView;
-@synthesize cardsPerHandPickerView, pickerToolbar, actionSheet, userList;
+@synthesize cardsPerHandPickerView, pickerToolbar, actionSheet;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -100,7 +100,6 @@ NSString *endGameCond;
         vc.cardPerHand = (int)cardsPerHandTextField.text;
         vc.scoreToWin = (int)winningScoreTextField.text;
         vc.terminateCondition = terminateCondition;
-        vc.userList = userList;
     }
 }
 
