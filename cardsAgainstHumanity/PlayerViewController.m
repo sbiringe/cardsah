@@ -9,8 +9,6 @@
 #import "PlayerViewController.h"
 
 UIView *prevTouched;
-NSMutableArray *playedCards;
-NSMutableArray *playedUsernames;
 
 @interface PlayerViewController ()
 
@@ -63,9 +61,6 @@ NSMutableArray *playedUsernames;
     //NSLog(@"Player Card Array length is: %i",pCardImages.count);
     //NSLog(@"Dealer Card Array length is: %i",dCardImages.count);
     //NSLog(@"Dealer Card is: %@",[dCardImages objectAtIndex:curDIndex]);
-    
-    playedUsernames = [[NSMutableArray alloc] init];
-    playedCards = [[NSMutableArray alloc] init];
     
     UIImage *dealerImage = [UIImage imageNamed:[dCardImages objectAtIndex:curDIndex]];
     dealerCardImageView.image = dealerImage;

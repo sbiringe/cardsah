@@ -11,8 +11,6 @@
 #import "WelcomeScreenViewController.h"
 
 extern UIView *prevTouched;
-extern NSMutableArray *playedUsernames;
-extern NSMutableArray *playedCards;
 
 
 @interface PlayerViewController : UIViewController <NSStreamDelegate, UIScrollViewAccessibilityDelegate, UIScrollViewDelegate>

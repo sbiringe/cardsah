@@ -15,6 +15,8 @@ NSMutableArray *pCardImages;
 NSMutableArray *dCardImages;
 unsigned int curDIndex;
 unsigned int curPIndex;
+NSMutableArray *playedCards;
+NSMutableArray *playedUsernames;
 
 @interface JoinScreenViewController ()
 
@@ -47,6 +49,8 @@ unsigned int curPIndex;
     playerScores = [[NSMutableDictionary alloc] init];
     pCardImages = [[NSMutableArray alloc] init];
     dCardImages = [[NSMutableArray alloc] init];
+    playedUsernames = [[NSMutableArray alloc] init];
+    playedCards = [[NSMutableArray alloc] init];
     
     [inputStream setDelegate:self];
     [outputStream setDelegate:self];
