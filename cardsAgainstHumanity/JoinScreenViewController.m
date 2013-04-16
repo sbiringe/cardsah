@@ -40,6 +40,7 @@ unsigned int curPIndex;
     intReceived = false;
     getTurnBool = false;
     randomSeedReceived = false;
+    youAreDealer = false;
     numReceived = 0;
     randomSeed = 0;
     numToReceive = 0;
