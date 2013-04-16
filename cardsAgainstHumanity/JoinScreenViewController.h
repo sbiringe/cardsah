@@ -18,7 +18,7 @@ extern unsigned int curDIndex;
 extern unsigned int curPIndex;
 extern NSMutableArray *playedUsernames;
 extern NSMutableArray *playedCards;
-
+extern int currentRound;
 
 @interface JoinScreenViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSStreamDelegate>
 {
