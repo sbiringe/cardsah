@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "WelcomeScreenViewController.h"
+#import "PlayerViewController.h"
 
 @interface DealerScreenViewController : UIViewController <UIActionSheetDelegate, UIAlertViewDelegate, NSStreamDelegate>
+{
+    bool goBackToPlayerView;
+}
 
+@property (weak, nonatomic) UIPageViewController *playerScreen;
 @property (weak, nonatomic) IBOutlet UIImageView *mainCard;
 
 @property (weak, nonatomic) IBOutlet UIImageView *cardOne;
