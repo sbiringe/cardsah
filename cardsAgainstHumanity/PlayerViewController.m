@@ -241,6 +241,7 @@ UIView *prevTouched;
                 }
                 
                 intReceived = false;
+                usernameReceived = false;
                 return;
             }
             
