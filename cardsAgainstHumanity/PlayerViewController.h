@@ -9,14 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "JoinScreenViewController.h"
 #import "WelcomeScreenViewController.h"
+#import "DealerScreenViewController.h"
 
 extern UIView *prevTouched;
 
 
 @interface PlayerViewController : UIViewController <NSStreamDelegate, UIScrollViewAccessibilityDelegate, UIScrollViewDelegate>
 {
-    
-    
     int curXOffset;
     
     bool intReceived;

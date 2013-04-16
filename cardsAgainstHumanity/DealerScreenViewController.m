@@ -15,6 +15,7 @@
 @synthesize cardTwo;
 @synthesize cardThree;
 @synthesize cardFour;
+@synthesize playerScreen;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -64,7 +65,18 @@
         NSString *msg = [NSString stringWithFormat:@"%@", @"imageFileName"];
         NSData *data = [self convertToJavaUTF8:msg];
         [outputStream write:(const uint8_t *)[data bytes] maxLength:[data length]];
-        [self performSegueWithIdentifier:@"goToPlayerScreen" sender:nil];
+        goBackToPlayerView = true;
+        [self performSegueWithIdentifier:@"gotoWinningScreen" sender:nil];
+    }
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    if(goBackToPlayerView)
+    {
+        goBackToPlayerView = false;
+        [self dismissViewControllerAnimated:NO completion:^{}];
+
     }
 }
 
@@ -90,6 +102,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    goBackToPlayerView = false;
+
     [outputStream setDelegate:self];
 
     // Big Card

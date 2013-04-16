@@ -38,7 +38,6 @@
     cardFour.hidden = YES;
     cardFourLabel.hidden = YES;
     
-    
     // Big Card
     NSString *imageName = [NSString stringWithFormat:@"DCard1.jpg"];
     
@@ -96,10 +95,15 @@
     }
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (IBAction)nextClicked:(id)sender
 {
     [playedCards removeAllObjects];
     [playedUsernames removeAllObjects];
+    
+    if(youAreDealer)
+        [self dismissViewControllerAnimated:NO completion:^{}];
+    else
+         [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
 - (void)didReceiveMemoryWarning

@@ -69,6 +69,16 @@ UIView *prevTouched;
     
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([[segue identifier] isEqualToString:@"submittedCards"])
+    {
+        DealerScreenViewController *dealerScreen = [segue destinationViewController];
+        
+        dealerScreen.playerScreen = self;
+    }
+}
+
 - (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode
 {
     switch(eventCode) {
@@ -178,7 +188,10 @@ UIView *prevTouched;
                 winnerSelected = false;
                 winningCard = submittedUser;
                
-                [self performSegueWithIdentifier:@"winningScreen" sender:nil];
+                if(!youAreDealer)
+                {
+                    [self performSegueWithIdentifier:@"winningScreen" sender:nil];
+                }
                 
                 intReceived = false;
                 return;
@@ -318,17 +331,19 @@ UIView *prevTouched;
         CGFloat pageWidth = scrollView.frame.size.width;
         int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
         
+                
+        [playedUsernames addObject:username];
+        [playedCards addObject:[userCards objectAtIndex:page]];
+        NSString *playedCard = [userCards objectAtIndex:page];
+        
         //Remove card from user's hand and deck
         [pCardImages removeObject:[userCards objectAtIndex:page]];
         [userCards removeObjectAtIndex:page];
         
-        [playedUsernames addObject:username];
-        [playedCards addObject:@"ImageName"];
-        
         mainScrollView.scrollEnabled = FALSE;
         swipeUpLabel.text = @"Waiting for other members' selection";
         
-        NSString *msg = [NSString stringWithFormat:@"%@", @"ImageName"];
+        NSString *msg = [NSString stringWithFormat:@"%@", playedCard];
         NSData *data = [self convertToJavaUTF8:msg];
         [outputStream write:(const uint8_t *)[data bytes] maxLength:[data length]];
         
