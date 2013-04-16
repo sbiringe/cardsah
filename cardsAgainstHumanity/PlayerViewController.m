@@ -69,6 +69,29 @@ UIView *prevTouched;
     
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+ 
+    if (youAreDealer)
+    {
+        horizontalScroll = true;
+        swipeUpLabel.text = @"Waiting for other members' selection";
+    }
+    
+    // Creates Action Sheet
+    actionSheet = [[UIActionSheet alloc] initWithTitle:@"Action Sheet"
+                                              delegate:nil
+                                     cancelButtonTitle:nil
+                                destructiveButtonTitle:nil
+                                     otherButtonTitles:nil];
+    
+    UIImage *dealerImage = [UIImage imageNamed:[dCardImages objectAtIndex:curDIndex]];
+    dealerCardImageView.image = dealerImage;
+
+    
+    
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([[segue identifier] isEqualToString:@"submittedCards"])
@@ -353,8 +376,8 @@ UIView *prevTouched;
         [playedCards addObject:[userCards objectAtIndex:page]];
         NSString *playedCard = [userCards objectAtIndex:page];
         
-        //Remove card from user's hand and deck
-        [pCardImages removeObject:[userCards objectAtIndex:page]];
+        //Remove card from user's hand 
+        //[pCardImages removeObject:[userCards objectAtIndex:page]];
         [userCards removeObjectAtIndex:page];
         
         mainScrollView.scrollEnabled = FALSE;
