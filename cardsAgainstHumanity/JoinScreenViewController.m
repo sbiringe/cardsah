@@ -40,12 +40,9 @@ unsigned int curPIndex;
     intReceived = false;
     getTurnBool = false;
     randomSeedReceived = false;
-    youAreDealer = false;
     numReceived = 0;
     randomSeed = 0;
     numToReceive = 0;
-    
-    tempUser = [[NSMutableString alloc] init];
     
     playerScores = [[NSMutableDictionary alloc] init];
     pCardImages = [[NSMutableArray alloc] init];
@@ -193,24 +190,20 @@ unsigned int curPIndex;
             
             while(len > 0)
             {
+                NSMutableString *temp = [[NSMutableString alloc] init];
+                
                 while([user characterAtIndex:index])
                 {
-                    [tempUser appendString:[NSString stringWithFormat: @"%C",[user characterAtIndex:index]]];
+                    [temp appendString:[NSString stringWithFormat: @"%C",[user characterAtIndex:index]]];
                     index++;
-                    len--;
-                    if(len == 0)
-                        return;
                 }
                 
                 index++;
                 len -= index;
                 
-                NSLog(@"%@", tempUser);
-                [userList addObject:tempUser];
-                
-                tempUser = [[NSMutableString alloc] init];
-                
-                [playerScores setObject:[NSNumber numberWithInt:0] forKey:tempUser];
+                NSLog(@"%@", temp);
+                [userList addObject:temp];
+                [playerScores setObject:[NSNumber numberWithInt:0] forKey:temp];
                 numReceived++;
             }
             
