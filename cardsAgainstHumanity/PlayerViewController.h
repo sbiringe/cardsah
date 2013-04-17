@@ -25,6 +25,8 @@ extern UIView *prevTouched;
     int numReceived;
     int numToReceive;
     
+    int pageIndex;
+    
     
     NSString *submittedUser;
     NSString *submittedCard;

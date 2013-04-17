@@ -94,9 +94,41 @@ UIView *prevTouched;
     
     UIImage *dealerImage = [UIImage imageNamed:[dCardImages objectAtIndex:curDIndex]];
     dealerCardImageView.image = dealerImage;
+    
+    int lastDealerIndex = (currentRound - 1) % [userList count];
 
-    
-    
+    if(currentRound != 0 && indexInUserList != lastDealerIndex)
+    {
+        int dealerIndex = currentRound % [userList count];
+        int nextCard = indexInUserList;
+        if(dealerIndex < indexInUserList)
+        {
+            nextCard--;
+        }
+
+        NSString *imageName = [pCardImages objectAtIndex:curPIndex + nextCard];
+        NSLog(@"Image added to hand is: %@", imageName);
+        UIImage *image = [UIImage imageNamed:imageName];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+        
+        [userCards insertObject:imageName atIndex:pageIndex];
+
+        CGFloat width = 200;
+        CGFloat height = 250;
+
+        CGRect rect = imageView.frame;
+        rect.size.height = width;
+        rect.size.width = height;
+        rect.origin.x = 320 * pageIndex + 35;
+        rect.origin.y = 0;
+
+        imageView.frame = rect;
+
+        [mainScrollView insertSubview:imageView atIndex:pageIndex];
+
+        curPIndex += [userList count] - 1;
+    }
+
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -346,6 +378,9 @@ UIView *prevTouched;
         
         cx += imageView.frame.size.width+70;
     }
+    
+    curPIndex = [userList count] * 5;
+    
     [mainScrollView setContentSize:CGSizeMake(cx, height * 2)];
 }
 
@@ -377,16 +412,19 @@ UIView *prevTouched;
     if(scrollView.bounds.origin.y > 0)
     {
         CGFloat pageWidth = scrollView.frame.size.width;
-        int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+        pageIndex = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
         
                 
         [playedUsernames addObject:username];
-        [playedCards addObject:[userCards objectAtIndex:page]];
-        NSString *playedCard = [userCards objectAtIndex:page];
+        [playedCards addObject:[userCards objectAtIndex:pageIndex]];
+        NSString *playedCard = [userCards objectAtIndex:pageIndex];
         
         //Remove card from user's hand 
         //[pCardImages removeObject:[userCards objectAtIndex:page]];
-        [userCards removeObjectAtIndex:page];
+        [userCards removeObjectAtIndex:pageIndex];
+        
+        NSArray *subV = [mainScrollView subviews];
+        [[subV objectAtIndex:pageIndex] removeFromSuperview];
         
         mainScrollView.scrollEnabled = FALSE;
         swipeUpLabel.text = @"Waiting for other members' selection";

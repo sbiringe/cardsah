@@ -21,6 +21,7 @@ extern NSMutableArray *playedCards;
 extern int currentRound;
 extern int totalPCards;
 extern int totalDCards;
+extern int indexInUserList;
 
 @interface JoinScreenViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSStreamDelegate>
 {

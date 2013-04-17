@@ -20,6 +20,7 @@ NSMutableArray *playedUsernames;
 int currentRound;
 int totalPCards;
 int totalDCards;
+int indexInUserList;
 
 @interface JoinScreenViewController ()
 
@@ -238,6 +239,7 @@ int totalDCards;
     {
         if ([[userList objectAtIndex:i] isEqualToString:username])
         {
+            indexInUserList = i;
             curPIndex = i*5;
             break;
         }
