@@ -19,7 +19,7 @@ NSString *endGameCond;
 @synthesize cardsPerHandTextField, winningScoreTextField, rulesTableView, winningScorePickerView;
 @synthesize cardsPerHandPickerView, pickerToolbar, actionSheet;
 
-@synthesize settingsLabel, cardsPerHandLabel, howToWinLabel;
+@synthesize settingsLabel, cardsPerHandLabel, howToWinLabel, settingsImage;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -102,8 +102,13 @@ NSString *endGameCond;
     cardsPerHandLabel.backgroundColor = [UIColor whiteColor];
     howToWinLabel.backgroundColor = [UIColor whiteColor];
     
-    //comment
 
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"settings.png"] drawInRect:self.view.bounds];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    settingsImage.image = image;
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

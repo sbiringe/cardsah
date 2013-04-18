@@ -30,6 +30,9 @@ int indexInUserList;
 
 @synthesize playersTableView;
 
+@synthesize headerLabel;
+@synthesize connImage;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -68,6 +71,21 @@ int indexInUserList;
     playersTableView.delegate = self;
     
     [playersTableView reloadData];
+    
+    // background
+    self.view.backgroundColor = [UIColor blackColor];
+    
+    headerLabel.backgroundColor = [UIColor whiteColor];
+    headerLabel.font = [UIFont fontWithName:@"Times New Roman" size: 25];
+    [headerLabel setHidden: true];
+
+    
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"conn.png"] drawInRect:self.view.bounds];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    connImage.image = image;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

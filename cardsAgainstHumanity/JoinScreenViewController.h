@@ -39,7 +39,10 @@ extern int indexInUserList;
 @property (nonatomic) int scoreToWin;
 @property (weak, nonatomic) NSString *terminateCondition;
 
+@property (weak, nonatomic) IBOutlet UILabel *headerLabel;
+
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (weak, nonatomic) IBOutlet UIImageView *connImage;
 
 
 @end

@@ -33,6 +33,7 @@ extern NSMutableArray *userCards;
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *header;
+@property (weak, nonatomic) IBOutlet UIImageView *welcomeImage;
 
 @property (weak, nonatomic) IBOutlet UIImageView *welcome;
 //asfsadasd
