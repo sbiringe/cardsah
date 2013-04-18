@@ -33,7 +33,10 @@
     playerScoresTableView.dataSource = self;
     
     scoreUpdated = false;
-    
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
     [playerScoresTableView reloadData];
 }
 
