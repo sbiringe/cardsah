@@ -325,6 +325,9 @@
 		F893B34E171219480061835A /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F893B34D171219480061835A /* PlayerViewController.m */; };
 		F893B35217121E430061835A /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F893B35117121E430061835A /* image1.jpg */; };
 		F893B355171224250061835A /* LeaderboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F893B354171224250061835A /* LeaderboardViewController.m */; };
+		F89A10F31720916D00B7AD72 /* multiple.png in Resources */ = {isa = PBXBuildFile; fileRef = F89A10F21720916D00B7AD72 /* multiple.png */; };
+		F89A10F6172091FE00B7AD72 /* rank.png in Resources */ = {isa = PBXBuildFile; fileRef = F89A10F4172091FE00B7AD72 /* rank.png */; };
+		F89A10F7172091FE00B7AD72 /* text-list.png in Resources */ = {isa = PBXBuildFile; fileRef = F89A10F5172091FE00B7AD72 /* text-list.png */; };
 		F8C272521704F1C900FC5D09 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C272511704F1C900FC5D09 /* UIKit.framework */; };
 		F8C272541704F1C900FC5D09 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C272531704F1C900FC5D09 /* Foundation.framework */; };
 		F8C272561704F1C900FC5D09 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C272551704F1C900FC5D09 /* CoreGraphics.framework */; };
@@ -684,6 +687,9 @@
 		F893B35117121E430061835A /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpg; sourceTree = "<group>"; };
 		F893B353171224250061835A /* LeaderboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaderboardViewController.h; sourceTree = "<group>"; };
 		F893B354171224250061835A /* LeaderboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaderboardViewController.m; sourceTree = "<group>"; };
+		F89A10F21720916D00B7AD72 /* multiple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = multiple.png; path = "../../Downloads/iconbeast-lite/iconbeast lite - png/multiple.png"; sourceTree = "<group>"; };
+		F89A10F4172091FE00B7AD72 /* rank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rank.png; path = "../../Downloads/iconbeast-lite/iconbeast lite - png/rank.png"; sourceTree = "<group>"; };
+		F89A10F5172091FE00B7AD72 /* text-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "text-list.png"; path = "../../Downloads/iconbeast-lite/iconbeast lite - png/text-list.png"; sourceTree = "<group>"; };
 		F8C2724E1704F1C900FC5D09 /* cardsAgainstHumanity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cardsAgainstHumanity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C272511704F1C900FC5D09 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F8C272531704F1C900FC5D09 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1123,6 +1129,9 @@
 		F8C272581704F1C900FC5D09 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F89A10F4172091FE00B7AD72 /* rank.png */,
+				F89A10F5172091FE00B7AD72 /* text-list.png */,
+				F89A10F21720916D00B7AD72 /* multiple.png */,
 				F8C272591704F1C900FC5D09 /* cardsAgainstHumanity-Info.plist */,
 				F8C2725A1704F1C900FC5D09 /* InfoPlist.strings */,
 				F8C2725D1704F1C900FC5D09 /* main.m */,
@@ -1539,6 +1548,9 @@
 				C25CFD27171FEE5900FF780F /* conn.png in Resources */,
 				C25CFD29171FEE7500FF780F /* wel.png in Resources */,
 				C25CFD2B171FEE8200FF780F /* settings.png in Resources */,
+				F89A10F31720916D00B7AD72 /* multiple.png in Resources */,
+				F89A10F6172091FE00B7AD72 /* rank.png in Resources */,
+				F89A10F7172091FE00B7AD72 /* text-list.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

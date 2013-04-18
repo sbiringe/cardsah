@@ -32,6 +32,7 @@ int indexInUserList;
 
 @synthesize headerLabel;
 @synthesize connImage;
+@synthesize startButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -245,6 +246,11 @@ int indexInUserList;
             {
                 intReceived = false;
                 [playersTableView reloadData];
+            }
+            
+            if(numToReceive >= 3)
+            {
+                startButton.enabled = true;
             }
             
             break;
