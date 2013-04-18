@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="qyr-Eh-9tV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4VZ-So-AIg">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
         <!--Welcome Screen View Controller-->
@@ -12,28 +12,23 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Insert a Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Q8-TI-dKI">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Username:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yx6-8f-QEb">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="9kS-83-BmA"/>
-                                </constraints>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Insert a username:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yx6-8f-QEb">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CM8-QO-SyA">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="5F1-0L-cgE"/>
-                                    <constraint firstAttribute="width" constant="152" id="pLI-3K-siM"/>
+                                    <constraint firstAttribute="width" constant="240" id="L97-fs-XO0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJb-zK-gRD">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="Ndi-cv-SdP"/>
+                                    <constraint firstAttribute="width" constant="88" id="dhz-8Q-wwP"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Go">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -46,21 +41,27 @@
                                     <action selector="goButtonPressed:" destination="qyr-Eh-9tV" eventType="touchUpInside" id="iNg-YN-H0h"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Cards against Humanity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agt-YT-Hs2">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="CM8-QO-SyA" firstAttribute="top" secondItem="vND-Eh-cIk" secondAttribute="top" constant="168" id="5PP-y2-VAf"/>
-                            <constraint firstAttribute="bottom" secondItem="FJb-zK-gRD" secondAttribute="bottom" constant="43" id="5zD-F5-J8v"/>
-                            <constraint firstItem="yx6-8f-QEb" firstAttribute="top" secondItem="vND-Eh-cIk" secondAttribute="top" constant="170" id="7fI-HJ-MYw"/>
-                            <constraint firstItem="1Q8-TI-dKI" firstAttribute="top" secondItem="vND-Eh-cIk" secondAttribute="top" constant="68" id="LGu-Xa-Hly"/>
-                            <constraint firstItem="FJb-zK-gRD" firstAttribute="leading" secondItem="CM8-QO-SyA" secondAttribute="leading" type="default" id="R7D-Tc-DZ8"/>
-                            <constraint firstItem="FJb-zK-gRD" firstAttribute="centerX" secondItem="1Q8-TI-dKI" secondAttribute="centerX" type="default" id="TNL-uv-AsM"/>
-                            <constraint firstItem="yx6-8f-QEb" firstAttribute="leading" secondItem="vND-Eh-cIk" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="bcH-fF-9hq"/>
-                            <constraint firstItem="1Q8-TI-dKI" firstAttribute="centerX" secondItem="vND-Eh-cIk" secondAttribute="centerX" type="default" id="tsU-jj-pcg"/>
-                            <constraint firstItem="CM8-QO-SyA" firstAttribute="baseline" secondItem="yx6-8f-QEb" secondAttribute="baseline" type="default" id="zx7-vr-SfQ"/>
+                            <constraint firstItem="FJb-zK-gRD" firstAttribute="centerX" secondItem="CM8-QO-SyA" secondAttribute="centerX" type="default" id="7X0-Ba-h3h"/>
+                            <constraint firstItem="CM8-QO-SyA" firstAttribute="top" secondItem="vND-Eh-cIk" secondAttribute="top" constant="221" id="Bgs-og-fQd"/>
+                            <constraint firstItem="FJb-zK-gRD" firstAttribute="centerX" secondItem="vND-Eh-cIk" secondAttribute="centerX" type="default" id="In1-gf-gUX"/>
+                            <constraint firstItem="CM8-QO-SyA" firstAttribute="centerX" secondItem="yx6-8f-QEb" secondAttribute="centerX" type="default" id="Nfn-oy-kVf"/>
+                            <constraint firstItem="yx6-8f-QEb" firstAttribute="top" secondItem="vND-Eh-cIk" secondAttribute="top" constant="168" id="OJF-qp-tb2"/>
+                            <constraint firstItem="agt-YT-Hs2" firstAttribute="top" secondItem="vND-Eh-cIk" secondAttribute="top" constant="41" id="QH7-Qo-OTx"/>
+                            <constraint firstAttribute="bottom" secondItem="FJb-zK-gRD" secondAttribute="bottom" constant="72" id="V3N-U0-wje"/>
+                            <constraint firstItem="agt-YT-Hs2" firstAttribute="centerX" secondItem="yx6-8f-QEb" secondAttribute="centerX" type="default" id="fCf-11-CvU"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="header" destination="agt-YT-Hs2" id="8oS-Qa-OLD"/>
+                        <outlet property="userNameLabel" destination="yx6-8f-QEb" id="Q4q-Iu-rQn"/>
                         <outlet property="usernameTextField" destination="CM8-QO-SyA" id="gpY-VA-6W9"/>
                         <segue destination="V4D-NV-cSg" kind="modal" identifier="joinSegue" id="Yy6-OK-kSF"/>
                         <segue destination="4VZ-So-AIg" kind="modal" identifier="startSegue" id="S1n-xX-dfD"/>
@@ -77,65 +78,8 @@
                     <view key="view" contentMode="scaleToFill" id="dlw-Be-vq4">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IE1-bK-FHo">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="9lN-8l-adU"/>
-                                    <constraint firstAttribute="width" constant="108" id="j8A-eu-j4P"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Join">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="joinPressed:" destination="qa6-51-Fwd" eventType="touchUpInside" id="fci-QA-ZmA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ong-u0-hpq">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="112" id="XWW-h6-xhI"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Start">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="startPressed:" destination="qa6-51-Fwd" eventType="touchUpInside" id="ZH8-QM-hY5"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Cards Against Humanity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWO-oX-AZu">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="209" id="cUz-Bu-YvB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="RWO-oX-AZu" firstAttribute="top" secondItem="dlw-Be-vq4" secondAttribute="top" constant="59" id="4S5-Jd-bHP"/>
-                            <constraint firstItem="ong-u0-hpq" firstAttribute="centerY" secondItem="dlw-Be-vq4" secondAttribute="centerY" type="default" id="LX8-2v-o2P"/>
-                            <constraint firstItem="ong-u0-hpq" firstAttribute="top" secondItem="IE1-bK-FHo" secondAttribute="top" type="default" id="Nby-F5-fhj"/>
-                            <constraint firstItem="ong-u0-hpq" firstAttribute="bottom" secondItem="IE1-bK-FHo" secondAttribute="bottom" type="default" id="UlN-v7-x9w"/>
-                            <constraint firstItem="ong-u0-hpq" firstAttribute="baseline" secondItem="IE1-bK-FHo" secondAttribute="baseline" type="default" id="VTF-NM-QCp"/>
-                            <constraint firstAttribute="trailing" secondItem="ong-u0-hpq" secondAttribute="trailing" constant="31" id="eUX-hL-iek"/>
-                            <constraint firstItem="IE1-bK-FHo" firstAttribute="leading" secondItem="dlw-Be-vq4" secondAttribute="leading" constant="33" id="jSK-aS-AEa"/>
-                            <constraint firstItem="RWO-oX-AZu" firstAttribute="centerX" secondItem="dlw-Be-vq4" secondAttribute="centerX" type="default" id="tJW-kM-BS1"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="joinButton" destination="IE1-bK-FHo" id="fqo-NH-UcG"/>
-                        <outlet property="startButton" destination="ong-u0-hpq" id="iaV-Xz-l4R"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2TG-ky-qfL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -228,8 +172,11 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="cardsPerHandLabel" destination="hln-xe-bcS" id="Oez-mA-JO9"/>
                         <outlet property="cardsPerHandTextField" destination="8Xj-kx-ZFt" id="PmK-bf-1mf"/>
+                        <outlet property="howToWinLabel" destination="ErD-fb-PR2" id="3Mx-iK-1Vg"/>
                         <outlet property="rulesTableView" destination="hgu-fD-RxU" id="kZC-2R-iXg"/>
+                        <outlet property="settingsLabel" destination="MxG-6K-5Se" id="rSB-GJ-LT4"/>
                         <outlet property="winningScoreTextField" destination="bIV-GL-lCr" id="Vvk-Gh-khU"/>
                     </connections>
                 </viewController>
@@ -762,6 +709,10 @@
         <class className="DealerScreenViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DealerScreenViewController.h"/>
             <relationships>
+                <relationship kind="action" name="Button1Press:"/>
+                <relationship kind="action" name="Button2Press:"/>
+                <relationship kind="action" name="Button3Press:"/>
+                <relationship kind="action" name="Button4Press:"/>
                 <relationship kind="action" name="pageInfo"/>
                 <relationship kind="outlet" name="Card1Button" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="Card2Button" candidateClass="UIButton"/>
@@ -777,6 +728,7 @@
         <class className="JoinScreenViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/JoinScreenViewController.h"/>
             <relationships>
+                <relationship kind="action" name="startGameClicked:"/>
                 <relationship kind="outlet" name="playersTableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
             </relationships>
@@ -784,6 +736,8 @@
         <class className="LaunchScreenViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LaunchScreenViewController.h"/>
             <relationships>
+                <relationship kind="action" name="joinPressed:"/>
+                <relationship kind="action" name="startPressed:"/>
                 <relationship kind="outlet" name="joinButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
             </relationships>
@@ -814,7 +768,9 @@
         <class className="SettingsScreenViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsScreenViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="cardsPerHandLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="cardsPerHandTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="howToWinLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="rulesTableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="winningScoreTextField" candidateClass="UITextField"/>
             </relationships>
@@ -822,12 +778,17 @@
         <class className="WelcomeScreenViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WelcomeScreenViewController.h"/>
             <relationships>
+                <relationship kind="action" name="goButtonPressed:"/>
+                <relationship kind="outlet" name="header" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="userNameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="usernameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="welcome" candidateClass="UIImageView"/>
             </relationships>
         </class>
         <class className="WinningScreenViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WinningScreenViewController.h"/>
             <relationships>
+                <relationship kind="action" name="nextClicked:"/>
                 <relationship kind="outlet" name="cardFour" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="cardFourLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="cardOne" candidateClass="UIImageView"/>
@@ -846,7 +807,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Yy6-OK-kSF"/>
+        <segue reference="0Va-bv-XhH"/>
         <segue reference="dOW-fO-bvJ"/>
     </inferredMetricsTieBreakers>
 </document>

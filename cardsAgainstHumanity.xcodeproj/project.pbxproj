@@ -313,6 +313,8 @@
 		AD6489EB171E0E8D0072F3EB /* PCard225.png in Resources */ = {isa = PBXBuildFile; fileRef = AD6489D6171E0E8B0072F3EB /* PCard225.png */; };
 		AD9312E1170B851900CAD3CC /* RulesScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9312E0170B851900CAD3CC /* RulesScreenViewController.m */; };
 		C29AE8101716968900ED40CC /* DealerScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C29AE80F1716968900ED40CC /* DealerScreenViewController.m */; };
+		C2A520F4171FCC2600E5463B /* small.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2A520F3171FCC2600E5463B /* small.jpg */; };
+		C2A520F6171FCD6D00E5463B /* launch6.png in Resources */ = {isa = PBXBuildFile; fileRef = C2A520F5171FCD6D00E5463B /* launch6.png */; };
 		F839A8D61708FA9C00E42B6E /* LaunchScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F839A8D51708FA9C00E42B6E /* LaunchScreenViewController.m */; };
 		F839A8D91708FB2500E42B6E /* JoinScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F839A8D81708FB2500E42B6E /* JoinScreenViewController.m */; };
 		F839A8DC170903D400E42B6E /* WelcomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F839A8DB170903D400E42B6E /* WelcomeScreenViewController.m */; };
@@ -661,6 +663,8 @@
 		AD9312E0170B851900CAD3CC /* RulesScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RulesScreenViewController.m; sourceTree = "<group>"; };
 		C29AE80E1716968900ED40CC /* DealerScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealerScreenViewController.h; sourceTree = "<group>"; };
 		C29AE80F1716968900ED40CC /* DealerScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealerScreenViewController.m; sourceTree = "<group>"; };
+		C2A520F3171FCC2600E5463B /* small.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = small.jpg; path = ../../../Downloads/small.jpg; sourceTree = "<group>"; };
+		C2A520F5171FCD6D00E5463B /* launch6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = launch6.png; path = ../../../Downloads/launch6.png; sourceTree = "<group>"; };
 		F839A8D41708FA9C00E42B6E /* LaunchScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchScreenViewController.h; sourceTree = "<group>"; };
 		F839A8D51708FA9C00E42B6E /* LaunchScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchScreenViewController.m; sourceTree = "<group>"; };
 		F839A8D71708FB2500E42B6E /* JoinScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinScreenViewController.h; sourceTree = "<group>"; };
@@ -1079,6 +1083,8 @@
 				F893B353171224250061835A /* LeaderboardViewController.h */,
 				F893B354171224250061835A /* LeaderboardViewController.m */,
 				F893B35117121E430061835A /* image1.jpg */,
+				C2A520F3171FCC2600E5463B /* small.jpg */,
+				C2A520F5171FCD6D00E5463B /* launch6.png */,
 				F893B34C171219480061835A /* PlayerViewController.h */,
 				F893B34D171219480061835A /* PlayerViewController.m */,
 				F8CF95E6170A70BC00009D1D /* MainStoryboard.storyboard */,
@@ -1523,6 +1529,8 @@
 				AD6489E9171E0E8D0072F3EB /* PCard226.png in Resources */,
 				AD6489EA171E0E8D0072F3EB /* PCard224.png in Resources */,
 				AD6489EB171E0E8D0072F3EB /* PCard225.png in Resources */,
+				C2A520F4171FCC2600E5463B /* small.jpg in Resources */,
+				C2A520F6171FCD6D00E5463B /* launch6.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

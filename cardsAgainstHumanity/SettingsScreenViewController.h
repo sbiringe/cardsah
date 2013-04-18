@@ -40,6 +40,9 @@ extern NSString *endGameCond;//Condition for when game is over
 @property (nonatomic, retain) UIToolbar *pickerToolbar;
 @property (nonatomic, retain) UIActionSheet *actionSheet;
 
+@property (weak, nonatomic) IBOutlet UILabel *cardsPerHandLabel;
+@property (weak, nonatomic) IBOutlet UILabel *howToWinLabel;
+@property (weak, nonatomic) IBOutlet UILabel *settingsLabel;
 
 -(void)createActionSheetWithToolbarTitle:(NSString *)toolbarTitle picker:(UIPickerView *)pickerView;
 

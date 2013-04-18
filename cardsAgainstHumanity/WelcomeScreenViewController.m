@@ -24,6 +24,7 @@ NSMutableArray *userCards;
 
 @implementation WelcomeScreenViewController
 @synthesize usernameTextField;
+@synthesize header, userNameLabel, welcome;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,6 +48,17 @@ NSMutableArray *userCards;
     winningCard = [[NSMutableString alloc] init];
     
     usernameTextField.delegate = self;
+    
+    self.view.backgroundColor = [UIColor blackColor];
+    
+    header.backgroundColor = [UIColor whiteColor];
+    header.font=[header.font fontWithSize:25];
+
+    
+    userNameLabel.backgroundColor = [UIColor whiteColor];
+    
+    //welcome = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"image1.jpg"]];
+
 }
 
 - (void)initNetworkCommunication {

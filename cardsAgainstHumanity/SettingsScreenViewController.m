@@ -19,6 +19,8 @@ NSString *endGameCond;
 @synthesize cardsPerHandTextField, winningScoreTextField, rulesTableView, winningScorePickerView;
 @synthesize cardsPerHandPickerView, pickerToolbar, actionSheet;
 
+@synthesize settingsLabel, cardsPerHandLabel, howToWinLabel;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -89,6 +91,17 @@ NSString *endGameCond;
     winScore = winningScore;
     cPH = cardsPerHand;
     endGameCond = terminateCondition;
+    
+    // background
+    self.view.backgroundColor = [UIColor blackColor];
+    
+    settingsLabel.backgroundColor = [UIColor whiteColor];
+    settingsLabel.font = [UIFont fontWithName:@"Times New Roman" size: 25];
+
+    
+    cardsPerHandLabel.backgroundColor = [UIColor whiteColor];
+    howToWinLabel.backgroundColor = [UIColor whiteColor];
+
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
