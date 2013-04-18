@@ -49,13 +49,8 @@ NSMutableArray *userCards;
     
     usernameTextField.delegate = self;
     
-    self.view.backgroundColor = [UIColor blackColor];
-    
     header.backgroundColor = [UIColor whiteColor];
     header.font=[header.font fontWithSize:25];
-
-    
-    userNameLabel.backgroundColor = [UIColor whiteColor];
     
     UIGraphicsBeginImageContext(self.view.frame.size);
     [[UIImage imageNamed:@"wel.png"] drawInRect:self.view.bounds];
@@ -68,7 +63,7 @@ NSMutableArray *userCards;
 - (void)initNetworkCommunication {
     CFReadStreamRef readStream;
     CFWriteStreamRef writeStream;
-    ipAddress = @"67.194.205.250";
+    ipAddress = @"67.194.194.58";
     CFStreamCreatePairWithSocketToHost(NULL, (__bridge CFStringRef)ipAddress, 1024, &readStream, &writeStream);
     inputStream = (__bridge NSInputStream *)readStream;
     outputStream = (__bridge NSOutputStream *)writeStream;

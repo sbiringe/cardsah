@@ -95,12 +95,7 @@ NSString *endGameCond;
     // background
     self.view.backgroundColor = [UIColor blackColor];
     
-    settingsLabel.backgroundColor = [UIColor whiteColor];
     settingsLabel.font = [UIFont fontWithName:@"Times New Roman" size: 25];
-
-    
-    cardsPerHandLabel.backgroundColor = [UIColor whiteColor];
-    howToWinLabel.backgroundColor = [UIColor whiteColor];
     
 
     UIGraphicsBeginImageContext(self.view.frame.size);
@@ -135,6 +130,7 @@ NSString *endGameCond;
     // Set up the cell...
     NSString *cellValue = [terminationConds objectAtIndex:indexPath.row];
     cell.textLabel.text = cellValue;
+    cell.textLabel.textColor = [UIColor whiteColor];
     
     return cell;
 }

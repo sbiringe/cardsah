@@ -70,6 +70,7 @@ int indexInUserList;
     playersTableView.dataSource = self;
     playersTableView.delegate = self;
     
+    
     [playersTableView reloadData];
     
     // background
@@ -100,6 +101,7 @@ int indexInUserList;
     // Set up the cell...
     NSString *cellValue = [userList objectAtIndex:indexPath.row];
     cell.textLabel.text = cellValue;
+    cell.textLabel.textColor = [UIColor whiteColor];
     
     return cell;
 }
