@@ -101,6 +101,8 @@ NSString *endGameCond;
     
     cardsPerHandLabel.backgroundColor = [UIColor whiteColor];
     howToWinLabel.backgroundColor = [UIColor whiteColor];
+    
+    //comment
 
 }
 
