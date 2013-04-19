@@ -137,9 +137,8 @@
     
     if(indexInUserList != lastDealerIndex)
     {
-        int dealerIndex = currentRound % [userList count];
         int nextCard = indexInUserList;
-        if(dealerIndex < indexInUserList)
+        if(lastDealerIndex < indexInUserList)
         {
             nextCard--;
         }
