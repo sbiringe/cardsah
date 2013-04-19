@@ -217,7 +217,7 @@ int indexInUserList;
                             NSMutableData *dataBool = [[NSMutableData alloc] initWithCapacity:20];
                             
                             uint8_t bufBool[1024];
-                            range = NSMakeRange(4, len);
+                            range = NSMakeRange(8, len);
                             [data getBytes:bufBool range:range];
                             [dataBool appendBytes:(const void *)bufBool length:len];
                             
