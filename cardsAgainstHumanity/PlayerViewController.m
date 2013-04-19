@@ -16,7 +16,7 @@ UIView *prevTouched;
 
 @implementation PlayerViewController
 
-@synthesize mainScrollView, swipeUpLabel, actionSheet, playedCardToolbar, dealerCardImageView, youAreDealerLabel;
+@synthesize mainScrollView, swipeUpLabel, actionSheet, playedCardToolbar, dealerCardImageView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,11 +41,9 @@ UIView *prevTouched;
     horizontalScroll = false;
     verticalScroll = false;
     
-    youAreDealerLabel.hidden = YES;
     
     if (youAreDealer)
     {
-        youAreDealerLabel.hidden = NO;
         horizontalScroll = true;
         swipeUpLabel.text = @"Waiting for other members' selection";
     }
@@ -77,11 +75,9 @@ UIView *prevTouched;
     [inputStream setDelegate:self];
     [outputStream setDelegate:self];
     
-    youAreDealerLabel.hidden = YES;
 
     if (youAreDealer)
     {
-        youAreDealerLabel.hidden = NO;
         horizontalScroll = true;
         swipeUpLabel.text = @"Waiting for other members' selection";
     }
