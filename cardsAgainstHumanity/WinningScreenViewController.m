@@ -64,9 +64,9 @@
             cardOne.image = image;
             if ([imageName isEqualToString:winningCard])
             {
-                [cardOne.layer setBorderColor: [[UIColor blueColor] CGColor]];
+                [cardOne.layer setBorderColor: [[UIColor greenColor] CGColor]];
                 [cardOne.layer setBorderWidth: 5.0];
-                cardOneLabel.textColor = [UIColor blueColor];
+                cardOneLabel.textColor = [UIColor greenColor];
             }
         }
         if (i==1)
@@ -80,9 +80,9 @@
             cardTwo.image = image;
             if ([imageName isEqualToString:winningCard])
             {
-                [cardTwo.layer setBorderColor: [[UIColor blueColor] CGColor]];
+                [cardTwo.layer setBorderColor: [[UIColor greenColor] CGColor]];
                 [cardTwo.layer setBorderWidth: 5.0];
-                cardTwoLabel.textColor = [UIColor blueColor];
+                cardTwoLabel.textColor = [UIColor greenColor];
             }
         }
         if (i==2)
@@ -96,9 +96,9 @@
             cardThree.image = image;
             if ([imageName isEqualToString:winningCard])
             {
-                [cardThree.layer setBorderColor: [[UIColor blueColor] CGColor]];
+                [cardThree.layer setBorderColor: [[UIColor greenColor] CGColor]];
                 [cardThree.layer setBorderWidth: 5.0];
-                cardThreeLabel.textColor = [UIColor blueColor];
+                cardThreeLabel.textColor = [UIColor greenColor];
             }
         }
         if (i==3)
