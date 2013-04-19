@@ -322,6 +322,9 @@
 		C25CFD29171FEE7500FF780F /* wel.png in Resources */ = {isa = PBXBuildFile; fileRef = C25CFD28171FEE7500FF780F /* wel.png */; };
 		C25CFD2B171FEE8200FF780F /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = C25CFD2A171FEE8200FF780F /* settings.png */; };
 		C29AE8101716968900ED40CC /* DealerScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C29AE80F1716968900ED40CC /* DealerScreenViewController.m */; };
+		F83844391720ECE0006A0466 /* rank.png in Resources */ = {isa = PBXBuildFile; fileRef = F83844371720ECE0006A0466 /* rank.png */; };
+		F838443A1720ECE0006A0466 /* multiple.png in Resources */ = {isa = PBXBuildFile; fileRef = F83844381720ECE0006A0466 /* multiple.png */; };
+		F838443C1720ECEA006A0466 /* text-list.png in Resources */ = {isa = PBXBuildFile; fileRef = F838443B1720ECEA006A0466 /* text-list.png */; };
 		F839A8D61708FA9C00E42B6E /* LaunchScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F839A8D51708FA9C00E42B6E /* LaunchScreenViewController.m */; };
 		F839A8D91708FB2500E42B6E /* JoinScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F839A8D81708FB2500E42B6E /* JoinScreenViewController.m */; };
 		F839A8DC170903D400E42B6E /* WelcomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F839A8DB170903D400E42B6E /* WelcomeScreenViewController.m */; };
@@ -329,9 +332,6 @@
 		F86365E6171A0C99006CB0BE /* WinningScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F86365E5171A0C98006CB0BE /* WinningScreenViewController.m */; };
 		F893B34E171219480061835A /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F893B34D171219480061835A /* PlayerViewController.m */; };
 		F893B355171224250061835A /* LeaderboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F893B354171224250061835A /* LeaderboardViewController.m */; };
-		F89A10FB1720C6BB00B7AD72 /* rank.png in Resources */ = {isa = PBXBuildFile; fileRef = F89A10F81720C6BB00B7AD72 /* rank.png */; };
-		F89A10FC1720C6BB00B7AD72 /* multiple.png in Resources */ = {isa = PBXBuildFile; fileRef = F89A10F91720C6BB00B7AD72 /* multiple.png */; };
-		F89A10FD1720C6BB00B7AD72 /* text-list.png in Resources */ = {isa = PBXBuildFile; fileRef = F89A10FA1720C6BB00B7AD72 /* text-list.png */; };
 		F8C272521704F1C900FC5D09 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C272511704F1C900FC5D09 /* UIKit.framework */; };
 		F8C272541704F1C900FC5D09 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C272531704F1C900FC5D09 /* Foundation.framework */; };
 		F8C272561704F1C900FC5D09 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C272551704F1C900FC5D09 /* CoreGraphics.framework */; };
@@ -680,6 +680,9 @@
 		C25CFD2A171FEE8200FF780F /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		C29AE80E1716968900ED40CC /* DealerScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealerScreenViewController.h; sourceTree = "<group>"; };
 		C29AE80F1716968900ED40CC /* DealerScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealerScreenViewController.m; sourceTree = "<group>"; };
+		F83844371720ECE0006A0466 /* rank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rank.png; sourceTree = "<group>"; };
+		F83844381720ECE0006A0466 /* multiple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = multiple.png; sourceTree = "<group>"; };
+		F838443B1720ECEA006A0466 /* text-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-list.png"; sourceTree = "<group>"; };
 		F839A8D41708FA9C00E42B6E /* LaunchScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchScreenViewController.h; sourceTree = "<group>"; };
 		F839A8D51708FA9C00E42B6E /* LaunchScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchScreenViewController.m; sourceTree = "<group>"; };
 		F839A8D71708FB2500E42B6E /* JoinScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinScreenViewController.h; sourceTree = "<group>"; };
@@ -694,9 +697,6 @@
 		F893B34D171219480061835A /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		F893B353171224250061835A /* LeaderboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaderboardViewController.h; sourceTree = "<group>"; };
 		F893B354171224250061835A /* LeaderboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaderboardViewController.m; sourceTree = "<group>"; };
-		F89A10F81720C6BB00B7AD72 /* rank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rank.png; sourceTree = "<group>"; };
-		F89A10F91720C6BB00B7AD72 /* multiple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = multiple.png; sourceTree = "<group>"; };
-		F89A10FA1720C6BB00B7AD72 /* text-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-list.png"; sourceTree = "<group>"; };
 		F8C2724E1704F1C900FC5D09 /* cardsAgainstHumanity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cardsAgainstHumanity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C272511704F1C900FC5D09 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F8C272531704F1C900FC5D09 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1138,6 +1138,9 @@
 		F8C272581704F1C900FC5D09 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F838443B1720ECEA006A0466 /* text-list.png */,
+				F83844371720ECE0006A0466 /* rank.png */,
+				F83844381720ECE0006A0466 /* multiple.png */,
 				ADEEC2431720B8A600D4CD58 /* Cream Donut.ttf */,
 				F8C272591704F1C900FC5D09 /* cardsAgainstHumanity-Info.plist */,
 				F8C2725A1704F1C900FC5D09 /* InfoPlist.strings */,
@@ -1558,6 +1561,9 @@
 				ADEEC24C1720C9E100D4CD58 /* pedestal.png in Resources */,
 				ADEEC24E1720CDDA00D4CD58 /* Launch.png in Resources */,
 				ADEEC2501720CED700D4CD58 /* Launch@2x.png in Resources */,
+				F83844391720ECE0006A0466 /* rank.png in Resources */,
+				F838443A1720ECE0006A0466 /* multiple.png in Resources */,
+				F838443C1720ECEA006A0466 /* text-list.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

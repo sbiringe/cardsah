@@ -15,7 +15,7 @@ extern int winScore;//winning score if available
 extern int cPH;//initial cards per hand
 extern NSString *endGameCond;//Condition for when game is over
 
-@interface SettingsScreenViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
+@interface SettingsScreenViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, NSStreamDelegate>
 {
     NSString *terminateCondition;
     NSMutableArray *terminationConds;

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "WelcomeScreenViewController.h"
+#import "SettingsScreenViewController.h"
 
 extern NSMutableDictionary *playerScores;
 extern NSString *dealer;
