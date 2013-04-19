@@ -36,6 +36,7 @@ extern UIView *prevTouched;
     bool scoreUpdated;
 }
 
+@property (weak, nonatomic) IBOutlet UILabel *youAreDealerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *swipeUpLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
 @property (nonatomic, retain) UIActionSheet *actionSheet;

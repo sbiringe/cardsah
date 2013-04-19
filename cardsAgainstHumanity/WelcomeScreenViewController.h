@@ -28,6 +28,7 @@ extern NSMutableArray *userCards;
     int numReceived;
 }
 
+@property (weak, nonatomic) IBOutlet UILabel *dealerLabel;
 @property (weak, nonatomic) NSString *username;
 
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;

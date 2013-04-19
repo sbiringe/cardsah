@@ -16,7 +16,7 @@ UIView *prevTouched;
 
 @implementation PlayerViewController
 
-@synthesize mainScrollView, swipeUpLabel, actionSheet, playedCardToolbar, dealerCardImageView;
+@synthesize mainScrollView, swipeUpLabel, actionSheet, playedCardToolbar, dealerCardImageView, youAreDealerLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,8 +41,11 @@ UIView *prevTouched;
     horizontalScroll = false;
     verticalScroll = false;
     
+    youAreDealerLabel.hidden = YES;
+    
     if (youAreDealer)
     {
+        youAreDealerLabel.hidden = NO;
         horizontalScroll = true;
         swipeUpLabel.text = @"Waiting for other members' selection";
     }
@@ -62,6 +65,7 @@ UIView *prevTouched;
     UIImage *dealerImage = [UIImage imageNamed:[dCardImages objectAtIndex:curDIndex]];
     dealerCardImageView.image = dealerImage;
     
+    
     [self setupHorizontalScrollView];
     
 }
@@ -72,9 +76,12 @@ UIView *prevTouched;
     
     [inputStream setDelegate:self];
     [outputStream setDelegate:self];
+    
+    youAreDealerLabel.hidden = YES;
 
     if (youAreDealer)
     {
+        youAreDealerLabel.hidden = NO;
         horizontalScroll = true;
         swipeUpLabel.text = @"Waiting for other members' selection";
     }
@@ -113,7 +120,7 @@ UIView *prevTouched;
         
         [userCards insertObject:imageName atIndex:pageIndex];
 
-        CGFloat width = 200;
+        CGFloat width = 180;
         CGFloat height = 250;
 
         CGRect rect = imageView.frame;

@@ -312,7 +312,12 @@
 		AD6489EA171E0E8D0072F3EB /* PCard224.png in Resources */ = {isa = PBXBuildFile; fileRef = AD6489D5171E0E8A0072F3EB /* PCard224.png */; };
 		AD6489EB171E0E8D0072F3EB /* PCard225.png in Resources */ = {isa = PBXBuildFile; fileRef = AD6489D6171E0E8B0072F3EB /* PCard225.png */; };
 		AD9312E1170B851900CAD3CC /* RulesScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9312E0170B851900CAD3CC /* RulesScreenViewController.m */; };
-		C25CFD25171FEE4A00FF780F /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C25CFD24171FEE4A00FF780F /* 1.jpg */; };
+		ADEEC2441720B8A600D4CD58 /* Cream Donut.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADEEC2431720B8A600D4CD58 /* Cream Donut.ttf */; };
+		ADEEC2461720B9E200D4CD58 /* Cream Donut.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADEEC2431720B8A600D4CD58 /* Cream Donut.ttf */; };
+		ADEEC2481720C05700D4CD58 /* Arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = ADEEC2471720C05700D4CD58 /* Arrow.png */; };
+		ADEEC24C1720C9E100D4CD58 /* pedestal.png in Resources */ = {isa = PBXBuildFile; fileRef = ADEEC24B1720C9E100D4CD58 /* pedestal.png */; };
+		ADEEC24E1720CDDA00D4CD58 /* Launch.png in Resources */ = {isa = PBXBuildFile; fileRef = ADEEC24D1720CDD900D4CD58 /* Launch.png */; };
+		ADEEC2501720CED700D4CD58 /* Launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADEEC24F1720CED600D4CD58 /* Launch@2x.png */; };
 		C25CFD27171FEE5900FF780F /* conn.png in Resources */ = {isa = PBXBuildFile; fileRef = C25CFD26171FEE5900FF780F /* conn.png */; };
 		C25CFD29171FEE7500FF780F /* wel.png in Resources */ = {isa = PBXBuildFile; fileRef = C25CFD28171FEE7500FF780F /* wel.png */; };
 		C25CFD2B171FEE8200FF780F /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = C25CFD2A171FEE8200FF780F /* settings.png */; };
@@ -323,7 +328,6 @@
 		F839A8DF1709064200E42B6E /* SettingsScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F839A8DE1709064200E42B6E /* SettingsScreenViewController.m */; };
 		F86365E6171A0C99006CB0BE /* WinningScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F86365E5171A0C98006CB0BE /* WinningScreenViewController.m */; };
 		F893B34E171219480061835A /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F893B34D171219480061835A /* PlayerViewController.m */; };
-		F893B35217121E430061835A /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F893B35117121E430061835A /* image1.jpg */; };
 		F893B355171224250061835A /* LeaderboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F893B354171224250061835A /* LeaderboardViewController.m */; };
 		F8C272521704F1C900FC5D09 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C272511704F1C900FC5D09 /* UIKit.framework */; };
 		F8C272541704F1C900FC5D09 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C272531704F1C900FC5D09 /* Foundation.framework */; };
@@ -663,7 +667,11 @@
 		AD6489D6171E0E8B0072F3EB /* PCard225.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PCard225.png; sourceTree = "<group>"; };
 		AD9312DF170B851900CAD3CC /* RulesScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RulesScreenViewController.h; sourceTree = "<group>"; };
 		AD9312E0170B851900CAD3CC /* RulesScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RulesScreenViewController.m; sourceTree = "<group>"; };
-		C25CFD24171FEE4A00FF780F /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		ADEEC2431720B8A600D4CD58 /* Cream Donut.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cream Donut.ttf"; sourceTree = "<group>"; };
+		ADEEC2471720C05700D4CD58 /* Arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Arrow.png; sourceTree = "<group>"; };
+		ADEEC24B1720C9E100D4CD58 /* pedestal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pedestal.png; sourceTree = "<group>"; };
+		ADEEC24D1720CDD900D4CD58 /* Launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Launch.png; sourceTree = "<group>"; };
+		ADEEC24F1720CED600D4CD58 /* Launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch@2x.png"; sourceTree = "<group>"; };
 		C25CFD26171FEE5900FF780F /* conn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = conn.png; sourceTree = "<group>"; };
 		C25CFD28171FEE7500FF780F /* wel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wel.png; sourceTree = "<group>"; };
 		C25CFD2A171FEE8200FF780F /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
@@ -681,7 +689,6 @@
 		F86365E5171A0C98006CB0BE /* WinningScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinningScreenViewController.m; sourceTree = "<group>"; };
 		F893B34C171219480061835A /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
 		F893B34D171219480061835A /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
-		F893B35117121E430061835A /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpg; sourceTree = "<group>"; };
 		F893B353171224250061835A /* LeaderboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaderboardViewController.h; sourceTree = "<group>"; };
 		F893B354171224250061835A /* LeaderboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaderboardViewController.m; sourceTree = "<group>"; };
 		F8C2724E1704F1C900FC5D09 /* cardsAgainstHumanity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cardsAgainstHumanity.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1082,15 +1089,17 @@
 		F8C272571704F1C900FC5D09 /* cardsAgainstHumanity */ = {
 			isa = PBXGroup;
 			children = (
+				ADEEC24F1720CED600D4CD58 /* Launch@2x.png */,
+				ADEEC24B1720C9E100D4CD58 /* pedestal.png */,
+				ADEEC24D1720CDD900D4CD58 /* Launch.png */,
+				ADEEC2471720C05700D4CD58 /* Arrow.png */,
+				C25CFD26171FEE5900FF780F /* conn.png */,
+				C25CFD28171FEE7500FF780F /* wel.png */,
+				C25CFD2A171FEE8200FF780F /* settings.png */,
 				F86365E4171A0C98006CB0BE /* WinningScreenViewController.h */,
 				F86365E5171A0C98006CB0BE /* WinningScreenViewController.m */,
 				F893B353171224250061835A /* LeaderboardViewController.h */,
 				F893B354171224250061835A /* LeaderboardViewController.m */,
-				F893B35117121E430061835A /* image1.jpg */,
-				C25CFD26171FEE5900FF780F /* conn.png */,
-				C25CFD24171FEE4A00FF780F /* 1.jpg */,
-				C25CFD2A171FEE8200FF780F /* settings.png */,
-				C25CFD28171FEE7500FF780F /* wel.png */,
 				F893B34C171219480061835A /* PlayerViewController.h */,
 				F893B34D171219480061835A /* PlayerViewController.m */,
 				F8CF95E6170A70BC00009D1D /* MainStoryboard.storyboard */,
@@ -1123,6 +1132,7 @@
 		F8C272581704F1C900FC5D09 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ADEEC2431720B8A600D4CD58 /* Cream Donut.ttf */,
 				F8C272591704F1C900FC5D09 /* cardsAgainstHumanity-Info.plist */,
 				F8C2725A1704F1C900FC5D09 /* InfoPlist.strings */,
 				F8C2725D1704F1C900FC5D09 /* main.m */,
@@ -1224,13 +1234,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADEEC2461720B9E200D4CD58 /* Cream Donut.ttf in Resources */,
 				F8C2725C1704F1C900FC5D09 /* InfoPlist.strings in Resources */,
 				F8C272641704F1C900FC5D09 /* Default.png in Resources */,
 				F8C272661704F1C900FC5D09 /* Default@2x.png in Resources */,
 				F8C272681704F1C900FC5D09 /* Default-568h@2x.png in Resources */,
 				F8C272771704F1CA00FC5D09 /* MainStoryboard_iPad.storyboard in Resources */,
 				F8CF95E7170A70BC00009D1D /* MainStoryboard.storyboard in Resources */,
-				F893B35217121E430061835A /* image1.jpg in Resources */,
 				AD36DF181719D6B0000E1E2C /* PCard1.png in Resources */,
 				AD36DF191719D6B0000E1E2C /* PCard5.png in Resources */,
 				AD36DF1A1719D6B0000E1E2C /* PCard4.png in Resources */,
@@ -1535,10 +1545,13 @@
 				AD6489E9171E0E8D0072F3EB /* PCard226.png in Resources */,
 				AD6489EA171E0E8D0072F3EB /* PCard224.png in Resources */,
 				AD6489EB171E0E8D0072F3EB /* PCard225.png in Resources */,
-				C25CFD25171FEE4A00FF780F /* 1.jpg in Resources */,
 				C25CFD27171FEE5900FF780F /* conn.png in Resources */,
 				C25CFD29171FEE7500FF780F /* wel.png in Resources */,
 				C25CFD2B171FEE8200FF780F /* settings.png in Resources */,
+				ADEEC2481720C05700D4CD58 /* Arrow.png in Resources */,
+				ADEEC24C1720C9E100D4CD58 /* pedestal.png in Resources */,
+				ADEEC24E1720CDDA00D4CD58 /* Launch.png in Resources */,
+				ADEEC2501720CED700D4CD58 /* Launch@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1547,6 +1560,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8C272891704F1CB00FC5D09 /* InfoPlist.strings in Resources */,
+				ADEEC2441720B8A600D4CD58 /* Cream Donut.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

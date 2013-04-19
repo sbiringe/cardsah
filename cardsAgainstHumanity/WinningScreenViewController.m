@@ -111,9 +111,9 @@
             cardFour.image = image;
             if ([imageName isEqualToString:winningCard])
             {
-                [cardFour.layer setBorderColor: [[UIColor blueColor] CGColor]];
+                [cardFour.layer setBorderColor: [[UIColor greenColor] CGColor]];
                 [cardFour.layer setBorderWidth: 5.0];
-                cardFourLabel.textColor = [UIColor blueColor];
+                cardFourLabel.textColor = [UIColor greenColor];
             }
         }
     }

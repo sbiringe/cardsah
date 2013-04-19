@@ -24,7 +24,7 @@ NSMutableArray *userCards;
 
 @implementation WelcomeScreenViewController
 @synthesize usernameTextField;
-@synthesize header, userNameLabel, welcome, welcomeImage;
+@synthesize header, userNameLabel, welcome, welcomeImage, dealerLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,6 +48,7 @@ NSMutableArray *userCards;
     winningCard = [[NSMutableString alloc] init];
     
     usernameTextField.delegate = self;
+    usernameTextField.keyboardAppearance = UIKeyboardAppearanceAlert;
     
     header.backgroundColor = [UIColor whiteColor];
     header.font=[header.font fontWithSize:25];
@@ -63,7 +64,7 @@ NSMutableArray *userCards;
 - (void)initNetworkCommunication {
     CFReadStreamRef readStream;
     CFWriteStreamRef writeStream;
-    ipAddress = @"67.194.194.58";
+    ipAddress = @"67.194.203.230";
     CFStreamCreatePairWithSocketToHost(NULL, (__bridge CFStringRef)ipAddress, 1024, &readStream, &writeStream);
     inputStream = (__bridge NSInputStream *)readStream;
     outputStream = (__bridge NSOutputStream *)writeStream;

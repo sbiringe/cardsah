@@ -193,7 +193,7 @@ NSString *endGameCond;
 {
     // Makes toolbar for pickerView
     pickerToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 70)];
-    //pickerToolbar.barStyle = UIBarStyleBlackOpaque;
+    pickerToolbar.barStyle = UIBarStyleBlackOpaque;
     [pickerToolbar sizeToFit];
     
     // Adds objects to barItems
