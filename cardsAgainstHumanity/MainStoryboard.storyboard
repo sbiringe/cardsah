@@ -93,7 +93,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="qyr-Eh-9tV" kind="modal" id="wBP-ns-sRl"/>
+                                    <segue destination="qyr-Eh-9tV" kind="modal" modalTransitionStyle="crossDissolve" id="wBP-ns-sRl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -295,7 +295,7 @@
                         <outlet property="headerLabel" destination="Udq-vi-rJl" id="iaK-WD-qef"/>
                         <outlet property="playersTableView" destination="tra-yx-0Rv" id="dfd-w2-E8g"/>
                         <outlet property="startButton" destination="GB6-7T-E5i" id="Kik-k5-9Fh"/>
-                        <segue destination="dOy-6U-Gss" kind="modal" identifier="beginGame" id="UqT-u9-ZC9"/>
+                        <segue destination="dOy-6U-Gss" kind="modal" identifier="beginGame" modalTransitionStyle="flipHorizontal" id="UqT-u9-ZC9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fat-JS-bZt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -849,7 +849,6 @@
         <class className="WinningScreenViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WinningScreenViewController.h"/>
             <relationships>
-                <relationship kind="action" name="nextClicked:"/>
                 <relationship kind="outlet" name="cardFour" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="cardFourLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="cardOne" candidateClass="UIImageView"/>

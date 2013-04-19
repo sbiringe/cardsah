@@ -46,6 +46,7 @@ NSMutableArray *userCards;
     userList = [[NSMutableArray alloc] init];
     userCards = [[NSMutableArray alloc] init];
     winningCard = [[NSMutableString alloc] init];
+    playerScores = [[NSMutableDictionary alloc] init];
     
     usernameTextField.delegate = self;
     
@@ -150,7 +151,6 @@ NSMutableArray *userCards;
                 
                 while([user characterAtIndex:index])
                 {
-                     NSLog(@"%C", [user characterAtIndex:index]);
                     [temp appendString:[NSString stringWithFormat: @"%C",[user characterAtIndex:index]]];
                     index++;
                 }
@@ -160,11 +160,13 @@ NSMutableArray *userCards;
                 
                 NSLog(@"%@", temp);
                 [userList addObject:temp];
+                [playerScores setObject:[NSNumber numberWithInt:0] forKey:temp];
                 numReceived++;
             }
             
             if(numToReceive == numReceived)
             {
+                intReceived = false;
                 if([userList count] > 1)
                 {
                     [self performSegueWithIdentifier:@"joinSegue" sender:NULL];

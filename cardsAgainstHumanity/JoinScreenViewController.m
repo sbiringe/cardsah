@@ -54,12 +54,12 @@ int indexInUserList;
     randomSeed = 0;
     numToReceive = 0;
     currentRound = 0;
+    minPlayers = 2;
     
     totalPCards = 228;
     totalDCards = 76;
     numShuffles = 1500;
     
-    playerScores = [[NSMutableDictionary alloc] init];
     pCardImages = [[NSMutableArray alloc] init];
     dCardImages = [[NSMutableArray alloc] init];
     playedUsernames = [[NSMutableArray alloc] init];
@@ -76,9 +76,6 @@ int indexInUserList;
     
     [playersTableView reloadData];
     
-    // background
-    self.view.backgroundColor = [UIColor blackColor];
-    
     headerLabel.backgroundColor = [UIColor whiteColor];
     headerLabel.font = [UIFont fontWithName:@"Times New Roman" size: 25];
     [headerLabel setHidden: true];
@@ -88,6 +85,13 @@ int indexInUserList;
     [[UIImage imageNamed:@"conn.png"] drawInRect:self.view.bounds];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    
+    if([userList count] >= minPlayers)
+    {
+        startButton.alpha = 1;
+        startButton.enabled = true;
+    }
+
     
     connImage.image = image;
 }
@@ -250,7 +254,7 @@ int indexInUserList;
                 [playersTableView reloadData];
             }
             
-            if(numToReceive >= 2)
+            if([userList count] >= minPlayers)
             {
                 startButton.alpha = 1;
                 startButton.enabled = true;
