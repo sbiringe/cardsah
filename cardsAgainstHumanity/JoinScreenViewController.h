@@ -25,6 +25,7 @@ extern int indexInUserList;
 
 @interface JoinScreenViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSStreamDelegate>
 {
+    int minPlayers;
     bool getTurnBool;
     bool randomSeedReceived;
     bool intReceived;

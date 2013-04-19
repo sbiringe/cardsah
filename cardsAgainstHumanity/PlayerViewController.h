@@ -10,6 +10,7 @@
 #import "JoinScreenViewController.h"
 #import "WelcomeScreenViewController.h"
 #import "DealerScreenViewController.h"
+#import "WinningScreenViewController.h"
 
 extern UIView *prevTouched;
 

@@ -207,7 +207,7 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tra-yx-0Rv">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tra-yx-0Rv">
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="281" id="B7j-8M-C1K"/>
@@ -226,7 +226,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GB6-7T-E5i">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GB6-7T-E5i">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="275" id="gkc-up-4XQ"/>
                                 </constraints>
@@ -271,7 +271,7 @@
                         <outlet property="headerLabel" destination="Udq-vi-rJl" id="iaK-WD-qef"/>
                         <outlet property="playersTableView" destination="tra-yx-0Rv" id="dfd-w2-E8g"/>
                         <outlet property="startButton" destination="GB6-7T-E5i" id="Kik-k5-9Fh"/>
-                        <segue destination="dOy-6U-Gss" kind="modal" identifier="beginGame" id="UqT-u9-ZC9"/>
+                        <segue destination="dOy-6U-Gss" kind="modal" identifier="beginGame" modalTransitionStyle="flipHorizontal" id="UqT-u9-ZC9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fat-JS-bZt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -473,7 +473,7 @@
                             <constraint firstItem="0Wo-uk-Eki" firstAttribute="trailing" secondItem="OTR-Mz-qm7" secondAttribute="trailing" type="default" id="s8M-dh-WRi"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Leaderboard" id="TO4-II-WGK"/>
+                    <tabBarItem key="tabBarItem" title="Leaderboard" image="rank.png" id="TO4-II-WGK"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="playerScoresTableView" destination="0Wo-uk-Eki" id="7Ix-oh-Xdf"/>
@@ -519,7 +519,7 @@
                             <constraint firstItem="Yby-ER-qgw" firstAttribute="top" secondItem="LbP-us-cf8" secondAttribute="top" constant="12" id="qks-JR-nij"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Rules" id="nub-2H-0Aa" userLabel="Rules"/>
+                    <tabBarItem key="tabBarItem" title="Rules" image="text-list.png" id="nub-2H-0Aa" userLabel="Rules"/>
                     <connections>
                         <outlet property="RulesTView" destination="2W7-FN-mJR" id="yL2-WJ-h7K"/>
                     </connections>
@@ -702,9 +702,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AAn-8m-ly7">
-                                <gestureRecognizers/>
-                            </scrollView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Swipe Up to Submit Card" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OtD-O7-gEr">
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
@@ -720,6 +717,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AAn-8m-ly7">
+                                <gestureRecognizers/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.43060037364130432" green="0.43060037364130432" blue="0.43060037364130432" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -739,7 +739,7 @@
                             <constraint firstItem="AAn-8m-ly7" firstAttribute="leading" secondItem="0fn-3b-wTr" secondAttribute="leading" type="default" id="tBB-4B-p5g"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Current game" id="jYU-dc-CoU"/>
+                    <tabBarItem key="tabBarItem" title="Current game" image="multiple.png" id="jYU-dc-CoU"/>
                     <navigationItem key="navigationItem" title="Title" id="E9M-RY-enR"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>

@@ -44,6 +44,7 @@ UIView *prevTouched;
     
     if (youAreDealer)
     {
+        mainScrollView.scrollEnabled = false;
         horizontalScroll = true;
         swipeUpLabel.text = @"Waiting for other members' selection";
     }
@@ -78,6 +79,7 @@ UIView *prevTouched;
 
     if (youAreDealer)
     {
+        mainScrollView.scrollEnabled = false;
         horizontalScroll = true;
         swipeUpLabel.text = @"Waiting for other members' selection";
     }
@@ -141,6 +143,13 @@ UIView *prevTouched;
         DealerScreenViewController *dealerScreen = [segue destinationViewController];
         
         dealerScreen.playerScreen = self;
+    }
+    else if([[segue identifier] isEqualToString:@"winningScreen"])
+    {
+        WinningScreenViewController *winningScreen = [segue destinationViewController];
+        
+        winningScreen.pageIndex = pageIndex;
+        winningScreen.mainScrollView = mainScrollView;
     }
 }
 
