@@ -71,6 +71,8 @@ int indexInUserList;
     playersTableView.dataSource = self;
     playersTableView.delegate = self;
     
+    startButton.alpha = .4;
+    
     
     [playersTableView reloadData];
     
@@ -248,8 +250,9 @@ int indexInUserList;
                 [playersTableView reloadData];
             }
             
-            if(numToReceive >= 3)
+            if(numToReceive >= 2)
             {
+                startButton.alpha = 1;
                 startButton.enabled = true;
             }
             

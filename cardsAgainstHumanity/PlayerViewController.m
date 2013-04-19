@@ -43,6 +43,7 @@ UIView *prevTouched;
     
     if (youAreDealer)
     {
+        mainScrollView.scrollEnabled = false;
         horizontalScroll = true;
         swipeUpLabel.text = @"Waiting for other members' selection";
     }
@@ -72,9 +73,10 @@ UIView *prevTouched;
     
     [inputStream setDelegate:self];
     [outputStream setDelegate:self];
-
+    
     if (youAreDealer)
     {
+        mainScrollView.scrollEnabled = false;
         horizontalScroll = true;
         swipeUpLabel.text = @"Waiting for other members' selection";
     }
@@ -94,41 +96,6 @@ UIView *prevTouched;
     
     UIImage *dealerImage = [UIImage imageNamed:[dCardImages objectAtIndex:curDIndex]];
     dealerCardImageView.image = dealerImage;
-    
-    int lastDealerIndex = (currentRound - 1) % [userList count];
-
-    if(currentRound != 0 && indexInUserList != lastDealerIndex)
-    {
-        int dealerIndex = currentRound % [userList count];
-        int nextCard = indexInUserList;
-        if(dealerIndex < indexInUserList)
-        {
-            nextCard--;
-        }
-
-        NSString *imageName = [pCardImages objectAtIndex:curPIndex + nextCard];
-        NSLog(@"Image added to hand is: %@", imageName);
-        UIImage *image = [UIImage imageNamed:imageName];
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-        
-        [userCards insertObject:imageName atIndex:pageIndex];
-
-        CGFloat width = 200;
-        CGFloat height = 250;
-
-        CGRect rect = imageView.frame;
-        rect.size.height = width;
-        rect.size.width = height;
-        rect.origin.x = 320 * pageIndex + 35;
-        rect.origin.y = 0;
-
-        imageView.frame = rect;
-
-        [mainScrollView insertSubview:imageView atIndex:pageIndex];
-
-        curPIndex += [userList count] - 1;
-    }
-
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -138,6 +105,13 @@ UIView *prevTouched;
         DealerScreenViewController *dealerScreen = [segue destinationViewController];
         
         dealerScreen.playerScreen = self;
+    }
+    else if([[segue identifier] isEqualToString:@"winningScreen"])
+    {
+        WinningScreenViewController *winningScreen = [segue destinationViewController];
+        
+        winningScreen.pageIndex = pageIndex;
+        winningScreen.mainScrollView = mainScrollView;
     }
 }
 
