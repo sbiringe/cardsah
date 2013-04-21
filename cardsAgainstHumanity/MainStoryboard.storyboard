@@ -756,97 +756,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="multiple.png" width="16" height="16"/>
+        <image name="multiple.png" width="30" height="30"/>
         <image name="pedestal.png" width="400" height="400"/>
-        <image name="rank.png" width="16" height="16"/>
-        <image name="text-list.png" width="16" height="16"/>
+        <image name="rank.png" width="30" height="30"/>
+        <image name="text-list.png" width="30" height="30"/>
     </resources>
-    <classes>
-        <class className="DealerScreenViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DealerScreenViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="pageInfo"/>
-                <relationship kind="outlet" name="Card1Button" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="Card2Button" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="Card3Button" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="Card4Button" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="cardFour" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="cardOne" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="cardThree" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="cardTwo" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="mainCard" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="JoinScreenViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/JoinScreenViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="connImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="headerLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="LeaderboardViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LeaderboardViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="playerScoresTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="PlayerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="dealerCardImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="mainScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="swipeUpLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="RulesScreenViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RulesScreenViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="RulesTView" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="SettingsScreenViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsScreenViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="cardsPerHandLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="cardsPerHandTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="howToWinLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="rulesTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="settingsImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="settingsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="winningScoreTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="WelcomeScreenViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WelcomeScreenViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="dealerLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="header" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="userNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="usernameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="welcome" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="welcomeImage" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="WinningScreenViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WinningScreenViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="cardFour" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="cardFourLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="cardOne" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="cardOneLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="cardThree" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="cardThreeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="cardTwo" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="cardTwoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mainCard" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

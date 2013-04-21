@@ -367,7 +367,7 @@ int indexInUserList;
         if ([[userList objectAtIndex:i] isEqualToString:username])
         {
             indexInUserList = i;
-            curPIndex = i*5;
+            curPIndex = i*cPH;
             break;
         }
     }

@@ -316,7 +316,7 @@ UIView *prevTouched;
     
     CGFloat cx = 0;
     
-    for(int i = curPIndex; i < (curPIndex+5); i++)
+    for(int i = curPIndex; i < (curPIndex+cPH); i++)
     {
         //NSString *imageName = [NSString stringWithFormat:@"PCard%i.png",i+1];
         
@@ -356,7 +356,7 @@ UIView *prevTouched;
         cx += imageView.frame.size.width+70;
     }
     
-    curPIndex = [userList count] * 5;
+    curPIndex = [userList count] * cPH;
     
     [mainScrollView setContentSize:CGSizeMake(cx, height * 2)];
 }
