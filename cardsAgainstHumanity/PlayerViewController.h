@@ -31,10 +31,14 @@ extern UIView *prevTouched;
     
     NSString *submittedUser;
     NSString *submittedCard;
+    bool cardSubmitted;
     
     bool horizontalScroll;
     bool verticalScroll;
     bool scoreUpdated;
+    
+    bool hasSeenDealerAlert;
+    bool hasSeenPlayerAlert;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *swipeUpLabel;

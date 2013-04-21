@@ -48,7 +48,7 @@ NSString *endGameCond;
     wsOptions = [[NSMutableArray alloc] init];
     cphOptions = [[NSMutableArray alloc] init];
     
-    for(int i = 5; i <= 10; i++)
+    for(int i = 3; i <= 10; i++)
     {
         [wsOptions addObject:[NSNumber numberWithInt:i]];
         [cphOptions addObject:[NSNumber numberWithInt:i]];
@@ -70,10 +70,10 @@ NSString *endGameCond;
     // Initialize default values
     winningScoreTextField.text = @"5";
     winningScore = 5;
-    wsRow = 0;
+    wsRow = 2;
     cardsPerHandTextField.text = @"5";
     cardsPerHand = 5;
-    cphRow = 0;
+    cphRow = 2;
     
     
     terminateCondition = @"Play to Score";
@@ -347,6 +347,9 @@ NSString *endGameCond;
 - (void)viewDidAppear:(BOOL)animated
 {
     [rulesTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+    
+    [winningScorePickerView selectRow:wsRow inComponent:0 animated:NO];
+    [cardsPerHandPickerView selectRow:cphRow inComponent:0 animated:NO];
 }
 
 - (void)didReceiveMemoryWarning

@@ -233,7 +233,7 @@ bool tie;
 
 -(void) updateCountdown {
     
-    if (timerCount == 0)
+    if (timerCount == 1)
     {
         [countDownTimer invalidate];
         
@@ -259,6 +259,10 @@ bool tie;
                 [self dismissViewControllerAnimated:YES completion:^{}];
             }
         }
+    }
+    if (winnerDecided)
+    {
+        nextRoundLabel.text = @"Winner Displayed In";
     }
     
     timerCount--;
