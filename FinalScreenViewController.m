@@ -29,11 +29,25 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    finalTableView.delegate = self;
+    finalTableView.dataSource = self;
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [finalTableView reloadData];
+    if (tie)
+    {
+        WinnerLabel.text = @"We have a tie!";
+    }
+    else
+    {
+        NSMutableString *curWinner = [[NSMutableString alloc] init];
+        [curWinner appendString:@"Winner is "];
+        [curWinner appendString:winnerIsUser];
+        WinnerLabel.text = curWinner;
+    }
     
 }
 
@@ -50,18 +64,6 @@
     NSArray *sorted = [[playerScores allKeys] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         return [[playerScores objectForKey:obj2] compare:[playerScores objectForKey:obj1]];
     }];
-    
-    if (tie)
-    {
-        WinnerLabel.text = @"We have a tie!";
-    }
-    else
-    {
-        NSMutableString *curWinner;
-        [curWinner appendString:@"Winner is "];
-        [curWinner appendString:winnerIsUser];
-        WinnerLabel.text = curWinner;
-    }
     
     NSString *cellValue = [sorted objectAtIndex:indexPath.row];
     cell.textLabel.text = cellValue;

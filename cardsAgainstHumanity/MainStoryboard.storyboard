@@ -581,29 +581,41 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhS-C1-PG7">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhS-C1-PG7">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="303" id="cFG-La-Uvg"/>
+                                    <constraint firstAttribute="height" constant="21" id="d9I-hQ-9bS"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="a1U-AH-KAF">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="369" id="CQT-eE-dJv"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="joinList" id="Pbb-LU-u1L">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="joinList" textLabel="FKG-Zm-8we" detailTextLabel="JCi-aO-caZ" style="IBUITableViewCellStyleValue1" id="Pbb-LU-u1L">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKG-Zm-8we">
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCi-aO-caZ">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -612,9 +624,9 @@
                         <constraints>
                             <constraint firstItem="a1U-AH-KAF" firstAttribute="top" secondItem="fhS-C1-PG7" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="JfL-39-uc1"/>
                             <constraint firstItem="NIA-Ew-nLD" firstAttribute="top" secondItem="t1L-sO-twe" secondAttribute="top" constant="39" id="PxH-39-GnR"/>
+                            <constraint firstItem="fhS-C1-PG7" firstAttribute="centerX" secondItem="a1U-AH-KAF" secondAttribute="centerX" type="default" id="WOB-hc-lif"/>
                             <constraint firstItem="a1U-AH-KAF" firstAttribute="leading" secondItem="t1L-sO-twe" secondAttribute="leading" type="default" id="aHM-to-aZE"/>
                             <constraint firstItem="fhS-C1-PG7" firstAttribute="centerX" secondItem="NIA-Ew-nLD" secondAttribute="centerX" type="default" id="agd-OI-pb6"/>
-                            <constraint firstItem="NIA-Ew-nLD" firstAttribute="centerX" secondItem="a1U-AH-KAF" secondAttribute="centerX" type="default" id="h8D-13-yi4"/>
                             <constraint firstItem="a1U-AH-KAF" firstAttribute="bottom" secondItem="t1L-sO-twe" secondAttribute="bottom" type="default" id="l0r-sm-JUV"/>
                             <constraint firstItem="a1U-AH-KAF" firstAttribute="trailing" secondItem="t1L-sO-twe" secondAttribute="trailing" type="default" id="zBs-Y3-vBA"/>
                         </constraints>
