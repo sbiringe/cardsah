@@ -169,6 +169,25 @@ bool winnerDecided;
     Card3Button.hidden = YES;
     cardFour.hidden = YES;
     Card4Button.hidden = YES;
+    
+    srand(rand());
+    
+    for(int i = 0; i < rand()%100; ++i)
+    {
+        int rand1 = rand() % [playedCards count];
+        int rand2 = rand() % [playedCards count];
+        
+        while(rand1 == rand2)
+        {
+            rand1 = rand() % [playedCards count];
+            rand2 = rand() % [playedCards count];
+        }
+        
+        NSString *temp = [playedCards objectAtIndex:rand1];
+        
+        [playedCards setObject:[playedCards objectAtIndex:rand2] atIndexedSubscript:rand1];
+        [playedCards setObject:temp atIndexedSubscript:rand2];
+    }
 
     // Big Card
     NSString *imageName = [dCardImages objectAtIndex:curDIndex];

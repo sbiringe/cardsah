@@ -54,7 +54,7 @@ int indexInUserList;
     randomSeed = 0;
     numToReceive = 0;
     currentRound = 0;
-    minPlayers = 2;
+    minPlayers = 3;
     
     totalPCards = 228;
     totalDCards = 76;
