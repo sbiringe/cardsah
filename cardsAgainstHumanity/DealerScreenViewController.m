@@ -183,10 +183,15 @@ bool winnerDecided;
             rand2 = rand() % [playedCards count];
         }
         
-        NSString *temp = [playedCards objectAtIndex:rand1];
+        NSString *tempCard = [playedCards objectAtIndex:rand1];
+        NSString *tempUsername = [playedUsernames objectAtIndex:rand1];
+
         
+        [playedUsernames setObject:[playedUsernames objectAtIndex:rand2] atIndexedSubscript:rand1];
+        [playedUsernames setObject:tempUsername atIndexedSubscript:rand2];
+
         [playedCards setObject:[playedCards objectAtIndex:rand2] atIndexedSubscript:rand1];
-        [playedCards setObject:temp atIndexedSubscript:rand2];
+        [playedCards setObject:tempCard atIndexedSubscript:rand2];
     }
 
     // Big Card
