@@ -44,20 +44,9 @@ UIView *prevTouched;
     
     if (youAreDealer)
     {
-        //Alert View For Dealer
-        UIAlertView *dealerAlertView = [[UIAlertView alloc]
-                                   initWithTitle:@"Hey Dealer!" message:@"Your hand is disabled. Please wait for others to submit their cards. You will be automatically taken to select screen after" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        
-        
         mainScrollView.scrollEnabled = false;
         horizontalScroll = true;
         swipeUpLabel.text = @"Waiting for other members' selection";
-    }
-    else
-    {
-        //Alert View For Player
-        UIAlertView *playerAlertView = [[UIAlertView alloc]
-                                        initWithTitle:@"Hey Player" message:@"Swipe right and left to see your hand. Swipe up to send card to dealer. You will be automatically taken to winner screen after" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     }
     
     // Creates Action Sheet
@@ -90,6 +79,7 @@ UIView *prevTouched;
         //Alert View For Player
         UIAlertView *playerAlertView = [[UIAlertView alloc]
                                         initWithTitle:@"Hey Player" message:@"Swipe right and left to see your hand. Swipe up to send card to dealer. You will be automatically taken to winner screen after" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [playerAlertView show];
     }
     
     [inputStream setDelegate:self];
@@ -98,15 +88,27 @@ UIView *prevTouched;
 
     if (youAreDealer)
     {
-        //Alert View For Dealer
-        UIAlertView *dealerAlertView = [[UIAlertView alloc]
+        if (currentRound < userList.count)
+        {
+            //Alert View For Dealer
+            UIAlertView *dealerAlertView = [[UIAlertView alloc]
                                         initWithTitle:@"Hey Dealer!" message:@"Your hand is disabled. Please wait for others to submit their cards. You will be automatically taken to select screen after" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        
+            [dealerAlertView show];
+        }
         mainScrollView.scrollEnabled = false;
         horizontalScroll = true;
         swipeUpLabel.text = @"Waiting for other members' selection";
     }
     else
     {
+        if (currentRound == 0)
+        {
+            //Alert View For Player
+            UIAlertView *playerAlertView = [[UIAlertView alloc]
+                                        initWithTitle:@"Hey Player" message:@"Swipe right and left to see your hand. Swipe up to send card to dealer. You will be automatically taken to winner screen after" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [playerAlertView show];
+        }
         horizontalScroll = false;
         verticalScroll =  false;
         swipeUpLabel.text = @"Swipe Up to Submit Card";

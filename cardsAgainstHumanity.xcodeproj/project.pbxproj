@@ -1149,9 +1149,9 @@
 		F8C272581704F1C900FC5D09 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				ADEEC2511720ED3000D4CD58 /* multiple.png */,
-				ADEEC2521720ED3000D4CD58 /* rank.png */,
-				ADEEC2531720ED3000D4CD58 /* text-list.png */,
+				F838443B1720ECEA006A0466 /* text-list.png */,
+				F83844371720ECE0006A0466 /* rank.png */,
+				F83844381720ECE0006A0466 /* multiple.png */,
 				ADEEC2431720B8A600D4CD58 /* Cream Donut.ttf */,
 				F8C272591704F1C900FC5D09 /* cardsAgainstHumanity-Info.plist */,
 				F8C2725A1704F1C900FC5D09 /* InfoPlist.strings */,
@@ -1572,9 +1572,9 @@
 				ADEEC24C1720C9E100D4CD58 /* pedestal.png in Resources */,
 				ADEEC24E1720CDDA00D4CD58 /* Launch.png in Resources */,
 				ADEEC2501720CED700D4CD58 /* Launch@2x.png in Resources */,
-				ADEEC2541720ED3000D4CD58 /* multiple.png in Resources */,
-				ADEEC2551720ED3000D4CD58 /* rank.png in Resources */,
-				ADEEC2561720ED3000D4CD58 /* text-list.png in Resources */,
+				F83844391720ECE0006A0466 /* rank.png in Resources */,
+				F838443A1720ECE0006A0466 /* multiple.png in Resources */,
+				F838443C1720ECEA006A0466 /* text-list.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

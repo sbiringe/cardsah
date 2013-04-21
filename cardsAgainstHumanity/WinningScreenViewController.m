@@ -167,30 +167,13 @@ bool tie;
         
     }
     
-    //Check if there is a winner
-    if (winnerDecided)
-    {
-        nextRoundLabel.text = @"Winner Displayed In";
-        countDownTimer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target:self selector:@selector(updateCountdown) userInfo:nil repeats: YES];
-        [self performSegueWithIdentifier:@"GameOver" sender:nil];
-    }
-    else
-    {
-        //After timer, take it to next round
-        if(youAreDealer)
-        {
-            youAreDealer = false;
-            [self dismissViewControllerAnimated:NO completion:^{}];
-        }
-        else
-        {
-            if([[userList objectAtIndex:nextDealerIndex] isEqualToString:username])
-                youAreDealer = true;
-            
-            [self dismissViewControllerAnimated:YES completion:^{}];
-        }
-    }
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    timerCount = 10;
     
+    countDownTimer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target:self selector:@selector(updateCountdown) userInfo:nil repeats: YES];
 }
 
 - (void)updateGameVals
@@ -250,9 +233,32 @@ bool tie;
 
 -(void) updateCountdown {
     
-    if (timerCount == 1)
+    if (timerCount == 0)
     {
         [countDownTimer invalidate];
+        
+        //Check if there is a winner
+        if (winnerDecided)
+        {
+            nextRoundLabel.text = @"Winner Displayed In";
+            [self performSegueWithIdentifier:@"GameOver" sender:nil];
+        }
+        else
+        {
+            //After timer, take it to next round
+            if(youAreDealer)
+            {
+                youAreDealer = false;
+                [self dismissViewControllerAnimated:NO completion:^{}];
+            }
+            else
+            {
+                if([[userList objectAtIndex:nextDealerIndex] isEqualToString:username])
+                    youAreDealer = true;
+                
+                [self dismissViewControllerAnimated:YES completion:^{}];
+            }
+        }
     }
     
     timerCount--;
