@@ -34,6 +34,8 @@ NSString *endGameCond;
 {
     [super viewDidLoad];
     
+    [outputStream setDelegate:self];
+
     // Creates Action Sheet
     actionSheet = [[UIActionSheet alloc] initWithTitle:@"Action Sheet"
                                               delegate:nil
@@ -51,6 +53,10 @@ NSString *endGameCond;
         [wsOptions addObject:[NSNumber numberWithInt:i]];
         [cphOptions addObject:[NSNumber numberWithInt:i]];
     }
+    
+    winScore = 0;
+    cPH = 0;
+    endGameCond = [[NSString alloc] init];
     
     rulesTableView.delegate = self;
     rulesTableView.dataSource = self;
@@ -106,10 +112,43 @@ NSString *endGameCond;
     settingsImage.image = image;
 }
 
+- (NSData*) convertToJavaUTF8 : (NSString*) str
+{
+    NSUInteger len = [str lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
+    Byte buffer[2];
+    buffer[0] = (0xff & (len >> 8));
+    buffer[1] = (0xff & len);
+    NSMutableData *outData = [NSMutableData dataWithCapacity:2];
+    [outData appendBytes:buffer length:2];
+    [outData appendData:[str dataUsingEncoding:NSUTF8StringEncoding]];
+    return outData;
+}
+
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([[segue identifier] isEqualToString:@"joinSegue"])
     {
+        NSString *msg1 = [NSString stringWithFormat:@"%@", cardsPerHandTextField.text];
+        NSData *data1 = [self convertToJavaUTF8:msg1];
+        [outputStream write:(const uint8_t *)[data1 bytes] maxLength:[data1 length]];
+        
+        NSString *condition;
+        
+        if([terminateCondition isEqualToString:@"Play to Score"])
+            condition = @"0";
+        else if([terminateCondition isEqualToString:@"Run out of Cards"])
+            condition = @"1";
+        else
+            condition = @"2";
+        
+        NSString *msg2 = [NSString stringWithFormat:@"%@", condition];
+        NSData *data2 = [self convertToJavaUTF8:msg2];
+        [outputStream write:(const uint8_t *)[data2 bytes] maxLength:[data2 length]];
+        
+        NSString *msg3 = [NSString stringWithFormat:@"%@", winningScoreTextField.text];
+        NSData *data3 = [self convertToJavaUTF8:msg3];
+        [outputStream write:(const uint8_t *)[data3 bytes] maxLength:[data3 length]];
+        
         JoinScreenViewController *vc = [segue destinationViewController];
         
         vc.cardPerHand = (int)cardsPerHandTextField.text;

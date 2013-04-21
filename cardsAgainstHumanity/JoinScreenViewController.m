@@ -195,8 +195,102 @@ int indexInUserList;
                     if(numToReceive == -1)
                     {
                         getTurnBool = true;
+                        
+                        if(len > 0)
+                        {
+                            int i;
+                            
+                            range = NSMakeRange(4, len);
+                            len -= 4;
+
+                            NSMutableData *datars = [[NSMutableData alloc] initWithCapacity:20];
+                            uint8_t bufrs[1024];
+                            [data getBytes:bufrs range:range];
+                            [datars appendBytes:(const void *)bufrs length:4];
+                            
+                            [datars getBytes: &i length: sizeof(i)];
+                            
+                            randomSeed = ntohl(i);
+                            
+                            NSLog(@"%i", randomSeed);
+                            
+                            NSMutableData *dataBool = [[NSMutableData alloc] initWithCapacity:20];
+                            
+                            uint8_t bufBool[1024];
+                            range = NSMakeRange(8, len);
+                            [data getBytes:bufBool range:range];
+                            [dataBool appendBytes:(const void *)bufBool length:len];
+                            
+                            
+                            [dataBool getBytes: &youAreDealer length: sizeof(youAreDealer)];
+                            
+                            [self initAndShuffleDecks];
+                            
+                            [self performSegueWithIdentifier:@"beginGame" sender:nil];
+                        }
                         return;
                     }
+                    
+                    if(numToReceive == 99)
+                    {
+                        range = NSMakeRange(4, len);
+                        len -= 4;
+                        
+                        NSMutableData *datacph = [[NSMutableData alloc] initWithCapacity:20];
+                        uint8_t bufcph[1024];
+                        [data getBytes:bufcph range:range];
+                        [datacph appendBytes:(const void *)bufcph length:4];
+                        
+                        int cardsPerHand;
+                        [datacph getBytes: &cardsPerHand length: sizeof(cardsPerHand)];
+                        
+                        cPH = ntohl(cardsPerHand);
+                        NSLog(@"%i", cPH);
+                        
+                        range = NSMakeRange(8, len);
+                        len -= 4;
+                        
+                        NSMutableData *dataend = [[NSMutableData alloc] initWithCapacity:20];
+                        uint8_t bufend[1024];
+                        [data getBytes:bufend range:range];
+                        [dataend appendBytes:(const void *)bufend length:4];
+                        
+                        int tc;
+                        [dataend getBytes: &tc length: sizeof(tc)];
+                        
+                        int tcInt;
+                        tcInt = ntohl(tc);
+                        NSLog(@"%i", tcInt);
+                        
+                        if(tcInt == 0)
+                            endGameCond = @"Play to Score";
+                        else if(tcInt == 1)
+                            endGameCond =  @"Run out of Cards";
+                        else
+                            endGameCond = @"Play Forever!";
+                            
+                        if(tcInt == 0)
+                        {
+                            range = NSMakeRange(12, len);
+                            len -= 4;
+                            
+                            NSMutableData *dataws = [[NSMutableData alloc] initWithCapacity:20];
+                            uint8_t bufws[1024];
+                            [data getBytes:bufws range:range];
+                            [dataws appendBytes:(const void *)bufws length:4];
+                            
+                            int ws;
+                            [dataws getBytes: &ws length: sizeof(ws)];
+                        
+                            winScore = ntohl(ws);
+                            NSLog(@"%i", winScore);
+                        }
+                        
+                        intReceived = false;
+                        
+                        return;
+                    }
+                    
                     [userList removeAllObjects];
                     
                     range = NSMakeRange(4, len);
@@ -273,7 +367,7 @@ int indexInUserList;
         if ([[userList objectAtIndex:i] isEqualToString:username])
         {
             indexInUserList = i;
-            curPIndex = i*5;
+            curPIndex = i*cPH;
             break;
         }
     }

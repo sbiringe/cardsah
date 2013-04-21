@@ -326,6 +326,9 @@
 		C25CFD29171FEE7500FF780F /* wel.png in Resources */ = {isa = PBXBuildFile; fileRef = C25CFD28171FEE7500FF780F /* wel.png */; };
 		C25CFD2B171FEE8200FF780F /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = C25CFD2A171FEE8200FF780F /* settings.png */; };
 		C29AE8101716968900ED40CC /* DealerScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C29AE80F1716968900ED40CC /* DealerScreenViewController.m */; };
+		F83844391720ECE0006A0466 /* rank.png in Resources */ = {isa = PBXBuildFile; fileRef = F83844371720ECE0006A0466 /* rank.png */; };
+		F838443A1720ECE0006A0466 /* multiple.png in Resources */ = {isa = PBXBuildFile; fileRef = F83844381720ECE0006A0466 /* multiple.png */; };
+		F838443C1720ECEA006A0466 /* text-list.png in Resources */ = {isa = PBXBuildFile; fileRef = F838443B1720ECEA006A0466 /* text-list.png */; };
 		F839A8D61708FA9C00E42B6E /* LaunchScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F839A8D51708FA9C00E42B6E /* LaunchScreenViewController.m */; };
 		F839A8D91708FB2500E42B6E /* JoinScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F839A8D81708FB2500E42B6E /* JoinScreenViewController.m */; };
 		F839A8DC170903D400E42B6E /* WelcomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F839A8DB170903D400E42B6E /* WelcomeScreenViewController.m */; };
@@ -686,6 +689,9 @@
 		C25CFD2A171FEE8200FF780F /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		C29AE80E1716968900ED40CC /* DealerScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealerScreenViewController.h; sourceTree = "<group>"; };
 		C29AE80F1716968900ED40CC /* DealerScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealerScreenViewController.m; sourceTree = "<group>"; };
+		F83844371720ECE0006A0466 /* rank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rank.png; sourceTree = "<group>"; };
+		F83844381720ECE0006A0466 /* multiple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = multiple.png; sourceTree = "<group>"; };
+		F838443B1720ECEA006A0466 /* text-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-list.png"; sourceTree = "<group>"; };
 		F839A8D41708FA9C00E42B6E /* LaunchScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchScreenViewController.h; sourceTree = "<group>"; };
 		F839A8D51708FA9C00E42B6E /* LaunchScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchScreenViewController.m; sourceTree = "<group>"; };
 		F839A8D71708FB2500E42B6E /* JoinScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinScreenViewController.h; sourceTree = "<group>"; };
