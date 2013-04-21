@@ -164,7 +164,28 @@ bool tie;
         {
             winnerIsUser = cellValue1;
         }
+    }
+    
+    //Check if there is a winner by points, if so, update 'winnerDecided' and 'winnerIsUser'
+    if ([endGameCond isEqualToString:@"Play to Score"])
+    {
+        // Set up the cell...
+        NSArray *sorted = [[playerScores allKeys] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            return [[playerScores objectForKey:obj2] compare:[playerScores objectForKey:obj1]];
+        }];
         
+        NSString *cellValue = [sorted objectAtIndex:0];
+        int topScore = [[playerScores objectForKey:cellValue] intValue];
+        if (topScore == winScore)
+        {
+            winnerDecided = TRUE;
+            winnerIsUser = cellValue;
+        }
+    }
+    
+    if (winnerDecided)
+    {
+        nextRoundLabel.text = @"Winner Displayed In";
     }
     
 }
@@ -174,6 +195,7 @@ bool tie;
     timerCount = 10;
     
     countDownTimer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target:self selector:@selector(updateCountdown) userInfo:nil repeats: YES];
+    
 }
 
 - (void)updateGameVals
@@ -259,10 +281,6 @@ bool tie;
                 [self dismissViewControllerAnimated:YES completion:^{}];
             }
         }
-    }
-    if (winnerDecided)
-    {
-        nextRoundLabel.text = @"Winner Displayed In";
     }
     
     timerCount--;

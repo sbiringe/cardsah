@@ -11,7 +11,7 @@
 #import "DealerScreenViewController.h"
 #import "WinningScreenViewController.h"
 
-@interface FinalScreenViewController : UIViewController
+@interface FinalScreenViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
     bool scoreUpdated;
 }
