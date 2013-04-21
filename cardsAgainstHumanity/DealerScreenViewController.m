@@ -8,6 +8,9 @@
 
 #import "DealerScreenViewController.h"
 
+NSString *winnerIsUser;
+bool winnerDecided;
+
 @implementation DealerScreenViewController
 
 @synthesize mainCard;
@@ -99,6 +102,24 @@
         NSData *data = [self convertToJavaUTF8:msg];
         [outputStream write:(const uint8_t *)[data bytes] maxLength:[data length]];
         goBackToPlayerView = true;
+        
+        //Check if there is a winner, if so, update 'winnerDecided' and 'winnerIsUser'
+        if ([endGameCond isEqualToString:@"Play to Score"])
+        {
+            // Set up the cell...
+            NSArray *sorted = [[playerScores allKeys] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                return [[playerScores objectForKey:obj2] compare:[playerScores objectForKey:obj1]];
+            }];
+            
+            NSString *cellValue = [sorted objectAtIndex:0];
+            int topScore = [[playerScores objectForKey:cellValue] intValue];
+            if (topScore == winScore)
+            {
+                winnerDecided = TRUE;
+                winnerIsUser = cellValue;
+            }
+        }
+        
         [self performSegueWithIdentifier:@"gotoWinningScreen" sender:nil];
     }
 }
@@ -136,6 +157,7 @@
 	// Do any additional setup after loading the view.
     
     goBackToPlayerView = false;
+    winnerDecided = false;
 
     [outputStream setDelegate:self];
 

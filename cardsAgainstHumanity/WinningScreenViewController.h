@@ -9,9 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "WelcomeScreenViewController.h"
 #import "PlayerViewController.h"
+#import "DealerScreenViewController.h"
+
+extern bool tie;
 
 @interface WinningScreenViewController : UIViewController<UIScrollViewAccessibilityDelegate, UIScrollViewDelegate>
+{
+    int nextDealerIndex;
+    int timerCount;
+    NSTimer *countDownTimer;
+}
 
+@property (weak, nonatomic) IBOutlet UILabel *nextRoundLabel;
+@property (weak, nonatomic) IBOutlet UILabel *countDownTimerLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *mainCard;
 @property (weak, nonatomic) IBOutlet UIImageView *cardOne;
 @property (weak, nonatomic) IBOutlet UILabel *cardOneLabel;
