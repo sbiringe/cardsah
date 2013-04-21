@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "WelcomeScreenViewController.h"
 #import "PlayerViewController.h"
+#import "SettingsScreenViewController.h"
 
+extern NSString *winnerIsUser;
+extern bool winnerDecided;
 
 @interface DealerScreenViewController : UIViewController <UIActionSheetDelegate, UIAlertViewDelegate, NSStreamDelegate>
 {

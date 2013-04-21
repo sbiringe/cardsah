@@ -44,9 +44,20 @@ UIView *prevTouched;
     
     if (youAreDealer)
     {
+        //Alert View For Dealer
+        UIAlertView *dealerAlertView = [[UIAlertView alloc]
+                                   initWithTitle:@"Hey Dealer!" message:@"Your hand is disabled. Please wait for others to submit their cards. You will be automatically taken to select screen after" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        
+        
         mainScrollView.scrollEnabled = false;
         horizontalScroll = true;
         swipeUpLabel.text = @"Waiting for other members' selection";
+    }
+    else
+    {
+        //Alert View For Player
+        UIAlertView *playerAlertView = [[UIAlertView alloc]
+                                        initWithTitle:@"Hey Player" message:@"Swipe right and left to see your hand. Swipe up to send card to dealer. You will be automatically taken to winner screen after" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     }
     
     // Creates Action Sheet
@@ -73,12 +84,23 @@ UIView *prevTouched;
 {
     mainScrollView.scrollEnabled = TRUE;
     
+    //This player was the 1st dealer. In the second round, we need to give instructions for player
+    if (currentRound == 1 && indexInUserList == 0)
+    {
+        //Alert View For Player
+        UIAlertView *playerAlertView = [[UIAlertView alloc]
+                                        initWithTitle:@"Hey Player" message:@"Swipe right and left to see your hand. Swipe up to send card to dealer. You will be automatically taken to winner screen after" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    }
+    
     [inputStream setDelegate:self];
     [outputStream setDelegate:self];
     
 
     if (youAreDealer)
     {
+        //Alert View For Dealer
+        UIAlertView *dealerAlertView = [[UIAlertView alloc]
+                                        initWithTitle:@"Hey Dealer!" message:@"Your hand is disabled. Please wait for others to submit their cards. You will be automatically taken to select screen after" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         mainScrollView.scrollEnabled = false;
         horizontalScroll = true;
         swipeUpLabel.text = @"Waiting for other members' selection";
