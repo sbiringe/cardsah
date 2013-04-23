@@ -16,7 +16,7 @@ UIView *prevTouched;
 
 @implementation PlayerViewController
 
-@synthesize mainScrollView, swipeUpLabel, actionSheet, playedCardToolbar, dealerCardImageView;
+@synthesize mainScrollView, swipeUpLabel, actionSheet, playedCardToolbar, dealerCardImageView, dealerCardLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -81,6 +81,13 @@ UIView *prevTouched;
     if (!cardSubmitted)
     {
         mainScrollView.scrollEnabled = TRUE;
+        
+        currentDealerIndex = currentRound % [userList count];
+        NSMutableString *dealerString = [[NSMutableString alloc] initWithString:@"Dealer's ("];
+        [dealerString appendString:[userList objectAtIndex:currentDealerIndex]];
+        [dealerString appendString:@"'s) Card"];
+        dealerCardLabel.text = dealerString;
+        
         
         //This player was the 1st dealer. In the second round, we need to give instructions for player
         if (currentRound == 1 && indexInUserList == 0)

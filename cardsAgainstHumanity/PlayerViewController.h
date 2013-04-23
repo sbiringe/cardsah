@@ -30,6 +30,8 @@ extern UIView *prevTouched;
     
     UILabel *dealerLabel;
     
+    int currentDealerIndex;
+    
     NSString *submittedUser;
     NSString *submittedCard;
     bool cardSubmitted;
@@ -47,6 +49,7 @@ extern UIView *prevTouched;
 @property (nonatomic, retain) UIActionSheet *actionSheet;
 @property (nonatomic, retain) UIToolbar *playedCardToolbar;
 @property (weak, nonatomic) IBOutlet UIImageView *dealerCardImageView;
+@property (weak, nonatomic) IBOutlet UILabel *dealerCardLabel;
 
 
 @end
