@@ -247,27 +247,29 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyt-Y9-L36">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Connected Players" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wz5-re-B8x">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="76" id="I8N-VZ-vZT"/>
-                                    <constraint firstAttribute="width" constant="291" id="M42-EM-5PG"/>
+                                    <constraint firstAttribute="height" constant="40" id="uEE-IA-cJG"/>
                                 </constraints>
-                            </imageView>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="vyt-Y9-L36" firstAttribute="top" secondItem="Dwc-G6-a4W" secondAttribute="top" type="default" id="7zg-u9-qtS"/>
-                            <constraint firstItem="vyt-Y9-L36" firstAttribute="centerX" secondItem="Udq-vi-rJl" secondAttribute="centerX" type="default" id="JjE-Th-dQi"/>
-                            <constraint firstItem="vyt-Y9-L36" firstAttribute="centerX" secondItem="Dwc-G6-a4W" secondAttribute="centerX" type="default" id="PdT-lx-s0f"/>
+                            <constraint firstItem="Udq-vi-rJl" firstAttribute="centerX" secondItem="wz5-re-B8x" secondAttribute="centerX" type="default" id="CMa-a2-0CE"/>
+                            <constraint firstItem="tra-yx-0Rv" firstAttribute="top" secondItem="Dwc-G6-a4W" secondAttribute="top" constant="84" id="LxJ-iz-14N"/>
+                            <constraint firstItem="Udq-vi-rJl" firstAttribute="centerX" secondItem="tra-yx-0Rv" secondAttribute="centerX" type="default" id="NHD-EX-N84"/>
                             <constraint firstAttribute="bottom" secondItem="GB6-7T-E5i" secondAttribute="bottom" constant="39" id="Pn1-Qa-6Ev"/>
+                            <constraint firstItem="wz5-re-B8x" firstAttribute="leading" secondItem="Dwc-G6-a4W" secondAttribute="leading" type="default" id="Q58-AH-eAp"/>
                             <constraint firstItem="Udq-vi-rJl" firstAttribute="top" secondItem="Dwc-G6-a4W" secondAttribute="top" constant="20" symbolic="YES" type="default" id="RV6-tw-xBu"/>
-                            <constraint firstItem="Udq-vi-rJl" firstAttribute="centerX" secondItem="tra-yx-0Rv" secondAttribute="centerX" type="default" id="bYM-MK-YDc"/>
-                            <constraint firstItem="tra-yx-0Rv" firstAttribute="top" secondItem="vyt-Y9-L36" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="cr7-UG-0Mp"/>
+                            <constraint firstItem="wz5-re-B8x" firstAttribute="trailing" secondItem="Dwc-G6-a4W" secondAttribute="trailing" type="default" id="r8t-qH-Qrj"/>
+                            <constraint firstItem="wz5-re-B8x" firstAttribute="top" secondItem="Dwc-G6-a4W" secondAttribute="top" constant="-2" id="yk6-tO-qmT"/>
                             <constraint firstItem="GB6-7T-E5i" firstAttribute="centerX" secondItem="tra-yx-0Rv" secondAttribute="centerX" type="default" id="zkt-RJ-0Uf"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="connImage" destination="vyt-Y9-L36" id="RWe-SW-poz"/>
                         <outlet property="headerLabel" destination="Udq-vi-rJl" id="iaK-WD-qef"/>
                         <outlet property="playersTableView" destination="tra-yx-0Rv" id="dfd-w2-E8g"/>
                         <outlet property="startButton" destination="GB6-7T-E5i" id="Kik-k5-9Fh"/>
@@ -500,19 +502,19 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2W7-FN-mJR">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2W7-FN-mJR">
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="285" id="DHb-S7-cOZ"/>
                                     <constraint firstAttribute="height" constant="128" id="chT-9a-V6P"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna uda.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OfC-jm-8sE">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="285" id="Y03-cf-nzJ"/>
                                     <constraint firstAttribute="height" constant="222" id="drM-NZ-4vb"/>
                                 </constraints>
                                 <string key="text">1) Players draw certain number of white cards
@@ -521,19 +523,31 @@
 4) Dealer shuffles cards and picks favorite card
 5) Everyone is notified and winner gets 1 point
 6) Repeat from step 2 until a certain score, cards run out or just play forever!</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="How to Play" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wiP-sV-CbY">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="104" id="7rY-k2-jNH"/>
+                                    <constraint firstAttribute="height" constant="21" id="r65-xh-n4N"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-BoldOblique" family="Helvetica" pointSize="18"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2W7-FN-mJR" firstAttribute="trailing" secondItem="OfC-jm-8sE" secondAttribute="trailing" type="default" id="0pS-db-svg"/>
-                            <constraint firstItem="Yby-ER-qgw" firstAttribute="centerX" secondItem="LbP-us-cf8" secondAttribute="centerX" type="default" id="6J9-yG-Vsa"/>
-                            <constraint firstItem="OfC-jm-8sE" firstAttribute="top" secondItem="LbP-us-cf8" secondAttribute="top" constant="67" id="9Ng-po-S7R"/>
-                            <constraint firstItem="2W7-FN-mJR" firstAttribute="top" secondItem="OfC-jm-8sE" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Hb9-td-8tF"/>
+                            <constraint firstItem="wiP-sV-CbY" firstAttribute="top" secondItem="LbP-us-cf8" secondAttribute="top" constant="156" id="4aA-Z8-vtc"/>
+                            <constraint firstItem="Yby-ER-qgw" firstAttribute="centerX" secondItem="LbP-us-cf8" secondAttribute="centerX" type="default" id="C8F-R1-2Ds"/>
+                            <constraint firstItem="2W7-FN-mJR" firstAttribute="top" secondItem="LbP-us-cf8" secondAttribute="top" constant="42" id="JHs-aP-Mqh"/>
+                            <constraint firstItem="wiP-sV-CbY" firstAttribute="centerX" secondItem="Yby-ER-qgw" secondAttribute="centerX" type="default" id="K8F-vW-Q3X"/>
+                            <constraint firstItem="OfC-jm-8sE" firstAttribute="top" secondItem="LbP-us-cf8" secondAttribute="top" constant="175" id="MfX-Yu-I57"/>
                             <constraint firstItem="2W7-FN-mJR" firstAttribute="leading" secondItem="LbP-us-cf8" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="bwf-Dg-d18"/>
-                            <constraint firstItem="Yby-ER-qgw" firstAttribute="top" secondItem="LbP-us-cf8" secondAttribute="top" constant="12" id="qks-JR-nij"/>
-                            <constraint firstItem="OfC-jm-8sE" firstAttribute="leading" secondItem="LbP-us-cf8" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="yOr-6S-ehc"/>
+                            <constraint firstItem="Yby-ER-qgw" firstAttribute="top" secondItem="LbP-us-cf8" secondAttribute="top" constant="-1" id="ivL-7u-FAT"/>
+                            <constraint firstItem="OfC-jm-8sE" firstAttribute="leading" secondItem="LbP-us-cf8" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="oid-gW-ehH"/>
+                            <constraint firstItem="OfC-jm-8sE" firstAttribute="trailing" secondItem="2W7-FN-mJR" secondAttribute="trailing" type="default" id="zxd-F5-WPs"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Rules" image="text-list.png" id="nub-2H-0Aa" userLabel="Rules"/>

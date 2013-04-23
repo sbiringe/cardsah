@@ -31,6 +31,13 @@ UIView *prevTouched;
 {
     [super viewDidLoad];
     
+    dealerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, [[UIScreen mainScreen] applicationFrame].size.height - 250, 320, 201)];
+    [dealerLabel setFont:[UIFont fontWithName:@"Helvetica" size:32]];
+    [dealerLabel setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:.8]];
+    [dealerLabel setTextColor:[UIColor whiteColor]];
+    [dealerLabel setTextAlignment:NSTextAlignmentCenter];
+    [dealerLabel setText:@"You are Dealer"];
+    
     intReceived = false;
     usernameReceived = false;
     winnerSelected = false;
@@ -41,7 +48,6 @@ UIView *prevTouched;
     horizontalScroll = false;
     verticalScroll = false;
     cardSubmitted = false;
-    
     
     if (youAreDealer)
     {
@@ -92,7 +98,6 @@ UIView *prevTouched;
         [inputStream setDelegate:self];
         [outputStream setDelegate:self];
         
-        
         if (youAreDealer)
         {
             if (currentRound < userList.count)
@@ -110,9 +115,12 @@ UIView *prevTouched;
             mainScrollView.scrollEnabled = false;
             horizontalScroll = true;
             swipeUpLabel.text = @"Waiting for other players' selection";
+            [self.view insertSubview:dealerLabel aboveSubview:mainScrollView];
         }
         else
         {
+            [dealerLabel removeFromSuperview];
+            
             if (currentRound == 0)
             {
                 //Alert View For Player

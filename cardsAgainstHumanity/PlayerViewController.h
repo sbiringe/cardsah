@@ -28,6 +28,7 @@ extern UIView *prevTouched;
     
     int pageIndex;
     
+    UILabel *dealerLabel;
     
     NSString *submittedUser;
     NSString *submittedCard;
