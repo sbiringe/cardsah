@@ -8,6 +8,7 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Random;
 
 class Player {//extends Thread{
     public String name;
@@ -64,6 +65,12 @@ public class Server {
     static String word;
     static int numPlayersPlayed;
     static boolean waitingForPlayers;
+    
+    static int cardsPerHand;
+    static int howToWin;
+    static int points;
+    static boolean playToPoints;
+    
    
     static void getConnections(){
         start=false;
@@ -76,15 +83,61 @@ public class Server {
                 Socket s=ss.accept();
                 if(start)
                     break;
-                players.add(new Player(s));
+                Player p = new Player(s);
+                players.add(p);
                 sendPlayers();
+                try {
+					Thread.sleep(500);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
                 //players.get(players.size()-1).start();
-                
+                if(players.size() == 1)
+                {
+                	GetRules getRules = new GetRules(p.in,p.out);
+                	Thread thr = new Thread(getRules);
+                	thr.start();
+                }
             } catch (IOException e) {System.out.println("Add connection "+e);}
         }
+    	sendRules();
         sendStarting();
     }
-   
+    
+    public static synchronized void setRules(String cph, String htw,
+			String pts, boolean ptp)
+    {
+    	cardsPerHand = Integer.parseInt(cph);
+    	howToWin = Integer.parseInt(htw);
+    	playToPoints = ptp;
+    	if(playToPoints)
+    	{
+    		points = Integer.parseInt(pts);
+    	}
+    	else
+    		points = -1;
+    }
+    
+    public static synchronized void sendRules()
+    {
+    	try
+    	{
+	    	for(int n = 0; n < players.size(); n++)
+	    	{
+	    		players.get(n).out.writeInt(99);
+	    		players.get(n).out.writeInt(cardsPerHand);
+	    		players.get(n).out.writeInt(howToWin);
+	    		if(playToPoints)
+	    			players.get(n).out.writeInt(points);
+	    		players.get(n).out.flush();
+	    	}
+    	}
+    	catch(IOException e)
+    	{
+    		System.out.println("Send rules " + e);
+    	}
+    }
+    
     static void sendPlayers(){
         boolean good=true;
         for(int i=0; i<players.size(); i++){
@@ -130,17 +183,24 @@ public class Server {
    
     static void gameplay(){
         try {
+        	Random rand=new Random();
+            int seed=rand.nextInt();
+            for(int i=0; i<players.size(); i++){
+                players.get(i).out.writeInt(seed);
+                players.get(i).out.flush();
+            }
+            for(int i=0; i<players.size(); i++){
+                if(i==curPlayer)
+                    players.get(i).out.writeBoolean(true);
+                	//Possibly write dealer's card here
+                else
+                    players.get(i).out.writeBoolean(false);
+                players.get(i).out.flush();
+            }
         	while(true)
         	{
+        		System.out.println("New round started...");
 	        	numPlayersPlayed = 0;
-	            for(int i=0; i<players.size(); i++){
-	                if(i==curPlayer)
-	                    players.get(i).out.writeBoolean(true);
-	                	//Possibly write dealer's card here
-	                else
-	                    players.get(i).out.writeBoolean(false);
-	                players.get(i).out.flush();
-	            }
 	            //Create threads listening for each player's selection
 	            for(int i=0; i<players.size(); i++){
 	            	if(i != curPlayer)
@@ -153,7 +213,13 @@ public class Server {
 	            }
 	            waitingForPlayers = true;
         	
-	            while(waitingForPlayers){}
+	            while(waitingForPlayers){
+	            	try {
+						Thread.sleep(500);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+	            }
         	}
         }catch(IOException e){}
     }
@@ -163,9 +229,12 @@ public class Server {
     	try{
 	    	for( int n = 0; n < players.size(); n++)
 	    	{
-	    		players.get(n).out.writeInt(51);
-	    		players.get(n).out.writeBytes(file + '\0');
-	    		players.get(n).out.flush();
+	    		if(n != curPlayer)
+	    		{
+		    		players.get(n).out.writeInt(51);
+		    		players.get(n).out.writeBytes(file + '\0');
+		    		players.get(n).out.flush();
+	    		}
 	    	}
     	}
     	catch(IOException e){}
@@ -196,6 +265,11 @@ public class Server {
 	        	{
 	        		System.out.println("All players played!");
 	        		//tell dealer it is his turn to select winner
+	        		try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
 	        		players.get(curPlayer).out.writeInt(50);
 	        		players.get(curPlayer).out.flush();
 	        		String winnerFile = Server.getString(players.get(curPlayer).in);
@@ -233,7 +307,10 @@ public class Server {
                 result += c;
             }*/
             result = in.readUTF();
-        }catch(Exception e){System.out.println("GetString "+e);}
+        }catch(Exception e){
+        	System.out.println("GetString "+e);
+        	System.exit(1);
+        }
         return result;
     }
    
