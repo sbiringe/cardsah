@@ -15,7 +15,7 @@ extern int winScore;//winning score if available
 extern int cPH;//initial cards per hand
 extern NSString *endGameCond;//Condition for when game is over
 
-@interface SettingsScreenViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
+@interface SettingsScreenViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, NSStreamDelegate>
 {
     NSString *terminateCondition;
     NSMutableArray *terminationConds;
@@ -32,7 +32,6 @@ extern NSString *endGameCond;//Condition for when game is over
     int cphRow;
 }
 
-@property (weak, nonatomic) NSMutableArray *userList;
 @property (weak, nonatomic) IBOutlet UITextField *cardsPerHandTextField;
 @property (weak, nonatomic) IBOutlet UITextField *winningScoreTextField;
 @property (weak, nonatomic) IBOutlet UITableView *rulesTableView;
@@ -41,6 +40,10 @@ extern NSString *endGameCond;//Condition for when game is over
 @property (nonatomic, retain) UIToolbar *pickerToolbar;
 @property (nonatomic, retain) UIActionSheet *actionSheet;
 
+@property (weak, nonatomic) IBOutlet UILabel *cardsPerHandLabel;
+@property (weak, nonatomic) IBOutlet UILabel *howToWinLabel;
+@property (weak, nonatomic) IBOutlet UILabel *settingsLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *settingsImage;
 
 -(void)createActionSheetWithToolbarTitle:(NSString *)toolbarTitle picker:(UIPickerView *)pickerView;
 

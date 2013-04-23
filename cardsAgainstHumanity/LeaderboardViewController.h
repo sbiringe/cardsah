@@ -12,8 +12,7 @@
 #import "WelcomeScreenViewController.h"
 
 @interface LeaderboardViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NSStreamDelegate>
-{;
-    
+{
     bool scoreUpdated;
 }
 

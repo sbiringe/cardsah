@@ -17,7 +17,9 @@ NSString *endGameCond;
 
 @implementation SettingsScreenViewController
 @synthesize cardsPerHandTextField, winningScoreTextField, rulesTableView, winningScorePickerView;
-@synthesize cardsPerHandPickerView, pickerToolbar, actionSheet, userList;
+@synthesize cardsPerHandPickerView, pickerToolbar, actionSheet;
+
+@synthesize settingsLabel, cardsPerHandLabel, howToWinLabel, settingsImage;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,6 +34,8 @@ NSString *endGameCond;
 {
     [super viewDidLoad];
     
+    [outputStream setDelegate:self];
+
     // Creates Action Sheet
     actionSheet = [[UIActionSheet alloc] initWithTitle:@"Action Sheet"
                                               delegate:nil
@@ -44,11 +48,15 @@ NSString *endGameCond;
     wsOptions = [[NSMutableArray alloc] init];
     cphOptions = [[NSMutableArray alloc] init];
     
-    for(int i = 5; i <= 10; i++)
+    for(int i = 3; i <= 10; i++)
     {
         [wsOptions addObject:[NSNumber numberWithInt:i]];
         [cphOptions addObject:[NSNumber numberWithInt:i]];
     }
+    
+    winScore = 0;
+    cPH = 0;
+    endGameCond = [[NSString alloc] init];
     
     rulesTableView.delegate = self;
     rulesTableView.dataSource = self;
@@ -62,10 +70,10 @@ NSString *endGameCond;
     // Initialize default values
     winningScoreTextField.text = @"5";
     winningScore = 5;
-    wsRow = 0;
+    wsRow = 2;
     cardsPerHandTextField.text = @"5";
     cardsPerHand = 5;
-    cphRow = 0;
+    cphRow = 2;
     
     
     terminateCondition = @"Play to Score";
@@ -89,18 +97,63 @@ NSString *endGameCond;
     winScore = winningScore;
     cPH = cardsPerHand;
     endGameCond = terminateCondition;
+    
+    // background
+    self.view.backgroundColor = [UIColor blackColor];
+    
+    settingsLabel.font = [UIFont fontWithName:@"Times New Roman" size: 25];
+    
+
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"settings.png"] drawInRect:self.view.bounds];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    settingsImage.image = image;
+}
+
+- (NSData*) convertToJavaUTF8 : (NSString*) str
+{
+    NSUInteger len = [str lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
+    Byte buffer[2];
+    buffer[0] = (0xff & (len >> 8));
+    buffer[1] = (0xff & len);
+    NSMutableData *outData = [NSMutableData dataWithCapacity:2];
+    [outData appendBytes:buffer length:2];
+    [outData appendData:[str dataUsingEncoding:NSUTF8StringEncoding]];
+    return outData;
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([[segue identifier] isEqualToString:@"joinSegue"])
     {
+        NSString *msg1 = [NSString stringWithFormat:@"%@", cardsPerHandTextField.text];
+        NSData *data1 = [self convertToJavaUTF8:msg1];
+        [outputStream write:(const uint8_t *)[data1 bytes] maxLength:[data1 length]];
+        
+        NSString *condition;
+        
+        if([terminateCondition isEqualToString:@"Play to Score"])
+            condition = @"0";
+        else if([terminateCondition isEqualToString:@"Run out of Cards"])
+            condition = @"1";
+        else
+            condition = @"2";
+        
+        NSString *msg2 = [NSString stringWithFormat:@"%@", condition];
+        NSData *data2 = [self convertToJavaUTF8:msg2];
+        [outputStream write:(const uint8_t *)[data2 bytes] maxLength:[data2 length]];
+        
+        NSString *msg3 = [NSString stringWithFormat:@"%@", winningScoreTextField.text];
+        NSData *data3 = [self convertToJavaUTF8:msg3];
+        [outputStream write:(const uint8_t *)[data3 bytes] maxLength:[data3 length]];
+        
         JoinScreenViewController *vc = [segue destinationViewController];
         
         vc.cardPerHand = (int)cardsPerHandTextField.text;
         vc.scoreToWin = (int)winningScoreTextField.text;
         vc.terminateCondition = terminateCondition;
-        vc.userList = userList;
     }
 }
 
@@ -116,6 +169,7 @@ NSString *endGameCond;
     // Set up the cell...
     NSString *cellValue = [terminationConds objectAtIndex:indexPath.row];
     cell.textLabel.text = cellValue;
+    cell.textLabel.textColor = [UIColor whiteColor];
     
     return cell;
 }
@@ -178,7 +232,7 @@ NSString *endGameCond;
 {
     // Makes toolbar for pickerView
     pickerToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 70)];
-    //pickerToolbar.barStyle = UIBarStyleBlackOpaque;
+    pickerToolbar.barStyle = UIBarStyleBlackOpaque;
     [pickerToolbar sizeToFit];
     
     // Adds objects to barItems
@@ -293,6 +347,9 @@ NSString *endGameCond;
 - (void)viewDidAppear:(BOOL)animated
 {
     [rulesTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+    
+    [winningScorePickerView selectRow:wsRow inComponent:0 animated:NO];
+    [cardsPerHandPickerView selectRow:cphRow inComponent:0 animated:NO];
 }
 
 - (void)didReceiveMemoryWarning

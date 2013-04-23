@@ -13,8 +13,8 @@ NSString *username;
 NSInputStream *inputStream;
 NSOutputStream *outputStream;
 NSString *ipAddress;
-NSString *winningCard;
-NSMutableArray *usernames;
+NSMutableString *winningCard;
+NSMutableArray *userList;
 NSMutableArray *userCards;
 
 
@@ -24,6 +24,7 @@ NSMutableArray *userCards;
 
 @implementation WelcomeScreenViewController
 @synthesize usernameTextField;
+@synthesize header, userNameLabel, welcome, welcomeImage, dealerLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -43,16 +44,28 @@ NSMutableArray *userCards;
     numToReceive = 0;
     
     userList = [[NSMutableArray alloc] init];
-    usernames = [[NSMutableArray alloc] init];
     userCards = [[NSMutableArray alloc] init];
+    winningCard = [[NSMutableString alloc] init];
+    playerScores = [[NSMutableDictionary alloc] init];
     
     usernameTextField.delegate = self;
+    usernameTextField.keyboardAppearance = UIKeyboardAppearanceAlert;
+    
+    header.backgroundColor = [UIColor whiteColor];
+    header.font=[header.font fontWithSize:25];
+    
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"wel.png"] drawInRect:self.view.bounds];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    welcomeImage.image = image;
 }
 
 - (void)initNetworkCommunication {
     CFReadStreamRef readStream;
     CFWriteStreamRef writeStream;
-    ipAddress = @"67.194.101.42";
+    ipAddress = @"67.194.102.48";
     CFStreamCreatePairWithSocketToHost(NULL, (__bridge CFStringRef)ipAddress, 1024, &readStream, &writeStream);
     inputStream = (__bridge NSInputStream *)readStream;
     outputStream = (__bridge NSOutputStream *)writeStream;
@@ -119,7 +132,6 @@ NSMutableArray *userCards;
             if(len <= 0)
                 return;
 
-            NSMutableString *temp = [[NSMutableString alloc] init];
             //len = [(NSInputStream *)stream read:buf maxLength:1024];
             
             NSMutableData *data1 = [[NSMutableData alloc] initWithCapacity:20];
@@ -140,7 +152,6 @@ NSMutableArray *userCards;
                 
                 while([user characterAtIndex:index])
                 {
-                     NSLog(@"%C", [user characterAtIndex:index]);
                     [temp appendString:[NSString stringWithFormat: @"%C",[user characterAtIndex:index]]];
                     index++;
                 }
@@ -150,11 +161,13 @@ NSMutableArray *userCards;
                 
                 NSLog(@"%@", temp);
                 [userList addObject:temp];
+                [playerScores setObject:[NSNumber numberWithInt:0] forKey:temp];
                 numReceived++;
             }
             
             if(numToReceive == numReceived)
             {
+                intReceived = false;
                 if([userList count] > 1)
                 {
                     [self performSegueWithIdentifier:@"joinSegue" sender:NULL];
@@ -190,9 +203,6 @@ NSMutableArray *userCards;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Username" message:@"Username must contain at least 3 characters."
                                 delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
-        
-        // SHOULD DELETE GOES AROUND SERVER FOR NOW FOR TESTING
-        [self performSegueWithIdentifier:@"joinSegue" sender:sender];
     }
     else
     {
@@ -210,13 +220,10 @@ NSMutableArray *userCards;
     {
         JoinScreenViewController *vc = [segue destinationViewController];
         
-        vc.userList = userList;
     }
     else if([[segue identifier] isEqualToString:@"startSegue"])
     {
         SettingsScreenViewController *vc = [segue destinationViewController];
-        
-        vc.userList = userList;
     }
 
 }

@@ -9,13 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "JoinScreenViewController.h"
 #import "WelcomeScreenViewController.h"
+#import "DealerScreenViewController.h"
+#import "WinningScreenViewController.h"
 
 extern UIView *prevTouched;
 
+
 @interface PlayerViewController : UIViewController <NSStreamDelegate, UIScrollViewAccessibilityDelegate, UIScrollViewDelegate>
 {
-    NSMutableArray *cardImages;
-    
     int curXOffset;
     
     bool intReceived;
@@ -25,13 +26,22 @@ extern UIView *prevTouched;
     int numReceived;
     int numToReceive;
     
+    int pageIndex;
+    
+    UILabel *dealerLabel;
+    
+    int currentDealerIndex;
     
     NSString *submittedUser;
     NSString *submittedCard;
+    bool cardSubmitted;
     
     bool horizontalScroll;
     bool verticalScroll;
     bool scoreUpdated;
+    
+    bool hasSeenDealerAlert;
+    bool hasSeenPlayerAlert;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *swipeUpLabel;
@@ -39,6 +49,7 @@ extern UIView *prevTouched;
 @property (nonatomic, retain) UIActionSheet *actionSheet;
 @property (nonatomic, retain) UIToolbar *playedCardToolbar;
 @property (weak, nonatomic) IBOutlet UIImageView *dealerCardImageView;
+@property (weak, nonatomic) IBOutlet UILabel *dealerCardLabel;
 
 
 @end

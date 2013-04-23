@@ -16,26 +16,28 @@ extern NSString *username;
 extern NSInputStream *inputStream;
 extern NSOutputStream *outputStream;
 extern NSString *ipAddress;
-extern NSString *winningCard;
-extern NSMutableArray *usernames;
+extern NSMutableString *winningCard;
+extern NSMutableArray *userList;
 extern NSMutableArray *userCards;
 
 
 
-
 @interface WelcomeScreenViewController : UIViewController <UITextFieldDelegate, NSStreamDelegate>
-{
-    NSMutableArray *userList;
-    
+{    
     bool intReceived;
     int numToReceive;
     int numReceived;
 }
 
+@property (weak, nonatomic) IBOutlet UILabel *dealerLabel;
 @property (weak, nonatomic) NSString *username;
 
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *header;
+@property (weak, nonatomic) IBOutlet UIImageView *welcomeImage;
 
+@property (weak, nonatomic) IBOutlet UIImageView *welcome;
 //asfsadasd
 //fafsfafasfasdfasdfadsfa
 

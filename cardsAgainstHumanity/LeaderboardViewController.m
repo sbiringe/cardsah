@@ -33,7 +33,10 @@
     playerScoresTableView.dataSource = self;
     
     scoreUpdated = false;
-    
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
     [playerScoresTableView reloadData];
 }
 
@@ -54,6 +57,8 @@
     NSString *cellValue = [sorted objectAtIndex:indexPath.row];
     cell.textLabel.text = cellValue;
     cell.detailTextLabel.text = [[playerScores objectForKey:cellValue] stringValue];
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.detailTextLabel.textColor = [UIColor whiteColor];
     
     return cell;
 }

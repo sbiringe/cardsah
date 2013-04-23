@@ -8,6 +8,9 @@
 
 #import "DealerScreenViewController.h"
 
+NSString *winnerIsUser;
+bool winnerDecided;
+
 @implementation DealerScreenViewController
 
 @synthesize mainCard;
@@ -15,6 +18,8 @@
 @synthesize cardTwo;
 @synthesize cardThree;
 @synthesize cardFour;
+@synthesize Card1Button, Card2Button, Card3Button, Card4Button;
+@synthesize playerScreen;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -56,15 +61,59 @@
     [alert show];
     
 }
+- (IBAction)Button1Press:(id)sender {
+    [winningCard setString:[playedCards objectAtIndex:0]];
+}
+
+- (IBAction)Button2Press:(id)sender {
+    [winningCard setString:[playedCards objectAtIndex:1]];
+}
+
+- (IBAction)Button3Press:(id)sender {
+    [winningCard setString:[playedCards objectAtIndex:2]];
+}
+
+- (IBAction)Button4Press:(id)sender {
+    [winningCard setString:[playedCards objectAtIndex:3]];
+}
+
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex == 1)
     {
-        NSString *msg = [NSString stringWithFormat:@"%@", @"imageFileName"];
+        int winningIndex = 0;
+        
+        for(int i = 0; i < playedCards.count; i++)
+        {
+            if([winningCard isEqualToString:[playedCards objectAtIndex:i]])
+            {
+                winningIndex = i;
+                break;
+            }
+        }
+        
+        NSString *winningUser = [playedUsernames objectAtIndex:winningIndex];
+        
+        int newScore = [[playerScores objectForKey:winningUser] intValue] + 1;
+        [playerScores setObject:[NSNumber numberWithInt:newScore] forKey:winningUser];
+        
+        NSString *msg = [NSString stringWithFormat:@"%@", winningCard];
         NSData *data = [self convertToJavaUTF8:msg];
         [outputStream write:(const uint8_t *)[data bytes] maxLength:[data length]];
-        [self performSegueWithIdentifier:@"goToPlayerScreen" sender:nil];
+        goBackToPlayerView = true;
+        
+        [self performSegueWithIdentifier:@"gotoWinningScreen" sender:nil];
+    }
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    if(goBackToPlayerView)
+    {
+        goBackToPlayerView = false;
+        [self dismissViewControllerAnimated:NO completion:^{}];
+
     }
 }
 
@@ -90,33 +139,93 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    goBackToPlayerView = false;
+    winnerDecided = false;
+
     [outputStream setDelegate:self];
 
-    // Big Card
-    NSString *imageName = [NSString stringWithFormat:@"image1.jpg"];
+    cardOne.hidden = YES;
+    Card1Button.hidden = YES;
+    cardTwo.hidden = YES;
+    Card2Button.hidden = YES;
+    cardThree.hidden = YES;
+    Card3Button.hidden = YES;
+    cardFour.hidden = YES;
+    Card4Button.hidden = YES;
     
+    srand(rand());
+    
+    for(int i = 0; i < rand()%100; ++i)
+    {
+        int rand1 = rand() % [playedCards count];
+        int rand2 = rand() % [playedCards count];
+        
+        while(rand1 == rand2)
+        {
+            rand1 = rand() % [playedCards count];
+            rand2 = rand() % [playedCards count];
+        }
+        
+        NSString *tempCard = [playedCards objectAtIndex:rand1];
+        NSString *tempUsername = [playedUsernames objectAtIndex:rand1];
+
+        
+        [playedUsernames setObject:[playedUsernames objectAtIndex:rand2] atIndexedSubscript:rand1];
+        [playedUsernames setObject:tempUsername atIndexedSubscript:rand2];
+
+        [playedCards setObject:[playedCards objectAtIndex:rand2] atIndexedSubscript:rand1];
+        [playedCards setObject:tempCard atIndexedSubscript:rand2];
+    }
+
+    // Big Card
+    NSString *imageName = [dCardImages objectAtIndex:curDIndex];
     UIImage *image = [UIImage imageNamed:imageName];
     mainCard.image = image;
     
-    // Card 1
-    imageName = [NSString stringWithFormat:@"image1.jpg"];
-    image = [UIImage imageNamed:imageName];
-    cardOne.image = image;
-    
-    // Card 2
-    imageName = [NSString stringWithFormat:@"image1.jpg"];
-    image = [UIImage imageNamed:imageName];
-    cardTwo.image = image;
-    
-    // Card 3
-    imageName = [NSString stringWithFormat:@"image1.jpg"];
-    image = [UIImage imageNamed:imageName];
-    cardThree.image = image;
-    
-    // Card 4
-    imageName = [NSString stringWithFormat:@"image1.jpg"];
-    image = [UIImage imageNamed:imageName];
-    cardFour.image = image;
+    for (int i = 0; i < userList.count-1; i++)
+    {
+        NSString *curUsername = [playedUsernames objectAtIndex:i];
+        if (youAreDealer && [curUsername isEqualToString:username])
+        {
+            continue;
+        }
+        if (i==0)
+        {
+            // Card 1
+            cardOne.hidden = NO;
+            Card1Button.hidden = NO;
+            imageName = [playedCards objectAtIndex:i];
+            image = [UIImage imageNamed:imageName];
+            cardOne.image = image;
+        }
+        if (i==1)
+        {
+            // Card 2
+            cardTwo.hidden = NO;
+            Card2Button.hidden = NO;
+            imageName = [playedCards objectAtIndex:i];
+            image = [UIImage imageNamed:imageName];
+            cardTwo.image = image;
+        }
+        if (i==2)
+        {
+            // Card 3
+            cardThree.hidden = NO;
+            Card3Button.hidden = NO;
+            imageName = [playedCards objectAtIndex:i];
+            image = [UIImage imageNamed:imageName];
+            cardThree.image = image;
+        }
+        if (i==3)
+        {
+            // Card 4
+            cardFour.hidden = NO;
+            Card4Button.hidden = NO;
+            imageName = [playedCards objectAtIndex:i];
+            image = [UIImage imageNamed:imageName];
+            cardFour.image = image;
+        }
+    }
 }
 
 

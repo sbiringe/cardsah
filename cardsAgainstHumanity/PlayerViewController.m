@@ -9,13 +9,14 @@
 #import "PlayerViewController.h"
 
 UIView *prevTouched;
+
 @interface PlayerViewController ()
 
 @end
 
 @implementation PlayerViewController
 
-@synthesize mainScrollView, swipeUpLabel, actionSheet, playedCardToolbar, dealerCardImageView;
+@synthesize mainScrollView, swipeUpLabel, actionSheet, playedCardToolbar, dealerCardImageView, dealerCardLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,27 +31,29 @@ UIView *prevTouched;
 {
     [super viewDidLoad];
     
+    dealerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, [[UIScreen mainScreen] applicationFrame].size.height - 250, 320, 201)];
+    [dealerLabel setFont:[UIFont fontWithName:@"Helvetica" size:32]];
+    [dealerLabel setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:.8]];
+    [dealerLabel setTextColor:[UIColor whiteColor]];
+    [dealerLabel setTextAlignment:NSTextAlignmentCenter];
+    [dealerLabel setText:@"You are Dealer"];
+    
     intReceived = false;
     usernameReceived = false;
     winnerSelected = false;
     numReceived = 0;
     numToReceive = 0;
     
-    [inputStream setDelegate:self];
-    [outputStream setDelegate:self];
-    
-    NSString *dealerImageName = [NSString stringWithFormat:@"DCard1.png"];
-    UIImage *dealerImage = [UIImage imageNamed:dealerImageName];
-    dealerCardImageView.image = dealerImage;
-    
     scoreUpdated = false;
     horizontalScroll = false;
     verticalScroll = false;
+    cardSubmitted = false;
     
     if (youAreDealer)
     {
+        mainScrollView.scrollEnabled = false;
         horizontalScroll = true;
-        swipeUpLabel.text = @"Waiting for other members' selection";
+        swipeUpLabel.text = @"Waiting for other players' selection";
     }
     
     // Creates Action Sheet
@@ -59,11 +62,111 @@ UIView *prevTouched;
                                      cancelButtonTitle:nil
                                 destructiveButtonTitle:nil
                                      otherButtonTitles:nil];
+   
+    //NSString *dealerImageName = [NSString stringWithFormat:[dCardImages objectAtIndex:curDIndex]];
+    //NSLog(@"Player Card Array length is: %i",pCardImages.count);
+    //NSLog(@"Dealer Card Array length is: %i",dCardImages.count);
+    //NSLog(@"Dealer Card is: %@",[dCardImages objectAtIndex:curDIndex]);
     
-    cardImages = [[NSMutableArray alloc] init];
+    UIImage *dealerImage = [UIImage imageNamed:[dCardImages objectAtIndex:curDIndex]];
+    dealerCardImageView.image = dealerImage;
+    
     
     [self setupHorizontalScrollView];
     
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    if (!cardSubmitted)
+    {
+        mainScrollView.scrollEnabled = TRUE;
+        
+        currentDealerIndex = currentRound % [userList count];
+        NSMutableString *dealerString = [[NSMutableString alloc] initWithString:@"Dealer's ("];
+        [dealerString appendString:[userList objectAtIndex:currentDealerIndex]];
+        [dealerString appendString:@"'s) Card"];
+        dealerCardLabel.text = dealerString;
+        
+        
+        //This player was the 1st dealer. In the second round, we need to give instructions for player
+        if (currentRound == 1 && indexInUserList == 0)
+        {
+            if (!hasSeenPlayerAlert)
+            {
+                hasSeenPlayerAlert = true;
+                //Alert View For Player
+                UIAlertView *playerAlertView = [[UIAlertView alloc]
+                                                initWithTitle:@"Hey Player" message:@"Swipe right and left to see your hand. Swipe up to send card to dealer. You will be automatically taken to winner screen after" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [playerAlertView show];
+            }
+        }
+        
+        [inputStream setDelegate:self];
+        [outputStream setDelegate:self];
+        
+        if (youAreDealer)
+        {
+            if (currentRound < userList.count)
+            {
+                if (!hasSeenDealerAlert)
+                {
+                    hasSeenDealerAlert = true;
+                    //Alert View For Dealer
+                    UIAlertView *dealerAlertView = [[UIAlertView alloc]
+                                                    initWithTitle:@"Hey Dealer!" message:@"Your hand is disabled. Please wait for others to submit their cards. You will be automatically taken to select screen after" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    
+                    [dealerAlertView show];
+                }
+            }
+            mainScrollView.scrollEnabled = false;
+            horizontalScroll = true;
+            swipeUpLabel.text = @"Waiting for other players' selection";
+            [self.view insertSubview:dealerLabel aboveSubview:mainScrollView];
+        }
+        else
+        {
+            [dealerLabel removeFromSuperview];
+            
+            if (currentRound == 0)
+            {
+                //Alert View For Player
+                UIAlertView *playerAlertView = [[UIAlertView alloc]
+                                                initWithTitle:@"Hey Player" message:@"Swipe right and left to see your hand. Swipe up to send card to dealer. You will be automatically taken to winner screen after" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [playerAlertView show];
+            }
+            horizontalScroll = false;
+            verticalScroll =  false;
+            swipeUpLabel.text = @"Swipe Up to Submit Card";
+        }
+        
+        // Creates Action Sheet
+        actionSheet = [[UIActionSheet alloc] initWithTitle:@"Action Sheet"
+                                                  delegate:nil
+                                         cancelButtonTitle:nil
+                                    destructiveButtonTitle:nil
+                                         otherButtonTitles:nil];
+        
+        UIImage *dealerImage = [UIImage imageNamed:[dCardImages objectAtIndex:curDIndex]];
+        dealerCardImageView.image = dealerImage;
+    }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([[segue identifier] isEqualToString:@"submittedCards"])
+    {
+        DealerScreenViewController *dealerScreen = [segue destinationViewController];
+        
+        dealerScreen.playerScreen = self;
+    }
+    else if([[segue identifier] isEqualToString:@"winningScreen"])
+    {
+        WinningScreenViewController *winningScreen = [segue destinationViewController];
+        cardSubmitted = false;
+        winningScreen.pageIndex = pageIndex;
+        winningScreen.mainScrollView = mainScrollView;
+    }
 }
 
 - (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode
@@ -128,7 +231,6 @@ UIView *prevTouched;
                 return;
             }
             
-            NSMutableString *temp = [[NSMutableString alloc] init];
             //len = [(NSInputStream *)stream read:buf maxLength:1024];
             
             NSMutableData *data1 = [[NSMutableData alloc] initWithCapacity:20];
@@ -174,19 +276,40 @@ UIView *prevTouched;
             if(winnerSelected)
             {
                 winnerSelected = false;
-                winningCard = submittedUser;
+                [winningCard setString:submittedUser];
+                //winningCard = submittedUser;
+                
+                int winningIndex = 0;
+                
+                for(int i = 0; i < playedCards.count; i++)
+                {
+                    if([winningCard isEqualToString:[playedCards objectAtIndex:i]])
+                    {
+                        winningIndex = i;
+                        break;
+                    }
+                }
+                
+                NSString *winningUser = [playedUsernames objectAtIndex:winningIndex];
+                
+                int newScore = [[playerScores objectForKey:winningUser] intValue] + 1;
+                [playerScores setObject:[NSNumber numberWithInt:newScore] forKey:winningUser];
                
-                [self performSegueWithIdentifier:@"winningScreen" sender:nil];
+                if(!youAreDealer)
+                {
+                    [self performSegueWithIdentifier:@"winningScreen" sender:nil];
+                }
                 
                 intReceived = false;
+                usernameReceived = false;
                 return;
             }
             
             if(numReceived == numToReceive)
             {
                 intReceived = false;
-                [usernames addObject:submittedUser];
-                [userCards addObject:submittedCard];
+                [playedUsernames addObject:submittedUser];
+                [playedCards addObject:submittedCard];
             }
             
             break;
@@ -242,20 +365,20 @@ UIView *prevTouched;
     mainScrollView.scrollEnabled = YES;
     mainScrollView.pagingEnabled = YES;
     
-    for(int i = 0; i < 5; i++)
+    CGFloat cx = 0;
+    
+    for(int i = curPIndex; i < (curPIndex+cPH); i++)
     {
-        NSString *imageName = [NSString stringWithFormat:@"PCard%i.png",i+1];
+        //NSString *imageName = [NSString stringWithFormat:@"PCard%i.png",i+1];
+        
+        NSString *imageName = [pCardImages objectAtIndex:i];
+        NSLog(@"Image added to hand is: %@", imageName);
         UIImage *image = [UIImage imageNamed:imageName];
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-
-        [cardImages addObject:imageView];
-    }
-    
-    
-    CGFloat cx = 0;
-    for (int i = 0;i<5;i++)
-    {
-        UIImageView *imageView = [cardImages objectAtIndex:i];
+        [userCards addObject:imageName];
+        
+        //[pCardImages addObject:imageView];
+        //UIImageView *imageView = [pCardImages objectAtIndex:i];
         /*
         imageView.userInteractionEnabled = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTapped:)];
@@ -283,6 +406,9 @@ UIView *prevTouched;
         
         cx += imageView.frame.size.width+70;
     }
+    
+    curPIndex = [userList count] * cPH;
+    
     [mainScrollView setContentSize:CGSizeMake(cx, height * 2)];
 }
 
@@ -314,16 +440,26 @@ UIView *prevTouched;
     if(scrollView.bounds.origin.y > 0)
     {
         CGFloat pageWidth = scrollView.frame.size.width;
-        int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+        pageIndex = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
         
+                
+        [playedUsernames addObject:username];
+        [playedCards addObject:[userCards objectAtIndex:pageIndex]];
+        NSString *playedCard = [userCards objectAtIndex:pageIndex];
         
-        [usernames addObject:username];
-        [userCards addObject:@"ImageName"];
+        cardSubmitted = true;
+        
+        //Remove card from user's hand 
+        //[pCardImages removeObject:[userCards objectAtIndex:page]];
+        [userCards removeObjectAtIndex:pageIndex];
+        
+        NSArray *subV = [mainScrollView subviews];
+        [[subV objectAtIndex:pageIndex] removeFromSuperview];
         
         mainScrollView.scrollEnabled = FALSE;
-        swipeUpLabel.text = @"Waiting for other members' selection";
+        swipeUpLabel.text = @"Waiting for other players' selection";
         
-        NSString *msg = [NSString stringWithFormat:@"%@", @"ImageName"];
+        NSString *msg = [NSString stringWithFormat:@"%@", playedCard];
         NSData *data = [self convertToJavaUTF8:msg];
         [outputStream write:(const uint8_t *)[data bytes] maxLength:[data length]];
         

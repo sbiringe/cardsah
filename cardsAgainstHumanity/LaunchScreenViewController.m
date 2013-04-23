@@ -14,6 +14,7 @@
 
 @implementation LaunchScreenViewController
 @synthesize joinButton, startButton, username;
+@synthesize nextButton, nextImage;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,6 +31,14 @@
     
     startAlreadyPressed = false;
     joinButton.enabled = NO;
+    
+    // background
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"1.jpg"] drawInRect:self.view.bounds];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:image];    
 }
 
 - (IBAction)joinPressed:(id)sender
